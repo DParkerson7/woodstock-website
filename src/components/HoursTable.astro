@@ -1,0 +1,32 @@
+---
+interface Row {
+  days: string;
+  hours: string;
+}
+
+interface Props {
+  rows: readonly Row[];
+  title: string;
+  badge: string;
+  tone?: 'now' | 'soon';
+  note?: string;
+}
+
+const { rows, title, badge, tone = 'now', note } = Astro.props;
+---
+
+<table class="hours">
+  <caption>
+    <span class:list={['badge', tone === 'soon' && 'badge-soon']}>{badge}</span>
+    <span class="serif" style="display:block;margin-top:0.45rem;font-size:1.45rem;">{title}</span>
+  </caption>
+  <tbody>
+    {rows.map((row) => (
+      <tr>
+        <th scope="row">{row.days}</th>
+        <td>{row.hours}</td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+{note && <p class="hours-aside">{note}</p>}

@@ -1,0 +1,112 @@
+---
+import Base from '../layouts/Base.astro';
+import Shot from '../components/Shot.astro';
+import { cakeAlbum, shop } from '../data/site';
+
+const title = 'Catering · Woodstock Coffee & Bakeshop';
+const description =
+  'Bulk orders from Woodstock in Jackson. Sixty or more box lunches are $9 each. Cupcakes are $3.25 each by the dozen and $3 each at two dozen or more. We deliver. Call 731-554-1969.';
+
+const photos = [
+  cakeAlbum[0],
+  cakeAlbum[2],
+  cakeAlbum[4],
+  cakeAlbum[8],
+];
+---
+
+<Base title={title} description={description}>
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker">For a crowd</p>
+      <h1>Get in contact with someone to place your bulk order today.</h1>
+      <p class="lede">
+        We offer delivery. Call <a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a> or write
+        <a href={`mailto:${shop.email}`}>{shop.email}</a>. Tell us the date, about how many people, and where it needs to go.
+      </p>
+      <p class="hero-actions">
+        <a class="btn" href={`tel:${shop.phoneTel}`}>Call the shop</a>
+        <a class="btn btn-ghost" href={`mailto:${shop.email}`}>Email us</a>
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">What we can price here</p>
+        <h2>Box lunches in bulk, and cupcakes by the dozen.</h2>
+        <p>
+          These are the catering prices we have in writing. If you need something else the kitchen can do, ask. We will not list a menu we cannot stand behind.
+        </p>
+      </div>
+      <div class="price-grid two">
+        <article class="price-card">
+          <h3>Box lunches, 60 or more</h3>
+          <p>Each box, the same lunch you already know, priced for a crowd.</p>
+          <p class="amount">$9.00</p>
+          <p class="note">Each</p>
+        </article>
+        <article class="price-card">
+          <h3>Cupcakes</h3>
+          <p>One dozen, $3.25 each. Two dozen or more, $3.00 each.</p>
+          <p class="amount">$3.25</p>
+          <p class="note">Each, by the dozen</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <div class="prose">
+        <p class="kicker">How an order goes</p>
+        <h2>A conversation, not a fine-print sheet.</h2>
+        <p>
+          There is no long policy page, because we would rather be plain than invent rules we have not written down. Tell us the day, the count, and whether you need delivery. We will answer with what we can bake, what it costs, and when it will be ready.
+        </p>
+        <p>
+          Affordable, transparent, and reliable is the aim. If a number is unclear, ask before you count on it. If something is not possible, we will say so.
+        </p>
+        <p>
+          Phone <a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a>. Email <a href={`mailto:${shop.email}`}>{shop.email}</a>.
+        </p>
+      </div>
+      <Shot
+        src="images/interior-jukebox.jpg"
+        width="1600"
+        height="2133"
+        group="catering"
+        alt="The bakery case beside the jukebox, with pastries on the shelves and the Woodstock sign on the wall."
+        caption="The case. We have not turned this photograph into a list of items we have not written down."
+      />
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">From recent orders</p>
+        <h2>Cakes the kitchen has already made.</h2>
+        <p>
+          Useful if you are picturing a celebration. These are not a catering menu of their own. Cookies, cake balls, and goodie baskets are not listed here, because we do not have verified details or photographs to stand them up as a product line.
+        </p>
+      </div>
+      <div class="album">
+        {photos.map((photo) => (
+          <Shot {...photo} group="catering" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <p class="kicker">From the table</p>
+      <h2>No invented reviews.</h2>
+      <p class="empty-review">
+        When a host has written about a bulk order in words we can share, they will go here. Until then, call and talk to a person.
+      </p>
+    </div>
+  </section>
+</Base>

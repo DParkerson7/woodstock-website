@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import Shot from '../components/Shot.astro';
+import { breads, sandwiches, shop } from '../data/site';
+
+const title = 'Lunch · Woodstock Coffee & Bakeshop';
+const description =
+  'Woodstock box lunches are $10 with Miss Vickie’s chips. Add a canned drink for $1. Sandwiches from $8. Order on the shop form. Jackson, Tennessee.';
+---
+
+<Base title={title} description={description}>
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker">To go</p>
+      <h1>Box lunches</h1>
+      <p class="lede">
+        The classic Woodstock lunch: a sandwich, chips, and a handwritten note in the box. Order on the form the shop uses today.
+      </p>
+      <p class="hero-actions">
+        <a class="btn" href={shop.lunchForm}>Order box lunches</a>
+        <a class="btn btn-ghost" href={`tel:${shop.phoneTel}`}>Call {shop.phoneDisplay}</a>
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <article class="callout">
+          <p class="kicker">The box</p>
+          <strong>Box lunch $10</strong>
+          <p>Includes chips (Miss Vickie’s). Add a canned drink for $1.</p>
+        </article>
+        <h2 style="margin-top:2rem">Sandwiches, à la carte</h2>
+        <table class="price-table">
+          <caption class="visually-hidden">Sandwich prices</caption>
+          <thead>
+            <tr>
+              <th scope="col">Sandwich</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {sandwiches.map((item) => (
+              <tr>
+                <th scope="row">{item.name}</th>
+                <td>{item.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <h2 style="margin-top:2rem">Breads</h2>
+        <ul class="breads">
+          {breads.map((bread) => <li>{bread}</li>)}
+        </ul>
+      </div>
+      <div class="note-card">
+        <p class="script">A few words, written by hand, and tucked in with the sandwich.</p>
+        <h2>Dale Childress started that.</h2>
+        <p>
+          Matt Childress founded Woodstock with his father. Dale suggested the name, and he is the one who began writing inside the to-go boxes — a short, personal line, so lunch did not leave as just lunch. The habit is still how a Woodstock box goes out the door. The words change. The note stays.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <Shot
+        src="images/interior-gallery-wall.jpg"
+        width="1600"
+        height="1902"
+        group="lunch"
+        alt="Teal gallery wall with warm pendant lights, a sofa, and a wire basket of Miss Vickie’s chip bags."
+        caption="Miss Vickie’s, the chips that come in the box, waiting by the gallery wall."
+      />
+      <div class="kitchen-slot">
+        <p class="kicker">The box itself</p>
+        <h2>A photograph of a packed lunch is coming.</h2>
+        <p>
+          We do not have a picture of the box contents for this version of the site, and we will not fake one. The menu above is what you can order. A film of lunches going out will live here too, when we have a real one.
+        </p>
+        <p><a class="btn" href={shop.instagram}>Meanwhile, Instagram</a></p>
+      </div>
+    </div>
+  </section>
+</Base>
