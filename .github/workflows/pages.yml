@@ -32,10 +32,13 @@ jobs:
 
       - name: Choose the Pages base path
         run: |
+          OWNER=$(printf '%s' "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
           if [ "${{ github.event.repository.name }}" = "${{ github.repository_owner }}.github.io" ]; then
             echo "BASE_PATH=/" >> "$GITHUB_ENV"
+            echo "SITE_URL=https://${OWNER}.github.io" >> "$GITHUB_ENV"
           else
             echo "BASE_PATH=/${{ github.event.repository.name }}/" >> "$GITHUB_ENV"
+            echo "SITE_URL=https://${OWNER}.github.io" >> "$GITHUB_ENV"
           fi
 
       - name: Build
@@ -49,10 +52,23 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+      administration: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # GITHUB_TOKEN cannot turn Pages on by itself. This step is a best effort;
+      # a user token enables the site before the first run when that is required.
+      - name: Enable GitHub Pages
+        id: pages
+        continue-on-error: true
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

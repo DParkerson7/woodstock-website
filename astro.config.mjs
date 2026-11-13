@@ -1,8 +1,9 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-// Project sites on GitHub Pages live under /<repo>/. User/org sites and local
-// preview stay at /. The workflow sets BASE_PATH; local `npm run dev` does not.
+// Project Pages: site is the origin (https://dparkerson7.github.io) and base is
+// /woodstock-website/. The workflow sets both. Local preview leaves them unset,
+// so the site stays at /.
 const rawBase = process.env.BASE_PATH ?? '/';
 const base = rawBase === '/' ? '/' : `/${rawBase.replace(/^\/+|\/+$/g, '')}/`;
 
