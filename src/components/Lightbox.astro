@@ -1,0 +1,81 @@
+<dialog class="lightbox" id="lightbox" aria-label="Enlarged photograph">
+  <div class="lightbox-panel">
+    <img id="lightbox-img" alt="" width="1600" height="1200" />
+    <div class="lightbox-bar">
+      <p id="lightbox-caption"></p>
+      <div class="lightbox-actions">
+        <button type="button" id="lightbox-prev">Previous</button>
+        <button type="button" id="lightbox-next">Next</button>
+        <button type="button" id="lightbox-close">Close</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('#lightbox');
+  const image = document.querySelector<HTMLImageElement>('#lightbox-img');
+  const caption = document.querySelector<HTMLElement>('#lightbox-caption');
+  const prev = document.querySelector<HTMLButtonElement>('#lightbox-prev');
+  const next = document.querySelector<HTMLButtonElement>('#lightbox-next');
+  const close = document.querySelector<HTMLButtonElement>('#lightbox-close');
+
+  if (dialog && image && caption && prev && next && close && !dialog.dataset.ready) {
+    dialog.dataset.ready = 'true';
+    let group: HTMLAnchorElement[] = [];
+    let index = 0;
+
+    const show = (nextIndex: number) => {
+      if (!group.length) return;
+      index = (nextIndex + group.length) % group.length;
+      const item = group[index];
+      image.src = item.dataset.src || item.href;
+      image.alt = item.dataset.alt || '';
+      caption.textContent = item.dataset.caption || '';
+      const many = group.length > 1;
+      prev.hidden = !many;
+      next.hidden = !many;
+    };
+
+    const open = (anchor: HTMLAnchorElement) => {
+      const name = anchor.dataset.group || 'gallery';
+      group = Array.from(document.querySelectorAll<HTMLAnchorElement>(`a[data-lightbox][data-group="${name}"]`));
+      index = Math.max(0, group.indexOf(anchor));
+      show(index);
+      dialog.showModal();
+    };
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const anchor = target.closest<HTMLAnchorElement>('a[data-lightbox]');
+      if (!anchor) return;
+      event.preventDefault();
+      open(anchor);
+    });
+
+    prev.addEventListener('click', () => show(index - 1));
+    next.addEventListener('click', () => show(index + 1));
+    close.addEventListener('click', () => dialog.close());
+
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        show(index - 1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        show(index + 1);
+      }
+    });
+
+    dialog.addEventListener('close', () => {
+      image.removeAttribute('src');
+      image.alt = '';
+    });
+  }
+</script>

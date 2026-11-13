@@ -1,0 +1,173 @@
+---
+import Base from '../layouts/Base.astro';
+import Shot from '../components/Shot.astro';
+import HoursTable from '../components/HoursTable.astro';
+import { expansionPoints, hoursUpcoming, shop, studies } from '../data/site';
+import { asset } from '../lib/url';
+
+const title = 'Expansion · Woodstock Coffee & Bakeshop';
+const description =
+  'The Woodstock you love is staying. Upcoming hours, once they begin: Monday–Wednesday 8am–6pm, Thursday–Saturday 8am–8pm. Studies for a new coffee bar and for Honey Be Good next door.';
+---
+
+<Base title={title} description={description}>
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker">The next chapter</p>
+      <h1>The Woodstock you love is staying.</h1>
+      <p class="lede">
+        New things are on the horizon. The pictures on this page are studies for an expanded coffee bar, and Honey Be Good’s own sketch of the play space next door. They are drawings and renderings. They are not photographs of a finished room.
+      </p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap study-grid pair">
+      <Shot {...studies[0]} group="studies" eager />
+      <Shot {...studies[1]} group="studies" />
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">What we are making room for</p>
+        <h2>More of the day, in the same shop.</h2>
+        <ul class="menu">
+          {expansionPoints.map((point) => (
+            <li><span>{point}</span></li>
+          ))}
+        </ul>
+        <p>
+          And a trusted environment for safe, supervised child play while parents relax in the cafe. That play is
+          <a href={shop.honey}>Honey Be Good</a>, opening in 2027 in this building — a partner, not a program of ours.
+        </p>
+      </div>
+      <div>
+        <HoursTable
+          rows={hoursUpcoming}
+          title="Upcoming hours"
+          badge="Not in effect yet"
+          tone="soon"
+          note="Today the shop is still Monday–Saturday 9am–5pm, Sunday closed. These longer days replace nothing until we say they have. No Sunday opening is announced."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="note-card">
+        <p class="kicker">Woodstock after hours</p>
+        <p class="script">Now and then, the lights stay on a little later.</p>
+        <p>
+          Occasional after-hours events, at least once a month. Community gatherings through the year will be part of that. More information is coming soon — there is no calendar to publish yet.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Light</p>
+        <h2>A ceiling study.</h2>
+        <p>Pendants, a dark grid ceiling, and the menu soffit. Still a rendering.</p>
+      </div>
+      <div class="study-grid pair">
+        <Shot {...studies[2]} group="studies" />
+        <Shot {...studies[3]} group="studies" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Pencil</p>
+        <h2>Honey-yellow sketches.</h2>
+      </div>
+      <div class="study-grid pair">
+        <Shot {...studies[4]} group="studies" />
+        <Shot {...studies[5]} group="studies" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Plan</p>
+        <h2>Coffee station, floor plan v3.</h2>
+        <p>A concept plan, drawn approximate to scale. Enlarge it to read the legend. One grid square is five feet, as the drawing says.</p>
+      </div>
+      <figure class="plan shot">
+        <a
+          class="shot-open"
+          href={asset('images/mockups/floor-plan-v3.png')}
+          data-lightbox
+          data-group="plan"
+          data-src={asset('images/mockups/floor-plan-v3.png')}
+          data-alt="Concept floor plan titled Woodstock Coffee & Bakeshop — New Coffee Station, version 3. It shows a play cafe on the left, a U-shaped counter with espresso equipment, a cake display, the kitchen, and customer seating."
+          data-caption="Floor plan v3. A concept, approximate to scale."
+        >
+          <img
+            src={asset('images/mockups/floor-plan-v3.png')}
+            width="1639"
+            height="1984"
+            alt="Concept floor plan titled Woodstock Coffee & Bakeshop — New Coffee Station, version 3. It shows a play cafe on the left, a U-shaped counter with espresso equipment, a cake display, the kitchen, and customer seating."
+          />
+          <span class="enlarge">Enlarge</span>
+        </a>
+        <figcaption>Floor plan v3. Concept, not a construction document.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="band section">
+    <div class="wrap partner">
+      <Shot
+        src="images/mockups/honey-be-good-play-sketch.jpg"
+        width="1080"
+        height="681"
+        group="partner"
+        alt="Pencil sketch of Honey Be Good Family Cafe, with a large play structure and slides beside a row of cafe tables. Labeled Jackson’s first play café."
+        caption="Honey Be Good’s sketch of Jackson’s first play café."
+      />
+      <div>
+        <p class="kicker">Next door · 2027</p>
+        <h2>Play, while the coffee stays here.</h2>
+        <p>
+          Honey Be Good Family Cafe opens in 2027 at 80 Innsdale Cove, the same address as Woodstock. Their sketch is theirs. We are glad to point you to it.
+        </p>
+        <p>
+          The partnership is a trusted place for children to play, supervised, while parents sit with a cup. It is not a Woodstock membership, and this page does not repeat their offers.
+        </p>
+        <p><a class="btn btn-sun" href={shop.honey}>honeybeegood.cafe</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <Shot
+        src="images/storefront-facade.jpg"
+        width="1800"
+        height="2399"
+        group="expansion-now"
+        alt="The current Woodstock storefront, with the sunflower sign above the doors."
+        caption="The shop as it stands today. The sunflower stays."
+      />
+      <div class="prose">
+        <p class="kicker">Until then</p>
+        <h2>Come during the hours on the door.</h2>
+        <p>
+          Monday through Saturday, 9am to 5pm. Sunday, closed. The address does not move: {shop.street}, {shop.locality}, {shop.region} {shop.postal}.
+        </p>
+        <p>
+          <a class="btn" href={`tel:${shop.phoneTel}`}>Call {shop.phoneDisplay}</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

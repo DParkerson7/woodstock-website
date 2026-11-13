@@ -1,0 +1,301 @@
+---
+import Base from '../layouts/Base.astro';
+import Shot from '../components/Shot.astro';
+import { owners, shop } from '../data/site';
+import { asset, href } from '../lib/url';
+
+const title = 'Woodstock Coffee & Bakeshop · Jackson, Tennessee';
+const description =
+  'Woodstock Coffee & Bakeshop, est. 2012, at 80 Innsdale Cv in Jackson, Tennessee. Coffee, custom cakes, and box lunches. Open Monday–Saturday, 9am–5pm.';
+---
+
+<Base title={title} description={description} preload="images/storefront-facade.jpg">
+  <section class="hero">
+    <div class="hero-card">
+      <div class="hero-brand">
+        <img class="hero-logo" src={asset('images/logo-sunflower.png')} width="1080" height="1080" alt="" />
+        <p class="seal" aria-label="Established 2012">
+          <span>Est.</span>
+          <strong>2012</strong>
+        </p>
+      </div>
+      <h1 class="wordmark">
+        <span class="wordmark-main">Woodstock</span>
+        <span class="wordmark-sub">Coffee &amp; Bakeshop</span>
+      </h1>
+      <p class="hero-lede">
+        Opened <time datetime={shop.opened}>{shop.openedLabel}</time>, on Innsdale Cove in Jackson, Tennessee.
+      </p>
+      <dl class="hero-facts">
+        <div>
+          <dt>Hours now</dt>
+          <dd>Mon–Sat 9am–5pm<br />Sunday closed</dd>
+        </div>
+        <div>
+          <dt>Visit</dt>
+          <dd>
+            <a href={shop.map}>{shop.street}<br />Jackson, TN 38305</a>
+          </dd>
+        </div>
+        <div>
+          <dt>Call</dt>
+          <dd><a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a></dd>
+        </div>
+        <div>
+          <dt>Email</dt>
+          <dd><a href={`mailto:${shop.email}`}>{shop.email}</a></dd>
+        </div>
+        <div>
+          <dt>Instagram</dt>
+          <dd><a href={shop.instagram}>{shop.instagramHandle}</a></dd>
+        </div>
+      </dl>
+      <p class="hours-aside">
+        These are today’s hours. Longer days are coming, and they are listed only on the
+        <a href={href('/expansion')}>Expansion</a> page.
+      </p>
+      <p class="hero-actions">
+        <a class="btn" href={shop.cakeForm}>Order a cake</a>
+        <a class="btn btn-ghost" href={shop.lunchForm}>Order a box lunch</a>
+      </p>
+    </div>
+    <div class="hero-media">
+      <img
+        src={asset('images/storefront-facade.jpg')}
+        width="1800"
+        height="2399"
+        alt="The Woodstock storefront at 80 Innsdale Cove: a white facade, a sunflower sign with the letters WS, and a neon Open sign in the window."
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div class="prose">
+        <p class="kicker">Since 2012</p>
+        <h2>A neighborhood bakery, still on the same cove.</h2>
+        <p>
+          First established in 2012, in Jackson, Tennessee, Woodstock met the community with something of its own.
+          Matt Childress and his father, Dale Childress, founded the shop. Dale suggested the name.
+        </p>
+        <figure class="pull">
+          <p>
+            Woodstock proved that a unique and nostalgic aesthetic, as well as a Christ-centered mission, would bring smiles to the faces of all who stepped through the doors.
+          </p>
+          <cite>From the shop’s own account of its founding</cite>
+        </figure>
+        <p>
+          Through the years, Woodstock made a name by generosity and genuine care. In late 2024 the shop came under new ownership by David, April, and Elena Parkerson. With love for the mission the previous owners instilled, the Parkersons continued the heart of Woodstock while bringing back the vintage element customers find so inviting.
+        </p>
+        <p>
+          From the street you can see lively color and warm light. Inside, the furniture is vintage and comfortable: a place for studying, reading, and chatting. The shop is right off Vann Drive.
+        </p>
+      </div>
+      <Shot
+        src="images/storefront-doors.jpg"
+        width="1600"
+        height="2133"
+        group="home"
+        alt="Glass doors of the shop, with a neon Open sign, vintage chairs, and warm light inside."
+        caption="The front doors, Suite A."
+      />
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <figure class="poster">
+        <img
+          src={asset('images/brand-floral-lockup.jpg')}
+          width="1400"
+          height="1082"
+          alt="A floral shop graphic: the words Woodstock Coffee & Bakeshop curve around a sunflower marked WS, with flowers and butterflies on a brown ground."
+        />
+        <figcaption>A shop graphic. The sunflower in the header and footer is the official mark.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <div>
+        <p class="kicker">What we make</p>
+        <h2>Coffee, cakes, and a box with a note in it.</h2>
+        <ol class="toc">
+          <li>
+            <a href={href('/cakes')}>
+              <span class="toc-num">01</span>
+              <span>
+                <strong>Cakes</strong>
+                <em>Three sizes, four priced designs, and a kitchen album.</em>
+              </span>
+              <span class="toc-go" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href={href('/lunch')}>
+              <span class="toc-num">02</span>
+              <span>
+                <strong>Lunch</strong>
+                <em>The classic box, Miss Vickie’s, and Dale’s handwritten notes.</em>
+              </span>
+              <span class="toc-go" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href={href('/cafe')}>
+              <span class="toc-num">03</span>
+              <span>
+                <strong>Cafe</strong>
+                <em>House-made syrups, and the coffee menu we pour now.</em>
+              </span>
+              <span class="toc-go" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a href={href('/catering')}>
+              <span class="toc-num">04</span>
+              <span>
+                <strong>Catering</strong>
+                <em>Bulk box lunches, cupcakes, and delivery. Call us.</em>
+              </span>
+              <span class="toc-go" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+      </div>
+      <div class="stack">
+        <Shot
+          src="images/cakes/cake-blue-swags.jpg"
+          width="1600"
+          height="2133"
+          group="home"
+          alt="A round cake in ivory and pale blue buttercream with swags and blueberries."
+          caption="From the cake album."
+        />
+        <Shot
+          src="images/latte-matcha.jpg"
+          width="1600"
+          height="2133"
+          group="home"
+          alt="An iced green latte held up in the shop, with the teal gallery wall and warm pendant lights behind it."
+          caption="A matcha latte in the teal room."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">The family keeping the doors</p>
+        <h2>David, April, and Elena Parkerson.</h2>
+        <p>
+          They own the shop together. David is April’s husband and Elena’s father. Portraits, and a few words from each of them, are still to come. Until then the rooms, the cakes, and the notes in the boxes can speak.
+        </p>
+      </div>
+      <div class="people">
+        {owners.map((person) => (
+          <article class="person">
+            <div class="portrait-slot" aria-hidden="true">
+              <div>
+                <img src={asset('images/logo-sunflower.png')} width="1080" height="1080" alt="" />
+                <span>Portrait coming</span>
+              </div>
+            </div>
+            <h3>{person.name}</h3>
+            <p class="role">Co-owner</p>
+            <p>{person.soon}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <Shot
+        src="images/interior-gallery-wall.jpg"
+        width="1600"
+        height="1902"
+        group="home"
+        eager={false}
+        alt="A teal wall covered with framed pictures, woven pendant lamps, a rust-colored sofa, and a basket of chip bags."
+        caption="The gallery wall. Vintage frames, warm lamps, and a basket of Miss Vickie’s."
+      />
+    </div>
+  </section>
+
+  <section class="band section">
+    <div class="wrap partner">
+      <Shot
+        src="images/mockups/honey-be-good-play-sketch.jpg"
+        width="1080"
+        height="681"
+        group="partner"
+        alt="Pencil sketch of a play café: a wooden play structure with slides on the left, and a long row of tables on the right. The drawing reads Honey Be Good Family Cafe and Jackson’s first play café."
+        caption="Honey Be Good’s own sketch of the play space, shared here as neighbors."
+      />
+      <div>
+        <p class="kicker">Same building · opening 2027</p>
+        <h2>Honey Be Good is next door, and it is its own place.</h2>
+        <p>
+          Honey Be Good Family Cafe — play, sip, belong — is opening in 2027 at 80 Innsdale Cove, in the building with us. Parents will have a trusted room for safe, supervised play while coffee stays at Woodstock.
+        </p>
+        <p>
+          We are partners. We are not the same shop, and their memberships are theirs. If you want Honey Be Good, go to them.
+        </p>
+        <p>
+          <a class="btn btn-sun" href={shop.honey}>Visit honeybeegood.cafe</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter-tease" aria-labelledby="chapter-title">
+    <img
+      src={asset('images/mockups/coffee-bar-render-people.jpg')}
+      width="1280"
+      height="720"
+      alt="Concept rendering of a future coffee bar with a teal counter, pastry case, and people gathered around it. A design study, not a photograph, and the people are not our staff."
+      loading="lazy"
+    />
+    <div class="chapter-tease-copy">
+      <p class="kicker">A chapter, not a banner</p>
+      <h2 id="chapter-title">The Woodstock you love is staying.</h2>
+      <p>
+        New things are on the horizon: a coffee bar with room to spread out, more places to sit, and the play café beside us. The picture is a study for that room. It is not a photograph of a finished build, and the figures are not our team.
+      </p>
+      <p>
+        <a class="btn btn-sun" href={href('/expansion')}>Read the expansion chapter</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <Shot
+        src="images/interior-jukebox.jpg"
+        width="1600"
+        height="2133"
+        group="home"
+        alt="The shop interior: a jukebox, a bakery case, pendant lights, and a Woodstock sunflower sign on the wall."
+        caption="The case, the jukebox, and the sign on the wall."
+      />
+      <div class="prose">
+        <p class="kicker">Come by</p>
+        <h2>80 Innsdale Cove, Suite A.</h2>
+        <p>
+          {shop.neighborhood} Monday through Saturday we are open 9am to 5pm. Sunday the door is closed. If you need a cake or a stack of box lunches, the order forms are the same ones the shop uses today, or you can call {shop.phoneDisplay}.
+        </p>
+        <p class="cluster">
+          <a class="btn" href={`tel:${shop.phoneTel}`}>Call the shop</a>
+          <a class="btn btn-ghost" href={shop.map}>Map</a>
+          <a class="btn btn-ghost" href={shop.instagram}>Instagram</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

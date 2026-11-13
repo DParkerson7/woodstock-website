@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import { href } from '../lib/url';
+
+const title = 'Page not found · Woodstock Coffee & Bakeshop';
+const description = 'That page is not on the Woodstock site. The shop is still at 80 Innsdale Cove in Jackson.';
+---
+
+<Base title={title} description={description}>
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker">404</p>
+      <h1>That page has left the case.</h1>
+      <p class="lede">The shop is still here. Try the front door, or one of the rooms we do have.</p>
+      <p class="hero-actions">
+        <a class="btn" href={href('/')}>Back to the shop</a>
+        <a class="btn btn-ghost" href={href('/cakes')}>Cakes</a>
+        <a class="btn btn-ghost" href={href('/lunch')}>Lunch</a>
+      </p>
+    </div>
+  </header>
+</Base>

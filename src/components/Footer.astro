@@ -1,0 +1,49 @@
+---
+import { hoursNow, shop } from '../data/site';
+import { asset, href } from '../lib/url';
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="footer-brand" href={href('/')}>
+        <img src={asset('images/logo-sunflower.png')} width="1080" height="1080" alt="" />
+        <span>
+          <strong>{shop.wordmark}</strong>
+          <span>Est. {shop.establishedYear} · {shop.city}</span>
+        </span>
+      </a>
+      <p>
+        <a href={shop.map}>{shop.street}<br />{shop.locality}, {shop.region} {shop.postal}</a><br />
+        {shop.neighborhood}
+      </p>
+    </div>
+    <div>
+      <h2>Hours now</h2>
+      <ul>
+        {hoursNow.map((row) => (
+          <li>{row.days}: {row.hours}</li>
+        ))}
+      </ul>
+      <p><a href={href('/expansion')}>Upcoming hours are on the Expansion page.</a></p>
+    </div>
+    <div>
+      <h2>Visit &amp; order</h2>
+      <ul>
+        <li><a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a></li>
+        <li><a href={`mailto:${shop.email}`}>{shop.email}</a></li>
+        <li><a href={shop.instagram}>{shop.instagramHandle}</a></li>
+        <li><a href={shop.facebook}>Facebook</a></li>
+        <li><a href={shop.tiktok}>TikTok</a></li>
+        <li><a href={shop.cakeForm}>Order a cake</a></li>
+        <li><a href={shop.lunchForm}>Order a box lunch</a></li>
+        <li><a href={shop.honey}>Honey Be Good</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <p>
+      {shop.legalName}. Opened {shop.openedLabel}. The Parkerson family — David, April, and Elena — has kept the shop since late 2024.
+    </p>
+  </div>
+</footer>

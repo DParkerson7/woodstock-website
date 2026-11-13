@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import Shot from '../components/Shot.astro';
+import { cafeExtras, lattes, milks, shop } from '../data/site';
+
+const title = 'Cafe · Woodstock Coffee & Bakeshop';
+const description =
+  'Specialty coffee at Woodstock in Jackson, made with house-made syrups. Lattes $4, hot peanut butter cup latte $4.50, black coffee $2. More of the cafe story is coming soon.';
+---
+
+<Base title={title} description={description}>
+  <header class="page-hero">
+    <div class="wrap">
+      <p class="kicker">The cup</p>
+      <h1>The cafe</h1>
+      <p class="lede">
+        Specialty coffees made with house-made syrups. Better ingredients, including local and organic options whenever possible. More whole-food choices, brunch favorites, and fresh pastries daily.
+      </p>
+      <p class="lede">More detailed info coming soon. The menu below is the one we are pouring now.</p>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <h2>Lattes</h2>
+        <ul class="menu">
+          {lattes.map((item) => (
+            <li>
+              <span>{item.name}</span>
+              <span class="price">{item.price}</span>
+            </li>
+          ))}
+        </ul>
+        <h2 style="margin-top:2.2rem">Extras</h2>
+        <ul class="menu">
+          {cafeExtras.map((item) => (
+            <li>
+              <span>{item.name}</span>
+              <span class="price">{item.price}</span>
+            </li>
+          ))}
+        </ul>
+        <h2 style="margin-top:2.2rem">Milk</h2>
+        <ul class="breads">
+          {milks.map((milk) => <li>{milk}</li>)}
+        </ul>
+        <p class="hours-aside">
+          Questions about a drink, call <a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a>.
+        </p>
+      </div>
+      <div class="stack">
+        <Shot
+          src="images/latte-caramel.jpg"
+          width="1080"
+          height="1161"
+          group="cafe"
+          alt="An iced coffee in a clear glass, topped with foam and a caramel drizzle, on a pale table."
+          caption="Iced coffee with caramel."
+        />
+        <Shot
+          src="images/latte-iced.jpg"
+          width="1600"
+          height="2133"
+          group="cafe"
+          alt="An iced latte in a plastic cup, held in the shop with the teal wall and pendant lights behind it."
+          caption="An iced latte in the room."
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap split">
+      <Shot
+        src="images/interior-jukebox.jpg"
+        width="1600"
+        height="2133"
+        group="cafe"
+        alt="Shop interior with a jukebox, bakery case, pendant lights, and a coffee specials chalkboard."
+        caption="The room where the coffee is poured. The board on the wall changes; the menu on this page is the one to trust."
+      />
+      <div class="kitchen-slot">
+        <p class="kicker">Still being written</p>
+        <h2>A richer cafe story is coming.</h2>
+        <p>
+          House syrups, where the beans come from, what the pastry case holds on a given morning — that detail is not ready to publish. We would rather leave the room open than invent a lineup.
+        </p>
+        <p>
+          Fresh pastries are baked daily. Brunch favorites and more whole-food choices are part of where the cafe is headed. The particulars will land here when they are real.
+        </p>
+        <p><a class="btn" href={shop.instagram}>Follow along on Instagram</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <Shot
+        src="images/latte-matcha.jpg"
+        width="1600"
+        height="2133"
+        group="cafe"
+        alt="An iced matcha latte in a clear cup, with the shop’s teal gallery wall out of focus behind it."
+        caption="Matcha, one of the lattes on the menu."
+      />
+    </div>
+  </section>
+</Base>
