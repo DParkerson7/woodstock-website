@@ -597,6 +597,50 @@ p { text-wrap: pretty; }
   display: block;
 }
 
+.revolve-slot {
+  display: flex;
+  justify-content: center;
+  padding: 0.2rem var(--gutter) 0.15rem;
+}
+
+.revolve {
+  position: relative;
+  width: 186px;
+  aspect-ratio: 1;
+}
+
+.revolve-ring {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.revolve-spin {
+  transform-box: view-box;
+  transform-origin: center;
+  animation: revolve-turn 20s linear infinite;
+}
+
+.revolve-logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 46%;
+  height: 46%;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  pointer-events: none;
+}
+
+@keyframes revolve-turn {
+  to { transform: rotate(360deg); }
+}
+
+@media (min-width: 720px) {
+  .revolve { width: 244px; }
+}
+
 .toc {
   list-style: none;
   margin: 0;
@@ -1260,4 +1304,5 @@ dialog.lightbox::backdrop {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .shot-open img { transition: none; }
+  .revolve-spin { animation: none; }
 }
