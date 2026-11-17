@@ -44,12 +44,6 @@ export const nav = [
   { href: '/expansion', label: 'Expansion' },
 ] as const;
 
-export const owners = [
-  { name: 'David Parkerson', soon: 'A few words from David — coming soon.' },
-  { name: 'April Parkerson', soon: 'A few words from April — coming soon.' },
-  { name: 'Elena Parkerson', soon: 'A few words from Elena — coming soon.' },
-] as const;
-
 export const cakeSizes = [
   { name: '6″ Round', price: '$45', note: 'Base price' },
   { name: '8″ Round', price: '$55', note: 'Base price' },

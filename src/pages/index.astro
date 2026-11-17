@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Shot from '../components/Shot.astro';
-import { owners, shop } from '../data/site';
+import { shop } from '../data/site';
 import { asset, href } from '../lib/url';
 
 const title = 'Woodstock Coffee & Bakeshop · Jackson, Tennessee';
@@ -188,28 +188,20 @@ const description =
   </section>
 
   <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">The family keeping the doors</p>
-        <h2>David, April, and Elena Parkerson.</h2>
+    <div class="wrap split">
+      <Shot
+        src="images/elena-parkerson.jpg"
+        width="1500"
+        height="2026"
+        group="home"
+        alt="Elena Parkerson standing in front of the teal gallery wall at Woodstock."
+      />
+      <div class="prose">
+        <p class="kicker">Owner / operator</p>
+        <h2>Meet the owner/operator, Elena Parkerson.</h2>
         <p>
-          They own the shop together. David is April’s husband and Elena’s father. Portraits, and a few words from each of them, are still to come. Until then the rooms, the cakes, and the notes in the boxes can speak.
+          Elena runs Woodstock day to day. She and her family took over the shop in late 2024, keeping the Christ-centered heart that Matt and Dale Childress built in 2012 and bringing back the nostalgic, vintage feel that makes the rooms so easy to settle into: the vintage furniture, the warm lights, and the teal gallery wall. From the lattes to the custom cakes to the notes tucked inside every box lunch, she's the reason the shop still feels like Woodstock.
         </p>
-      </div>
-      <div class="people">
-        {owners.map((person) => (
-          <article class="person">
-            <div class="portrait-slot" aria-hidden="true">
-              <div>
-                <img src={asset('images/logo-sunflower.png')} width="1080" height="1080" alt="" />
-                <span>Portrait coming</span>
-              </div>
-            </div>
-            <h3>{person.name}</h3>
-            <p class="role">Co-owner</p>
-            <p>{person.soon}</p>
-          </article>
-        ))}
       </div>
     </div>
   </section>
