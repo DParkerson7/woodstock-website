@@ -37,10 +37,10 @@ export const hoursUpcoming = [
 
 export const nav = [
   { href: '/', label: 'Home' },
+  { href: '/cafe', label: 'Coffee' },
   { href: '/cakes', label: 'Cakes' },
-  { href: '/lunch', label: 'Lunch' },
-  { href: '/cafe', label: 'Cafe' },
   { href: '/catering', label: 'Catering' },
+  { href: '/lunch', label: 'Lunch' },
   { href: '/expansion', label: 'Expansion' },
 ] as const;
 
