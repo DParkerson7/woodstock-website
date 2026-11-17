@@ -5,7 +5,7 @@ import { cafeExtras, lattes, milks, shop } from '../data/site';
 
 const title = 'Cafe · Woodstock Coffee & Bakeshop';
 const description =
-  'Specialty coffee at Woodstock in Jackson, made with house-made syrups. Lattes $4, hot peanut butter cup latte $4.50, black coffee $2. More of the cafe story is coming soon.';
+  'Specialty coffee at Woodstock in Jackson, made with house-made syrups. Our own Bellwether coffee roaster is coming in February. Lattes $4, hot peanut butter cup latte $4.50, black coffee $2. More of the cafe story is coming soon.';
 ---
 
 <Base title={title} description={description}>
@@ -21,6 +21,33 @@ const description =
   </header>
 
   <section class="section">
+    <div class="wrap split">
+      <div class="prose">
+        <p class="kicker">Coming in February</p>
+        <h2>We're roasting our own coffee.</h2>
+        <p>
+          This February, our very own Bellwether coffee roaster is coming to Woodstock, and we could not be more excited. Soon the beans in your latte will be roasted right here in the shop, in small batches, so every cup starts fresh.
+        </p>
+        <p>
+          It's electric and smokeless, so the roasting happens right where we pour. Come see it once it's here.
+        </p>
+        <figure class="pull">
+          <p>Coffee subscriptions will be available! Take our fresh roasts home on a regular schedule. Details coming soon.</p>
+        </figure>
+        <p><a class="btn" href={shop.instagram}>Follow along on Instagram</a></p>
+      </div>
+      <Shot
+        src="images/bellwether-roaster.jpg"
+        width="1600"
+        height="1276"
+        group="cafe"
+        alt="The Bellwether Shop Roaster, an electric countertop coffee roaster in a deep bronze finish."
+        caption="The Bellwether Shop Roaster, coming to Woodstock in February. Photo: Bellwether Coffee."
+      />
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
     <div class="wrap split">
       <div>
         <h2>Lattes</h2>
