@@ -6,6 +6,75 @@ import SocialLinks from '../components/SocialLinks.astro';
 import { shop } from '../data/site';
 import { asset, href } from '../lib/url';
 
+const makeStrip = [
+  {
+    src: 'images/latte-caramel.jpg',
+    width: 1080,
+    height: 1161,
+    alt: 'An iced coffee in a clear glass, topped with foam and a caramel drizzle, on a pale table.',
+  },
+  {
+    src: 'images/cakes/cake-red-roses.jpg',
+    width: 1500,
+    height: 2000,
+    alt: 'A white cake topped with a cluster of red buttercream roses, gold dots, and a white ruffled border.',
+  },
+  {
+    src: 'images/interior-gallery-wall.jpg',
+    width: 1600,
+    height: 1902,
+    alt: 'A teal wall covered with framed pictures, woven pendant lamps, a rust-colored sofa, and a basket of chip bags.',
+  },
+  {
+    src: 'images/cakes/cake-baby-blue.jpg',
+    width: 1600,
+    height: 2133,
+    alt: 'A round cake covered in baby-blue buttercream with ruffled borders, draped garlands, and white pearls.',
+  },
+  {
+    src: 'images/latte-iced.jpg',
+    width: 1600,
+    height: 2133,
+    alt: 'An iced latte in a plastic cup, held in the shop with the teal wall and pendant lights behind it.',
+  },
+  {
+    src: 'images/interior-jukebox.jpg',
+    width: 1600,
+    height: 2133,
+    alt: 'The shop interior: a jukebox, a bakery case, pendant lights, and a Woodstock sunflower sign on the wall.',
+  },
+  {
+    src: 'images/cakes/cake-pastel-roses.jpg',
+    width: 1125,
+    height: 1500,
+    alt: 'A close view of a pale pink cake covered in white ruffles, piped roses in pink, blue, and yellow, green leaves, and pearl dots.',
+  },
+  {
+    src: 'images/storefront-facade.jpg',
+    width: 1800,
+    height: 2399,
+    alt: 'The Woodstock storefront at 80 Innsdale Cove: a white facade, a sunflower sign with the letters WS, and a neon Open sign in the window.',
+  },
+  {
+    src: 'images/cakes/cake-ivory-blossoms.jpg',
+    width: 1125,
+    height: 1500,
+    alt: 'A tall ivory cake on a white board, piped with ruffles and white buttercream blossoms.',
+  },
+  {
+    src: 'images/interior-merch-corner.jpg',
+    width: 1500,
+    height: 2000,
+    alt: 'A lobby corner with a clothing rack, record shelves, and a handwritten sign that reads Woodstock merch coming soon.',
+  },
+  {
+    src: 'images/cakes/cake-carrot.jpg',
+    width: 1068,
+    height: 1600,
+    alt: 'A blue cake decorated with green, pink, and white piping, small carrot shapes, and chocolate carrots with green tops.',
+  },
+];
+
 const title = 'Woodstock Coffee & Bakeshop · Jackson, Tennessee';
 const description =
   'Woodstock Coffee & Bakeshop, est. 2012, at 80 Innsdale Cv in Jackson, Tennessee. Coffee, custom cakes, and box lunches. Open Monday–Saturday, 9am–5pm.';
@@ -86,6 +155,77 @@ const description =
     </div>
   </section>
 
+  <section class="section block-marigold home-make">
+    <div class="wrap">
+      <p class="kicker">What we make</p>
+      <h2>Coffee, cakes, and catering. And a box lunch with a special note in it!</h2>
+      <ol class="toc">
+        <li>
+          <a href={href('/cafe')}>
+            <span class="toc-num">01</span>
+            <span>
+              <strong>Coffee</strong>
+              <em>House-made syrups, and the coffee menu we pour now.</em>
+            </span>
+            <span class="toc-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href={href('/cakes')}>
+            <span class="toc-num">02</span>
+            <span>
+              <strong>Cakes</strong>
+              <em>Three sizes, four priced designs, and a kitchen album.</em>
+            </span>
+            <span class="toc-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href={href('/catering')}>
+            <span class="toc-num">03</span>
+            <span>
+              <strong>Catering</strong>
+              <em>Bulk box lunches, cupcakes, and delivery. Call us.</em>
+            </span>
+            <span class="toc-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href={href('/lunch')}>
+            <span class="toc-num">04</span>
+            <span>
+              <strong>Lunch</strong>
+              <em>The classic box, Miss Vickie’s, and Dale’s handwritten notes.</em>
+            </span>
+            <span class="toc-go" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ol>
+    </div>
+    <div class="make-marquee" tabindex="0" aria-label="Photos from the shop">
+      <div class="make-marquee-track">
+        {
+          [0, 1].map((copy) => (
+            <ul class="make-marquee-group" aria-hidden={copy === 1 ? 'true' : undefined}>
+              {makeStrip.map((photo) => (
+                <li>
+                  <img
+                    src={asset(photo.src)}
+                    width={photo.width}
+                    height={photo.height}
+                    alt={copy === 1 ? '' : photo.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </li>
+              ))}
+            </ul>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
   <section class="home-hero">
     <div class="home-stage">
       <figure class="home-doors">
@@ -140,75 +280,6 @@ const description =
         group="home"
         alt="The Woodstock storefront at 80 Innsdale Cove: a white facade, a sunflower sign with the letters WS, and a neon Open sign in the window."
       />
-    </div>
-  </section>
-
-  <section class="section block-marigold" style="padding-top:0">
-    <div class="wrap split">
-      <div>
-        <p class="kicker">What we make</p>
-        <h2>Coffee, cakes, and catering. And a box lunch with a special note in it!</h2>
-        <ol class="toc">
-          <li>
-            <a href={href('/cafe')}>
-              <span class="toc-num">01</span>
-              <span>
-                <strong>Coffee</strong>
-                <em>House-made syrups, and the coffee menu we pour now.</em>
-              </span>
-              <span class="toc-go" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li>
-            <a href={href('/cakes')}>
-              <span class="toc-num">02</span>
-              <span>
-                <strong>Cakes</strong>
-                <em>Three sizes, four priced designs, and a kitchen album.</em>
-              </span>
-              <span class="toc-go" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li>
-            <a href={href('/catering')}>
-              <span class="toc-num">03</span>
-              <span>
-                <strong>Catering</strong>
-                <em>Bulk box lunches, cupcakes, and delivery. Call us.</em>
-              </span>
-              <span class="toc-go" aria-hidden="true">→</span>
-            </a>
-          </li>
-          <li>
-            <a href={href('/lunch')}>
-              <span class="toc-num">04</span>
-              <span>
-                <strong>Lunch</strong>
-                <em>The classic box, Miss Vickie’s, and Dale’s handwritten notes.</em>
-              </span>
-              <span class="toc-go" aria-hidden="true">→</span>
-            </a>
-          </li>
-        </ol>
-      </div>
-      <div class="stack">
-        <Shot
-          src="images/cakes/cake-blue-swags.jpg"
-          width="1600"
-          height="2133"
-          group="home"
-          alt="A round cake in ivory and pale blue buttercream with swags and blueberries."
-          caption="From the cake album."
-        />
-        <Shot
-          src="images/latte-matcha.jpg"
-          width="1600"
-          height="2133"
-          group="home"
-          alt="An iced green latte held up in the shop, with the teal gallery wall and warm pendant lights behind it."
-          caption="A matcha latte in the teal room."
-        />
-      </div>
     </div>
   </section>
 
