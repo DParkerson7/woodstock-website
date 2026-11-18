@@ -708,7 +708,7 @@ p { text-wrap: pretty; }
   color: var(--brown);
   box-sizing: border-box;
   padding-top: 0.5rem;
-  padding-bottom: 1.35rem;
+  padding-bottom: 0.85rem;
   padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
   padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
   overflow-x: clip;
@@ -717,8 +717,7 @@ p { text-wrap: pretty; }
 .home-info .wrap,
 .home-info .hero-facts,
 .home-info .hours-aside,
-.home-info .hero-lede,
-.home-info .hero-actions {
+.home-info .hero-lede {
   width: 100%;
   max-width: var(--max);
   margin-left: auto;
@@ -761,8 +760,7 @@ p { text-wrap: pretty; }
     grid-template-columns: 1fr;
   }
 
-  .home-info .social-links,
-  .home-info .hero-actions {
+  .home-info .social-links {
     justify-content: center;
   }
 }
@@ -823,8 +821,8 @@ p { text-wrap: pretty; }
   text-align: center;
 }
 
-.home-info .hero-actions {
-  margin: 0.9rem auto 0;
+.home-info .social-links {
+  margin-bottom: 0;
 }
 
 .home-info .hero-facts dt,
@@ -843,6 +841,62 @@ p { text-wrap: pretty; }
   .home-info .hero-facts div {
     grid-template-columns: 1fr;
     gap: 0.15rem;
+  }
+}
+
+.home-orders {
+  background: var(--cream);
+  color: var(--brown);
+  box-sizing: border-box;
+  padding: 1.2rem max(1.5rem, env(safe-area-inset-right, 0px)) 1.4rem max(1.5rem, env(safe-area-inset-left, 0px));
+}
+
+.home-orders-grid {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.order-offer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.order-offer .btn {
+  width: fit-content;
+}
+
+.order-offer img {
+  display: block;
+  width: 100%;
+  height: clamp(360px, 105vw, 420px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1.25rem;
+}
+
+@media (min-width: 860px) {
+  .home-orders {
+    padding-top: 1.45rem;
+    padding-bottom: 1.6rem;
+  }
+
+  .home-orders-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.35rem;
+    align-items: start;
+  }
+
+  .order-offer img {
+    height: auto;
+    aspect-ratio: 4 / 5;
   }
 }
 

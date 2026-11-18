@@ -58,10 +58,32 @@ const description =
       </div>
     </dl>
     <SocialLinks />
-    <p class="hero-actions wrap">
-      <a class="btn" href={shop.cakeForm}>Order a cake</a>
-      <a class="btn btn-ghost" href={shop.lunchForm}>Order a box lunch</a>
-    </p>
+  </section>
+
+  <section class="home-orders">
+    <h2 class="visually-hidden">Order</h2>
+    <div class="home-orders-grid">
+      <a class="order-offer" href={shop.cakeForm}>
+        <span class="btn">Order a cake</span>
+        <img
+          src={asset('images/cake-order.jpg')}
+          width="1200"
+          height="1600"
+          alt="A white buttercream cake with pale-blue piped swags, ruffles, and blueberries on top."
+          decoding="async"
+        />
+      </a>
+      <a class="order-offer" href={shop.lunchForm}>
+        <span class="btn">Order a box lunch</span>
+        <img
+          src={asset('images/box-lunch-order.jpg')}
+          width="1200"
+          height="1600"
+          alt="Packed box lunches, each with a wrapped sandwich, a bag of chips, and a frosted cupcake."
+          decoding="async"
+        />
+      </a>
+    </div>
   </section>
 
   <section class="home-hero">
