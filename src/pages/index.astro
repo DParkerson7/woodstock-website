@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Shot from '../components/Shot.astro';
+import SocialLinks from '../components/SocialLinks.astro';
 import { shop } from '../data/site';
 import { asset, href } from '../lib/url';
 
@@ -51,19 +52,8 @@ const description =
         <dt>Email</dt>
         <dd><a href={`mailto:${shop.email}`}>{shop.email}</a></dd>
       </div>
-      <div>
-        <dt>Instagram</dt>
-        <dd><a href={shop.instagram}>{shop.instagramHandle}</a></dd>
-      </div>
-      <div>
-        <dt>Facebook</dt>
-        <dd><a href={shop.facebook}>Facebook</a></dd>
-      </div>
-      <div>
-        <dt>TikTok</dt>
-        <dd><a href={shop.tiktok}>TikTok</a></dd>
-      </div>
     </dl>
+    <SocialLinks />
     <p class="hours-aside wrap">
       These are today’s hours. Longer days are coming, and they are listed only on the
       <a href={href('/expansion')}>Expansion</a> page.
