@@ -7,73 +7,33 @@ import { shop } from '../data/site';
 import { asset, href } from '../lib/url';
 
 const makeStrip = [
-  {
-    src: 'images/latte-caramel.jpg',
-    width: 1080,
-    height: 1161,
-    alt: 'An iced coffee in a clear glass, topped with foam and a caramel drizzle, on a pale table.',
-  },
-  {
-    src: 'images/cakes/cake-red-roses.jpg',
-    width: 1500,
-    height: 2000,
-    alt: 'A white cake topped with a cluster of red buttercream roses, gold dots, and a white ruffled border.',
-  },
-  {
-    src: 'images/interior-gallery-wall.jpg',
-    width: 1600,
-    height: 1902,
-    alt: 'A teal wall covered with framed pictures, woven pendant lamps, a rust-colored sofa, and a basket of chip bags.',
-  },
-  {
-    src: 'images/cakes/cake-baby-blue.jpg',
-    width: 1600,
-    height: 2133,
-    alt: 'A round cake covered in baby-blue buttercream with ruffled borders, draped garlands, and white pearls.',
-  },
-  {
-    src: 'images/latte-iced.jpg',
-    width: 1600,
-    height: 2133,
-    alt: 'An iced latte in a plastic cup, held in the shop with the teal wall and pendant lights behind it.',
-  },
-  {
-    src: 'images/interior-jukebox.jpg',
-    width: 1600,
-    height: 2133,
-    alt: 'The shop interior: a jukebox, a bakery case, pendant lights, and a Woodstock sunflower sign on the wall.',
-  },
-  {
-    src: 'images/cakes/cake-pastel-roses.jpg',
-    width: 1125,
-    height: 1500,
-    alt: 'A close view of a pale pink cake covered in white ruffles, piped roses in pink, blue, and yellow, green leaves, and pearl dots.',
-  },
-  {
-    src: 'images/storefront-facade.jpg',
-    width: 1800,
-    height: 2399,
-    alt: 'The Woodstock storefront at 80 Innsdale Cove: a white facade, a sunflower sign with the letters WS, and a neon Open sign in the window.',
-  },
-  {
-    src: 'images/cakes/cake-ivory-blossoms.jpg',
-    width: 1125,
-    height: 1500,
-    alt: 'A tall ivory cake on a white board, piped with ruffles and white buttercream blossoms.',
-  },
-  {
-    src: 'images/interior-merch-corner.jpg',
-    width: 1500,
-    height: 2000,
-    alt: 'A lobby corner with a clothing rack, record shelves, and a handwritten sign that reads Woodstock merch coming soon.',
-  },
-  {
-    src: 'images/cakes/cake-carrot.jpg',
-    width: 1068,
-    height: 1600,
-    alt: 'A blue cake decorated with green, pink, and white piping, small carrot shapes, and chocolate carrots with green tops.',
-  },
-];
+  { code: '9425', width: 1200, height: 1600, alt: 'A heart-shaped burgundy cake with black ribbon bows, ruffled borders, and white script reading Happy 20th.' },
+  { code: '9014', width: 1200, height: 1600, alt: 'Rows of cupcakes with pink, chocolate, and white frosting and sprinkles.' },
+  { code: '8947', width: 1200, height: 1600, alt: 'A heart-shaped cake with a pale pink top, white ruffles, and piped roses in pink, blue, and yellow.' },
+  { code: '8815', width: 1200, height: 1600, alt: 'A white heart-shaped cake with scalloped borders, draped swags, and small pearl dots.' },
+  { code: '8757', width: 1068, height: 1600, alt: 'A blue cake piped with green and pink borders and topped with orange carrots.' },
+  { code: '8531', width: 1200, height: 1600, alt: 'A lavender cake topped with white buttercream roses and sprigs of baby’s breath.' },
+  { code: '7951', width: 1200, height: 1600, alt: 'Rows of boxed lunches, each with a wrapped sandwich, a bag of chips, and a cupcake.' },
+  { code: '7338', width: 1200, height: 1600, alt: 'A box of cupcakes frosted as farm animals, including sheep, pigs, chicks, and cows.' },
+  { code: '7272', width: 1200, height: 1600, alt: 'A round ivory cake with blue shell borders and a yellow bird outlined in black on top.' },
+  { code: '6201', width: 1200, height: 1600, alt: 'A three-tier white cake with draped swags and small pink flowers.' },
+  { code: '6159', width: 1200, height: 1600, alt: 'A box of cupcakes piped as blue hydrangeas and pale pink roses with green leaves.' },
+  { code: '5298', width: 1200, height: 1600, alt: 'A pale green cake lettered Sixteen, topped with red mushrooms and green vines.' },
+  { code: '5402', width: 1200, height: 1600, alt: 'A teal heart-shaped cake decorated with pink and red piped flowers and green leaves.' },
+  { code: '3597', width: 1200, height: 1600, alt: 'A two-tier lavender cake with cream ruffles, small burgundy roses, and green vines.' },
+  { code: '3714', width: 1200, height: 1600, alt: 'A green cake with shell borders and white script reading “a tini bit older.”' },
+  { code: '3465', width: 1200, height: 1600, alt: 'A sheet cake with pale green frosting, a dark green ruffled border, and small green piped shapes.' },
+  { code: '3108', width: 1200, height: 1600, alt: 'A box of cupcakes piped as colorful flowers in pink, yellow, orange, and purple.' },
+  { code: '3157', width: 1200, height: 1600, alt: 'A two-tier cake with a white top, a rose-gold bottom, and a cluster of pink and white flowers.' },
+  { code: '2317', width: 1200, height: 1600, alt: 'Two yellow cakes, one with a small bee and flowers, the other with a pink lattice and bees.' },
+  { code: '2272', width: 1200, height: 1600, alt: 'Mini cupcakes with white frosting, purple daisies, and sprigs of baby’s breath on a white tray.' },
+  { code: '2083', width: 1200, height: 1600, alt: 'A box of cupcakes piped as pink roses and red and mauve flowers with green centers.' },
+  { code: '0965', width: 1200, height: 1600, alt: 'A large chocolate chip cookie cake bordered with pink and white frosting and lettered Happy Birthday.' },
+].map((photo) => ({
+  ...photo,
+  src: `images/strip/strip-${photo.code}.jpg`,
+  thumb: `images/strip/thumbs/strip-${photo.code}.jpg`,
+}));
 
 const title = 'Woodstock Coffee & Bakeshop · Jackson, Tennessee';
 const description =
@@ -155,7 +115,7 @@ const description =
     </div>
   </section>
 
-  <section class="section block-marigold home-make">
+  <section class="section home-make">
     <div class="wrap">
       <p class="kicker">What we make</p>
       <h2>Coffee, cakes, and catering. And a box lunch with a special note in it!</h2>
@@ -209,14 +169,23 @@ const description =
             <ul class="make-marquee-group" aria-hidden={copy === 1 ? 'true' : undefined}>
               {makeStrip.map((photo) => (
                 <li>
-                  <img
-                    src={asset(photo.src)}
-                    width={photo.width}
-                    height={photo.height}
-                    alt={copy === 1 ? '' : photo.alt}
-                    loading="lazy"
-                    decoding="async"
-                  />
+                  <a
+                    href={asset(photo.src)}
+                    data-lightbox
+                    data-group="make"
+                    data-src={asset(photo.src)}
+                    data-alt={photo.alt}
+                    data-caption={photo.alt}
+                  >
+                    <img
+                      src={asset(photo.thumb)}
+                      width="600"
+                      height={Math.round(600 * photo.height / photo.width)}
+                      alt={copy === 1 ? '' : photo.alt}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
                 </li>
               ))}
             </ul>
@@ -225,6 +194,91 @@ const description =
       </div>
     </div>
   </section>
+  <script>
+    const scroller = document.querySelector<HTMLElement>('.make-marquee');
+    if (scroller && !scroller.dataset.ready) {
+      scroller.dataset.ready = 'true';
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const fineHover = window.matchMedia('(hover: hover)').matches;
+      let hover = false;
+      let pointers = 0;
+      let holdUntil = 0;
+      let moved = false;
+      let startLeft = 0;
+      let dragX = 0;
+      let dragLeft = 0;
+      let last = 0;
+      const speed = 40;
+
+      const halfWidth = () => scroller.scrollWidth / 2;
+      const looping = () => {
+        const copy = scroller.querySelector('.make-marquee-group[aria-hidden="true"]');
+        return !reduce && !!copy && getComputedStyle(copy).display !== 'none';
+      };
+      const wrap = () => {
+        if (!looping()) return;
+        const half = halfWidth();
+        if (half > 8 && scroller.scrollLeft >= half) scroller.scrollLeft -= half;
+      };
+      const holding = () => hover || pointers > 0 || performance.now() < holdUntil || !!document.querySelector('dialog[open]');
+
+      const frame = (now: number) => {
+        if (!last) last = now;
+        const dt = Math.min(48, now - last);
+        last = now;
+        if (!reduce && !holding()) {
+          scroller.classList.remove('is-user');
+          scroller.scrollLeft += (speed * dt) / 1000;
+          wrap();
+        }
+        requestAnimationFrame(frame);
+      };
+
+      scroller.addEventListener('mouseenter', () => {
+        if (fineHover) hover = true;
+      });
+      scroller.addEventListener('mouseleave', () => {
+        hover = false;
+      });
+      scroller.addEventListener('pointerdown', (event) => {
+        pointers += 1;
+        moved = false;
+        startLeft = scroller.scrollLeft;
+        dragX = event.clientX;
+        dragLeft = scroller.scrollLeft;
+        scroller.classList.add('is-user');
+      });
+      scroller.addEventListener('pointermove', (event) => {
+        if (pointers === 0) return;
+        if (Math.abs(scroller.scrollLeft - startLeft) > 6) moved = true;
+        if (event.pointerType === 'touch') return;
+        const dx = event.clientX - dragX;
+        if (Math.abs(dx) > 6) moved = true;
+        scroller.scrollLeft = dragLeft - dx;
+        wrap();
+      });
+      const release = () => {
+        pointers = Math.max(0, pointers - 1);
+        holdUntil = performance.now() + 3500;
+      };
+      scroller.addEventListener('pointerup', release);
+      scroller.addEventListener('pointercancel', release);
+      scroller.addEventListener('wheel', () => {
+        scroller.classList.add('is-user');
+        holdUntil = performance.now() + 3500;
+        requestAnimationFrame(wrap);
+      }, { passive: true });
+      scroller.addEventListener('scroll', () => wrap(), { passive: true });
+      scroller.addEventListener('click', (event) => {
+        if (!moved) return;
+        event.preventDefault();
+        event.stopPropagation();
+        moved = false;
+      }, true);
+
+      if (!reduce) requestAnimationFrame(frame);
+    }
+  </script>
 
   <section class="home-hero">
     <div class="home-stage">

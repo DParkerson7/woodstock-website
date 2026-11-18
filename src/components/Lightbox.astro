@@ -39,10 +39,21 @@
 
     const open = (anchor: HTMLAnchorElement) => {
       const name = anchor.dataset.group || 'gallery';
-      group = Array.from(document.querySelectorAll<HTMLAnchorElement>(`a[data-lightbox][data-group="${name}"]`));
-      index = Math.max(0, group.indexOf(anchor));
+      const all = Array.from(document.querySelectorAll<HTMLAnchorElement>(`a[data-lightbox][data-group="${name}"]`));
+      const seen = new Set<string>();
+      group = [];
+      for (const item of all) {
+        const key = item.dataset.src || item.href;
+        if (seen.has(key)) continue;
+        seen.add(key);
+        group.push(item);
+      }
+      const key = anchor.dataset.src || anchor.href;
+      index = Math.max(0, group.findIndex((item) => (item.dataset.src || item.href) === key));
       show(index);
+      document.documentElement.style.overflow = 'hidden';
       dialog.showModal();
+      close.focus();
     };
 
     document.addEventListener('click', (event) => {
@@ -73,9 +84,25 @@
       }
     });
 
+    let touchX = 0;
+    dialog.addEventListener('touchstart', (event) => {
+      touchX = event.changedTouches[0]?.clientX ?? 0;
+    }, { passive: true });
+    dialog.addEventListener('touchend', (event) => {
+      const target = event.target;
+      if (target instanceof Element && target.closest('button')) return;
+      const endX = event.changedTouches[0]?.clientX ?? touchX;
+      const dx = endX - touchX;
+      if (Math.abs(dx) < 48) return;
+      show(dx < 0 ? index + 1 : index - 1);
+    }, { passive: true });
+
     dialog.addEventListener('close', () => {
       image.removeAttribute('src');
       image.alt = '';
+      document.documentElement.style.overflow = '';
+      const opener = group[index];
+      if (opener) opener.focus();
     });
   }
 </script>
