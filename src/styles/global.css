@@ -683,7 +683,34 @@ p { text-wrap: pretty; }
 .home-info {
   background: var(--dust);
   color: var(--brown);
-  padding: 1.15rem 0 1.35rem;
+  box-sizing: border-box;
+  padding-top: 1.15rem;
+  padding-bottom: 1.35rem;
+  padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
+  padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
+  overflow-x: clip;
+}
+
+.home-info .wrap,
+.home-info .hero-facts,
+.home-info .hours-aside,
+.home-info .hero-lede,
+.home-info .hero-actions {
+  width: 100%;
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home-info .hero-facts div,
+.home-info .hero-facts dd,
+.home-info .hero-facts a {
+  min-width: 0;
+}
+
+.home-info .hero-facts a,
+.home-info .hours-aside {
+  overflow-wrap: anywhere;
 }
 
 .home-info .seal {
