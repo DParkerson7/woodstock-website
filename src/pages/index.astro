@@ -9,24 +9,72 @@ const description =
   'Woodstock Coffee & Bakeshop, est. 2012, at 80 Innsdale Cv in Jackson, Tennessee. Coffee, custom cakes, and box lunches. Open Monday–Saturday, 9am–5pm.';
 ---
 
-<Base title={title} description={description} preload="images/storefront-facade.jpg">
-  <section class="hero">
-    <div class="hero-card">
-      <div class="hero-brand">
-        <img class="hero-logo" src={asset('images/logo-sunflower.png')} width="1080" height="1080" alt="" />
-        <p class="seal" aria-label="Established 2012">
-          <span>Est.</span>
-          <strong>2012</strong>
-        </p>
+<Base title={title} description={description} preload="images/storefront-doors.jpg">
+  <section class="home-hero">
+    <div class="home-stage">
+      <figure class="home-doors">
+        <img
+          src={asset('images/storefront-doors.jpg')}
+          width="1600"
+          height="2133"
+          alt="Glass doors of the shop, with a neon Open sign, vintage chairs, and warm light inside."
+          fetchpriority="high"
+          decoding="async"
+        />
+        <figcaption>The front doors, Suite A.</figcaption>
+      </figure>
+      <div class="home-brand">
+        <figure class="home-lockup">
+          <img
+            src={asset('images/brand-floral-lockup.jpg')}
+            width="1400"
+            height="1082"
+            alt="A floral shop graphic: the words Woodstock Coffee & Bakeshop curve around a sunflower marked WS, with flowers and butterflies on a brown ground."
+          />
+          <div class="revolve home-badge" role="img" aria-label="Woodstock Coffee & Bakeshop: coffee, cakes, and catering">
+          <svg class="revolve-ring" viewBox="0 0 200 200" aria-hidden="true">
+            <defs>
+              <path id="revolve-path" d="M100,24 a76,76 0 1,1 -0.01,0" />
+            </defs>
+            <circle cx="100" cy="100" r="97" fill="#eee0db" stroke="#f1be64" stroke-width="6" />
+            <g class="revolve-spin">
+              <text fill="#643b25" font-family="Caveat, Segoe Script, cursive" font-size="27" font-weight="600">
+                <textPath href="#revolve-path" textLength="478" lengthAdjust="spacing">Coffee · Cakes · Catering · Coffee · Cakes · Catering ·</textPath>
+              </text>
+            </g>
+          </svg>
+          <img
+            class="revolve-logo"
+            src={asset('images/logo-sunflower.png')}
+            width="1080"
+            height="1080"
+            alt=""
+          />
+          </div>
+        </figure>
+        <div class="home-intro">
+          <div class="hero-brand">
+            <p class="seal" aria-label="Established 2012">
+              <span>Est.</span>
+              <strong>2012</strong>
+            </p>
+          </div>
+          <h1 class="wordmark">
+            <span class="wordmark-main">Woodstock</span>
+            <span class="wordmark-sub">Coffee &amp; Bakeshop</span>
+          </h1>
+          <p class="hero-lede">
+            Opened <time datetime={shop.opened}>{shop.openedLabel}</time>, on Innsdale Cove in Jackson, Tennessee.
+          </p>
+          <p class="hero-actions">
+            <a class="btn" href={shop.cakeForm}>Order a cake</a>
+            <a class="btn btn-ghost" href={shop.lunchForm}>Order a box lunch</a>
+          </p>
+        </div>
       </div>
-      <h1 class="wordmark">
-        <span class="wordmark-main">Woodstock</span>
-        <span class="wordmark-sub">Coffee &amp; Bakeshop</span>
-      </h1>
-      <p class="hero-lede">
-        Opened <time datetime={shop.opened}>{shop.openedLabel}</time>, on Innsdale Cove in Jackson, Tennessee.
-      </p>
-      <dl class="hero-facts">
+    </div>
+    <div class="home-facts">
+      <dl class="hero-facts wrap">
         <div>
           <dt>Hours now</dt>
           <dd>Mon–Sat 9am–5pm<br />Sunday closed</dd>
@@ -50,24 +98,10 @@ const description =
           <dd><a href={shop.instagram}>{shop.instagramHandle}</a></dd>
         </div>
       </dl>
-      <p class="hours-aside">
+      <p class="hours-aside wrap">
         These are today’s hours. Longer days are coming, and they are listed only on the
         <a href={href('/expansion')}>Expansion</a> page.
       </p>
-      <p class="hero-actions">
-        <a class="btn" href={shop.cakeForm}>Order a cake</a>
-        <a class="btn btn-ghost" href={shop.lunchForm}>Order a box lunch</a>
-      </p>
-    </div>
-    <div class="hero-media">
-      <img
-        src={asset('images/storefront-facade.jpg')}
-        width="1800"
-        height="2399"
-        alt="The Woodstock storefront at 80 Innsdale Cove: a white facade, a sunflower sign with the letters WS, and a neon Open sign in the window."
-        fetchpriority="high"
-        decoding="async"
-      />
     </div>
   </section>
 
@@ -94,51 +128,14 @@ const description =
         </p>
       </div>
       <Shot
-        src="images/storefront-doors.jpg"
-        width="1600"
-        height="2133"
+        src="images/storefront-facade.jpg"
+        width="1800"
+        height="2399"
         group="home"
-        alt="Glass doors of the shop, with a neon Open sign, vintage chairs, and warm light inside."
-        caption="The front doors, Suite A."
+        alt="The Woodstock storefront at 80 Innsdale Cove: a white facade, a sunflower sign with the letters WS, and a neon Open sign in the window."
       />
     </div>
   </section>
-
-  <section class="section block-orange" style="padding-top:0">
-    <div class="wrap">
-      <figure class="poster">
-        <img
-          src={asset('images/brand-floral-lockup.jpg')}
-          width="1400"
-          height="1082"
-          alt="A floral shop graphic: the words Woodstock Coffee & Bakeshop curve around a sunflower marked WS, with flowers and butterflies on a brown ground."
-        />
-      </figure>
-    </div>
-  </section>
-
-  <div class="revolve-slot">
-    <div class="revolve" role="img" aria-label="Woodstock Coffee & Bakeshop: coffee, cakes, and catering">
-      <svg class="revolve-ring" viewBox="0 0 200 200" aria-hidden="true">
-        <defs>
-          <path id="revolve-path" d="M100,24 a76,76 0 1,1 -0.01,0" />
-        </defs>
-        <circle cx="100" cy="100" r="97" fill="#eee0db" stroke="#f1be64" stroke-width="6" />
-        <g class="revolve-spin">
-          <text fill="#643b25" font-family="Caveat, Segoe Script, cursive" font-size="27" font-weight="600">
-            <textPath href="#revolve-path" textLength="478" lengthAdjust="spacing">Coffee · Cakes · Catering · Coffee · Cakes · Catering ·</textPath>
-          </text>
-        </g>
-      </svg>
-      <img
-        class="revolve-logo"
-        src={asset('images/logo-sunflower.png')}
-        width="1080"
-        height="1080"
-        alt=""
-      />
-    </div>
-  </div>
 
   <section class="section block-marigold" style="padding-top:0">
     <div class="wrap split">
@@ -228,17 +225,42 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section lobby-section" style="padding-top:0">
     <div class="wrap">
-      <Shot
-        src="images/interior-gallery-wall.jpg"
-        width="1600"
-        height="1902"
-        group="home"
-        eager={false}
-        alt="A teal wall covered with framed pictures, woven pendant lamps, a rust-colored sofa, and a basket of chip bags."
-        caption="The gallery wall. Vintage frames, warm lamps, and a basket of Miss Vickie’s."
-      />
+      <p class="kicker">The lobby</p>
+      <h2>Step inside.</h2>
+      <div class="lobby">
+        <figure class="lobby-frame lobby-wall">
+          <img
+            src={asset('images/interior-gallery-wall.jpg')}
+            width="1600"
+            height="1902"
+            alt="A teal wall covered with framed pictures, woven pendant lamps, a rust-colored sofa, and a basket of chip bags."
+            loading="lazy"
+          />
+          <figcaption>The gallery wall. Vintage frames, warm lamps, and a basket of Miss Vickie’s.</figcaption>
+        </figure>
+        <figure class="lobby-frame lobby-juke">
+          <img
+            src={asset('images/interior-jukebox.jpg')}
+            width="1600"
+            height="2133"
+            alt="The shop interior: a jukebox, a bakery case, pendant lights, and a Woodstock sunflower sign on the wall."
+            loading="lazy"
+          />
+          <figcaption>The case, the jukebox, and the sign on the wall.</figcaption>
+        </figure>
+        <figure class="lobby-frame lobby-merch">
+          <img
+            src={asset('images/interior-merch-corner.jpg')}
+            width="1500"
+            height="2000"
+            alt="A lobby corner with a clothing rack, record shelves, and a handwritten sign that reads Woodstock merch coming soon."
+            loading="lazy"
+          />
+          <figcaption>The lobby corner. The sign says merch is coming soon.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -289,15 +311,7 @@ const description =
   </section>
 
   <section class="section block-dust">
-    <div class="wrap split">
-      <Shot
-        src="images/interior-jukebox.jpg"
-        width="1600"
-        height="2133"
-        group="home"
-        alt="The shop interior: a jukebox, a bakery case, pendant lights, and a Woodstock sunflower sign on the wall."
-        caption="The case, the jukebox, and the sign on the wall."
-      />
+    <div class="wrap">
       <div class="prose">
         <p class="kicker">Come by</p>
         <h2>80 Innsdale Cove, Suite A.</h2>
