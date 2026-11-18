@@ -1085,6 +1085,11 @@ p { text-wrap: pretty; }
   color: var(--brown);
 }
 
+.lobby-section {
+  background: var(--cream);
+  padding-bottom: 1.35rem;
+}
+
 .lobby {
   display: grid;
   gap: 1.1rem;
