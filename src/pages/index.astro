@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Shot from '../components/Shot.astro';
+import RevolveBadge from '../components/RevolveBadge.astro';
 import SocialLinks from '../components/SocialLinks.astro';
 import { shop } from '../data/site';
 import { asset, href } from '../lib/url';
@@ -26,12 +27,9 @@ const description =
 
   <section class="home-info">
     <h2 class="visually-hidden">Hours and contact</h2>
-    <p class="seal" aria-label="Established 2012">
-      <span>Est.</span>
-      <strong>2012</strong>
-    </p>
+    <RevolveBadge id="revolve-info" />
     <p class="hero-lede wrap">
-      Opened <time datetime={shop.opened}>{shop.openedLabel}</time>, on Innsdale Cove in Jackson, Tennessee.
+      Established 2012, off of Vann Drive at Innsdale Cove.
     </p>
     <dl class="hero-facts wrap">
       <div>
@@ -84,26 +82,7 @@ const description =
             height="1082"
             alt="A floral shop graphic: the words Woodstock Coffee & Bakeshop curve around a sunflower marked WS, with flowers and butterflies on a brown ground."
           />
-          <div class="revolve home-badge" role="img" aria-label="Woodstock Coffee & Bakeshop: coffee, cakes, and catering">
-          <svg class="revolve-ring" viewBox="0 0 200 200" aria-hidden="true">
-            <defs>
-              <path id="revolve-path" d="M100,24 a76,76 0 1,1 -0.01,0" />
-            </defs>
-            <circle cx="100" cy="100" r="97" fill="#eee0db" stroke="#f1be64" stroke-width="6" />
-            <g class="revolve-spin">
-              <text fill="#643b25" font-family="Caveat, Segoe Script, cursive" font-size="27" font-weight="600">
-                <textPath href="#revolve-path" textLength="478" lengthAdjust="spacing">Coffee · Cakes · Catering · Coffee · Cakes · Catering ·</textPath>
-              </text>
-            </g>
-          </svg>
-          <img
-            class="revolve-logo"
-            src={asset('images/logo-sunflower.png')}
-            width="1080"
-            height="1080"
-            alt=""
-          />
-          </div>
+          <RevolveBadge id="revolve-lockup" class="home-badge" />
         </figure>
       </div>
     </div>

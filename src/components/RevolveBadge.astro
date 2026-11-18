@@ -1,0 +1,31 @@
+---
+import { asset } from '../lib/url';
+
+interface Props {
+  id?: string;
+  class?: string;
+}
+
+const { id = 'revolve-path', class: className = '' } = Astro.props;
+---
+
+<div class:list={['revolve', className]} role="img" aria-label="Woodstock Coffee & Bakeshop: coffee, cakes, and catering">
+  <svg class="revolve-ring" viewBox="0 0 200 200" aria-hidden="true">
+    <defs>
+      <path id={id} d="M100,24 a76,76 0 1,1 -0.01,0" />
+    </defs>
+    <circle cx="100" cy="100" r="97" fill="#eee0db" stroke="#f1be64" stroke-width="6" />
+    <g class="revolve-spin">
+      <text fill="#643b25" font-family="Caveat, Segoe Script, cursive" font-size="27" font-weight="600">
+        <textPath href={`#${id}`} textLength="478" lengthAdjust="spacing">Coffee · Cakes · Catering · Coffee · Cakes · Catering ·</textPath>
+      </text>
+    </g>
+  </svg>
+  <img
+    class="revolve-logo"
+    src={asset('images/logo-sunflower.png')}
+    width="1080"
+    height="1080"
+    alt=""
+  />
+</div>
