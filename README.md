@@ -80,11 +80,9 @@ The pages send `noindex` so this review build does not compete with the live Squ
 | --- | --- |
 | `public/images/logo-sunflower.png` | Official mark |
 | `public/images/storefront-facade.jpg` | The sunflower sign on the building |
-| `public/images/storefront-doors.jpg` | The front doors |
 | `public/images/interior-jukebox.jpg` | Case, jukebox, and the sign inside |
 | `public/images/interior-gallery-wall.jpg` | Teal wall, lamps, Miss Vickie’s |
 | `public/images/interior-merch-corner.jpg` | The corner whose sign says merch is coming soon |
 | `public/images/latte-*.jpg` | Drinks photographed in the shop |
 | `public/images/cakes/` | Cakes from the shop’s own photographs |
 | `public/images/mockups/` | Expansion studies, labeled as studies on the page |
-| `public/images/brand-floral-lockup.jpg` | A shop graphic, not a replacement for the logo |
