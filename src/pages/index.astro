@@ -14,15 +14,17 @@ const description =
 <Base title={title} description={description} preload="images/untitled-design.png">
   <header class="logo-hero">
     <h1 class="visually-hidden">Woodstock Coffee &amp; Bakeshop</h1>
-    <img
-      class="logo-hero-mark"
-      src={asset('images/untitled-design.png')}
-      width="1999"
-      height="1545"
-      alt="Woodstock Coffee & Bakeshop. WOODSTOCK in brown with a sunflower as the second O, a green leafy vine above, and Coffee & Bakeshop below, on a cream background."
-      fetchpriority="high"
-      decoding="async"
-    />
+    <div class="logo-hero-frame">
+      <img
+        class="logo-hero-mark"
+        src={asset('images/untitled-design.png')}
+        width="1999"
+        height="1545"
+        alt="Woodstock Coffee & Bakeshop. WOODSTOCK in brown with a sunflower as the second O, a green leafy vine above, and Coffee & Bakeshop below, on a cream background."
+        fetchpriority="high"
+        decoding="async"
+      />
+    </div>
   </header>
 
   <section class="home-info">
@@ -82,7 +84,6 @@ const description =
             height="1082"
             alt="A floral shop graphic: the words Woodstock Coffee & Bakeshop curve around a sunflower marked WS, with flowers and butterflies on a brown ground."
           />
-          <RevolveBadge id="revolve-lockup" class="home-badge" />
         </figure>
       </div>
     </div>
