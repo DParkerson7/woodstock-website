@@ -9,7 +9,81 @@ const description =
   'Woodstock Coffee & Bakeshop, est. 2012, at 80 Innsdale Cv in Jackson, Tennessee. Coffee, custom cakes, and box lunches. Open Monday–Saturday, 9am–5pm.';
 ---
 
-<Base title={title} description={description} preload="images/storefront-doors.jpg">
+<Base title={title} description={description} preload="images/logo-woodstock-updated.png">
+  <section class="logo-hero">
+    <img
+      class="logo-hero-wash"
+      src={asset('images/storefront-facade.jpg')}
+      width="1800"
+      height="2399"
+      alt=""
+      aria-hidden="true"
+    />
+    <div class="logo-hero-inner">
+      <p class="seal" aria-label="Established 2012">
+        <span>Est.</span>
+        <strong>2012</strong>
+      </p>
+      <h1 class="visually-hidden">Woodstock Coffee &amp; Bakeshop</h1>
+      <img
+        class="logo-hero-mark"
+        src={asset('images/logo-woodstock-updated.png')}
+        width="1364"
+        height="569"
+        alt="Woodstock Coffee & Bakeshop. The word WOODSTOCK is brown, with a sunflower as the second O, a green leafy vine above, and Coffee & Bakeshop below."
+        fetchpriority="high"
+        decoding="async"
+      />
+      <p class="hero-lede">
+        Opened <time datetime={shop.opened}>{shop.openedLabel}</time>, on Innsdale Cove in Jackson, Tennessee.
+      </p>
+      <p class="hero-actions">
+        <a class="btn" href={shop.cakeForm}>Order a cake</a>
+        <a class="btn btn-ghost" href={shop.lunchForm}>Order a box lunch</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="home-info">
+    <h2 class="visually-hidden">Hours and contact</h2>
+    <dl class="hero-facts wrap">
+      <div>
+        <dt>Hours now</dt>
+        <dd>Mon–Sat 9am–5pm<br />Sunday closed</dd>
+      </div>
+      <div>
+        <dt>Visit</dt>
+        <dd>
+          <a href={shop.map}>{shop.street}<br />Jackson, TN 38305</a>
+        </dd>
+      </div>
+      <div>
+        <dt>Call</dt>
+        <dd><a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a></dd>
+      </div>
+      <div>
+        <dt>Email</dt>
+        <dd><a href={`mailto:${shop.email}`}>{shop.email}</a></dd>
+      </div>
+      <div>
+        <dt>Instagram</dt>
+        <dd><a href={shop.instagram}>{shop.instagramHandle}</a></dd>
+      </div>
+      <div>
+        <dt>Facebook</dt>
+        <dd><a href={shop.facebook}>Facebook</a></dd>
+      </div>
+      <div>
+        <dt>TikTok</dt>
+        <dd><a href={shop.tiktok}>TikTok</a></dd>
+      </div>
+    </dl>
+    <p class="hours-aside wrap">
+      These are today’s hours. Longer days are coming, and they are listed only on the
+      <a href={href('/expansion')}>Expansion</a> page.
+    </p>
+  </section>
+
   <section class="home-hero">
     <div class="home-stage">
       <figure class="home-doors">
@@ -18,7 +92,6 @@ const description =
           width="1600"
           height="2133"
           alt="Glass doors of the shop, with a neon Open sign, vintage chairs, and warm light inside."
-          fetchpriority="high"
           decoding="async"
         />
         <figcaption>The front doors, Suite A.</figcaption>
@@ -52,56 +125,7 @@ const description =
           />
           </div>
         </figure>
-        <div class="home-intro">
-          <div class="hero-brand">
-            <p class="seal" aria-label="Established 2012">
-              <span>Est.</span>
-              <strong>2012</strong>
-            </p>
-          </div>
-          <h1 class="wordmark">
-            <span class="wordmark-main">Woodstock</span>
-            <span class="wordmark-sub">Coffee &amp; Bakeshop</span>
-          </h1>
-          <p class="hero-lede">
-            Opened <time datetime={shop.opened}>{shop.openedLabel}</time>, on Innsdale Cove in Jackson, Tennessee.
-          </p>
-          <p class="hero-actions">
-            <a class="btn" href={shop.cakeForm}>Order a cake</a>
-            <a class="btn btn-ghost" href={shop.lunchForm}>Order a box lunch</a>
-          </p>
-        </div>
       </div>
-    </div>
-    <div class="home-facts">
-      <dl class="hero-facts wrap">
-        <div>
-          <dt>Hours now</dt>
-          <dd>Mon–Sat 9am–5pm<br />Sunday closed</dd>
-        </div>
-        <div>
-          <dt>Visit</dt>
-          <dd>
-            <a href={shop.map}>{shop.street}<br />Jackson, TN 38305</a>
-          </dd>
-        </div>
-        <div>
-          <dt>Call</dt>
-          <dd><a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a></dd>
-        </div>
-        <div>
-          <dt>Email</dt>
-          <dd><a href={`mailto:${shop.email}`}>{shop.email}</a></dd>
-        </div>
-        <div>
-          <dt>Instagram</dt>
-          <dd><a href={shop.instagram}>{shop.instagramHandle}</a></dd>
-        </div>
-      </dl>
-      <p class="hours-aside wrap">
-        These are today’s hours. Longer days are coming, and they are listed only on the
-        <a href={href('/expansion')}>Expansion</a> page.
-      </p>
     </div>
   </section>
 
