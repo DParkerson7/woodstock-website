@@ -210,10 +210,13 @@ p { text-wrap: pretty; }
 }
 
 .brand-name strong {
-  font-family: var(--serif);
-  font-weight: 620;
-  font-size: 1.12rem;
-  letter-spacing: -0.02em;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-synthesis: none;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-shadow: none;
 }
 
 .brand-name span {
