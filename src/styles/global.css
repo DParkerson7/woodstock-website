@@ -905,16 +905,23 @@ p { text-wrap: pretty; }
   max-width: 100%;
   padding-top: 0;
   padding-bottom: 1.15rem;
-  background: #c4bc86;
-  color: var(--brown);
+  background: #64663a;
+  color: var(--cream);
 }
 
 .home-make .wrap {
   padding-top: 1.35rem;
 }
 
-.home-make :is(.kicker, a, em, strong, .toc-num, .toc-go) {
-  color: var(--brown);
+.home-make :is(.kicker, a, em, strong, .toc-num, .toc-go),
+.home-make .toc a:hover,
+.home-make .toc a:hover strong {
+  color: var(--cream);
+}
+
+.home-make .toc,
+.home-make .toc a {
+  border-color: rgba(238, 224, 219, 0.38);
 }
 
 .home-make h2 {
