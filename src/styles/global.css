@@ -732,6 +732,37 @@ p { text-wrap: pretty; }
   overflow-wrap: anywhere;
 }
 
+@media (max-width: 860px) {
+  .home-info .revolve {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-info .hero-lede,
+  .home-info .hero-facts,
+  .home-info .hero-facts div,
+  .home-info .hours-aside {
+    text-align: center;
+  }
+
+  .home-info .hero-lede,
+  .home-info .hero-facts dt,
+  .home-info .hero-facts dd,
+  .home-info .hero-facts a,
+  .home-info .hours-aside {
+    font-weight: 700;
+  }
+
+  .home-info .hero-facts div {
+    grid-template-columns: 1fr;
+  }
+
+  .home-info .social-links,
+  .home-info .hero-actions {
+    justify-content: center;
+  }
+}
+
 .social-links {
   display: flex;
   justify-content: space-evenly;
