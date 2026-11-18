@@ -37,6 +37,10 @@ const description =
       <div>
         <dt>Hours now</dt>
         <dd>Mon–Sat 9am–5pm<br />Sunday closed</dd>
+        <p class="hours-aside">
+          These are today’s hours. Longer days are coming, and they are listed only on the{' '}
+          <a href={href('/expansion')}>Expansion</a>{' '}page.
+        </p>
       </div>
       <div>
         <dt>Visit</dt>
@@ -54,10 +58,6 @@ const description =
       </div>
     </dl>
     <SocialLinks />
-    <p class="hours-aside wrap">
-      These are today’s hours. Longer days are coming, and they are listed only on the
-      <a href={href('/expansion')}>Expansion</a> page.
-    </p>
     <p class="hero-actions wrap">
       <a class="btn" href={shop.cakeForm}>Order a cake</a>
       <a class="btn btn-ghost" href={shop.lunchForm}>Order a box lunch</a>

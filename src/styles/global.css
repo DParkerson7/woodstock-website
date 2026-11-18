@@ -472,6 +472,10 @@ p { text-wrap: pretty; }
   max-width: 34rem;
 }
 
+.hero-facts .hours-aside {
+  grid-column: 1 / -1;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
