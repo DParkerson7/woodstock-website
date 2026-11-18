@@ -9,43 +9,29 @@ const description =
   'Woodstock Coffee & Bakeshop, est. 2012, at 80 Innsdale Cv in Jackson, Tennessee. Coffee, custom cakes, and box lunches. Open Monday–Saturday, 9am–5pm.';
 ---
 
-<Base title={title} description={description} preload="images/logo-woodstock-updated.png">
-  <section class="logo-hero">
+<Base title={title} description={description} preload="images/untitled-design.png">
+  <header class="logo-hero">
+    <h1 class="visually-hidden">Woodstock Coffee &amp; Bakeshop</h1>
     <img
-      class="logo-hero-wash"
-      src={asset('images/storefront-facade.jpg')}
-      width="1800"
-      height="2399"
-      alt=""
-      aria-hidden="true"
+      class="logo-hero-mark"
+      src={asset('images/untitled-design.png')}
+      width="1999"
+      height="1545"
+      alt="Woodstock Coffee & Bakeshop. WOODSTOCK in brown with a sunflower as the second O, a green leafy vine above, and Coffee & Bakeshop below, on a cream background."
+      fetchpriority="high"
+      decoding="async"
     />
-    <div class="logo-hero-inner">
-      <p class="seal" aria-label="Established 2012">
-        <span>Est.</span>
-        <strong>2012</strong>
-      </p>
-      <h1 class="visually-hidden">Woodstock Coffee &amp; Bakeshop</h1>
-      <img
-        class="logo-hero-mark"
-        src={asset('images/logo-woodstock-updated.png')}
-        width="1364"
-        height="569"
-        alt="Woodstock Coffee & Bakeshop. The word WOODSTOCK is brown, with a sunflower as the second O, a green leafy vine above, and Coffee & Bakeshop below."
-        fetchpriority="high"
-        decoding="async"
-      />
-      <p class="hero-lede">
-        Opened <time datetime={shop.opened}>{shop.openedLabel}</time>, on Innsdale Cove in Jackson, Tennessee.
-      </p>
-      <p class="hero-actions">
-        <a class="btn" href={shop.cakeForm}>Order a cake</a>
-        <a class="btn btn-ghost" href={shop.lunchForm}>Order a box lunch</a>
-      </p>
-    </div>
-  </section>
+  </header>
 
   <section class="home-info">
     <h2 class="visually-hidden">Hours and contact</h2>
+    <p class="seal" aria-label="Established 2012">
+      <span>Est.</span>
+      <strong>2012</strong>
+    </p>
+    <p class="hero-lede wrap">
+      Opened <time datetime={shop.opened}>{shop.openedLabel}</time>, on Innsdale Cove in Jackson, Tennessee.
+    </p>
     <dl class="hero-facts wrap">
       <div>
         <dt>Hours now</dt>
@@ -81,6 +67,10 @@ const description =
     <p class="hours-aside wrap">
       These are today’s hours. Longer days are coming, and they are listed only on the
       <a href={href('/expansion')}>Expansion</a> page.
+    </p>
+    <p class="hero-actions wrap">
+      <a class="btn" href={shop.cakeForm}>Order a cake</a>
+      <a class="btn btn-ghost" href={shop.lunchForm}>Order a box lunch</a>
     </p>
   </section>
 
