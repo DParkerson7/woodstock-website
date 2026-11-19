@@ -425,10 +425,23 @@ const description =
         <p>
           First established in 2012 in Jackson, Tennessee, Woodstock met the community with something of its own.
         </p>
-        <figure class="pull">
-          <p>[Founders quote coming soon]</p>
-          <cite>From the founders</cite>
+        <figure class="pull pull-story">
+          <blockquote>
+            <p>
+              I made a ton of mistakes. It takes a long time and a lot of persistence to build a business. I'm a very competitive person, so I knew I was going to figure it out. I just didn't know how long it would take to figure it out. In the beginning, we would have days where ten or fifteen people would walk through the doors. Now it's a few hundred every day. You just have to hang in there for the first two or three years.
+            </p>
+          </blockquote>
+          <cite>Matt Childress, co-founder</cite>
         </figure>
+        <div class="dale-words">
+          <p class="dale-label">In Dale’s words</p>
+          <ul class="dale-bubbles">
+            <li>Anybody can sell a cupcake.</li>
+            <li>We inspire lives one box at a time.</li>
+            <li>It’s a great day to be alive.</li>
+          </ul>
+          <p class="dale-by">Dale Childress, co-founder</p>
+        </div>
         <p>
           Through the years, Woodstock made a name by generosity and genuine care. In late 2024, the shop came under new ownership. With love for the mission the previous owners instilled, Woodstock continues to make its bright and encouraging mark on the Jackson community.
         </p>
@@ -469,7 +482,7 @@ const description =
     </div>
   </section>
 
-  <section class="band section">
+  <section class="band section home-honey">
     <div class="wrap partner">
       <Shot
         src="images/mockups/honey-be-good-play-sketch.jpg"
@@ -477,19 +490,18 @@ const description =
         height="681"
         group="partner"
         alt="Pencil sketch of a play café: a wooden play structure with slides on the left, and a long row of tables on the right. The drawing reads Honey Be Good Family Cafe and Jackson’s first play café."
-        caption="Honey Be Good’s own sketch of the play space, shared here as neighbors."
       />
       <div>
-        <p class="kicker">Same building · opening 2027</p>
-        <h2>Honey Be Good is next door, and it is its own place.</h2>
+        <p class="kicker">Opening winter 2027</p>
+        <h2>Honey Be Good is Jackson’s FIRST family cafe</h2>
         <p>
-          Honey Be Good Family Cafe — play, sip, belong — is opening in 2027 at 80 Innsdale Cove, in the building with us. Parents will have a trusted room for safe, supervised play while coffee stays at Woodstock.
+          Play, sip, and belong. Honey Be Good is every parent’s dream. Visit{' '}
+          <a href={shop.honey} target="_blank" rel="noopener noreferrer">HoneyBeeGood.cafe</a>
+          {' '}to start your membership today!
         </p>
-        <p>
-          We are partners. We are not the same shop, and their memberships are theirs. If you want Honey Be Good, go to them.
-        </p>
-        <p>
-          <a class="btn btn-sun" href={shop.honey} target="_blank" rel="noopener noreferrer">Visit honeybeegood.cafe</a>
+        <p class="cluster">
+          <a class="btn" href={href('/expansion')}>Expansion page</a>
+          <a class="btn btn-sun" href={shop.honey} target="_blank" rel="noopener noreferrer">honeybeegood.cafe</a>
         </p>
       </div>
     </div>

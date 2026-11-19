@@ -1134,6 +1134,104 @@ p { text-wrap: pretty; }
   color: var(--cream);
 }
 
+.pull blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+.home-story .pull-story p {
+  font-family: var(--sans);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.dale-words {
+  margin: 0.3rem 0 1.35rem;
+}
+
+.dale-label,
+.dale-by {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--marigold);
+}
+
+.dale-by {
+  margin-top: 0.7rem;
+}
+
+.dale-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 0.55rem;
+  margin: 0.55rem 0 0;
+  padding: 0.15rem 0 0.45rem;
+  list-style: none;
+}
+
+.dale-bubbles li {
+  position: relative;
+  width: fit-content;
+  max-width: min(22rem, 100%);
+  margin: 0;
+  padding: 0.38rem 0.72rem 0.42rem;
+  border-radius: 1rem 1rem 1rem 0.3rem;
+  font-family: var(--script);
+  font-size: 1.28rem;
+  line-height: 1.15;
+  color: var(--brown);
+  background: var(--cream);
+}
+
+.dale-bubbles li::after {
+  content: "";
+  position: absolute;
+  left: 0.7rem;
+  bottom: -0.42rem;
+  border-width: 0.45rem 0.4rem 0 0;
+  border-style: solid;
+  border-color: var(--cream) transparent transparent transparent;
+}
+
+.dale-bubbles li:nth-child(1) {
+  transform: rotate(-1.6deg);
+}
+
+.dale-bubbles li:nth-child(2) {
+  background: var(--marigold);
+  transform: rotate(1.5deg);
+}
+
+.dale-bubbles li:nth-child(2)::after {
+  border-top-color: var(--marigold);
+}
+
+.dale-bubbles li:nth-child(3) {
+  background: var(--orange);
+  color: var(--cream);
+  transform: rotate(-0.7deg);
+}
+
+.dale-bubbles li:nth-child(3)::after {
+  border-top-color: var(--orange);
+}
+
+@media (max-width: 640px) {
+  .dale-bubbles li {
+    font-size: 1.18rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dale-bubbles li {
+    transform: none;
+  }
+}
+
 .lobby-title {
   margin-bottom: 0.1rem;
 }
@@ -1441,6 +1539,14 @@ p { text-wrap: pretty; }
   display: grid;
   gap: 1.4rem;
   align-items: center;
+}
+
+.home-honey {
+  padding-top: 0;
+}
+
+.home-honey .partner {
+  padding-top: clamp(1.7rem, 4vw, 3rem);
 }
 
 @media (min-width: 860px) {
