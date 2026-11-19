@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Shot from '../components/Shot.astro';
 import RevolveBadge from '../components/RevolveBadge.astro';
 import SocialLinks from '../components/SocialLinks.astro';
+import VineRule from '../components/VineRule.astro';
 import { shop } from '../data/site';
 import { asset, href } from '../lib/url';
 
@@ -57,6 +58,7 @@ const description =
   </header>
 
   <section class="home-info">
+    <VineRule />
     <h2 class="visually-hidden">Hours and contact</h2>
     <RevolveBadge id="revolve-info" />
     <p class="hero-lede wrap">
@@ -87,6 +89,7 @@ const description =
       </div>
     </dl>
     <SocialLinks />
+    <VineRule flip />
   </section>
 
   <section class="home-orders">
@@ -116,7 +119,8 @@ const description =
   </section>
 
   <section class="section home-make">
-    <div class="wrap">
+    <div class="wrap home-make-stage">
+      <div class="home-make-copy">
       <h2>What we make</h2>
       <ol class="toc">
         <li>
@@ -160,6 +164,23 @@ const description =
           </a>
         </li>
       </ol>
+      </div>
+      <figure class="make-loop">
+        <video
+          class="ambient"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster={asset('images/what-we-make-loop-poster.jpg')}
+          width="608"
+          height="1080"
+          aria-label="A gloved hand spreading pale pink frosting over a layer cake on a gold turntable."
+        >
+          <source src={asset('media/what-we-make-loop.mp4')} type="video/mp4" />
+        </video>
+      </figure>
     </div>
     <div class="make-marquee" tabindex="0" aria-label="Photos from the shop">
       <div class="make-marquee-track">
@@ -281,18 +302,116 @@ const description =
 
   <section class="section lobby-section" style="padding-top:0">
     <div class="wrap">
-      <p class="kicker">The lobby</p>
-      <h2>Step inside.</h2>
-      <div class="lobby">
-        <figure class="lobby-frame lobby-wall">
-          <img
-            src={asset('images/interior-gallery-wall.jpg')}
-            width="1600"
-            height="1902"
-            alt="A teal wall covered with framed pictures, woven pendant lamps, a rust-colored sofa, and a basket of chip bags."
-            loading="lazy"
-          />
-          <figcaption>The gallery wall. Vintage frames, warm lamps, and a basket of Miss Vickie’s.</figcaption>
+      <h2 class="lobby-title">Step inside</h2>
+      <p class="lobby-sub">the lobby</p>
+      <div class="lobby-collage">
+        <figure class="lobby-item mat-teal">
+          <a
+            href={asset('images/interior-gallery-wall.jpg')}
+            data-lightbox
+            data-group="lobby"
+            data-src={asset('images/interior-gallery-wall.jpg')}
+            data-alt="A teal wall covered with framed pictures, woven pendant lamps, a rust-colored sofa, and a basket of chip bags."
+            data-caption="The gallery wall."
+          >
+            <img
+              src={asset('images/interior-gallery-wall.jpg')}
+              width="1600"
+              height="1902"
+              alt="A teal wall covered with framed pictures, woven pendant lamps, a rust-colored sofa, and a basket of chip bags."
+              loading="lazy"
+            />
+            <span class="enlarge">Enlarge</span>
+          </a>
+        </figure>
+        <figure class="lobby-item mat-gold">
+          <a
+            href={asset('images/lobby-jukebox.jpg')}
+            data-lightbox
+            data-group="lobby"
+            data-src={asset('images/lobby-jukebox.jpg')}
+            data-alt="A vintage jukebox with rainbow trim beside a window in the shop."
+            data-caption="The jukebox by the window."
+          >
+            <img
+              src={asset('images/lobby-jukebox.jpg')}
+              width="1350"
+              height="1800"
+              alt="A vintage jukebox with rainbow trim beside a window in the shop."
+              loading="lazy"
+            />
+            <span class="enlarge">Enlarge</span>
+          </a>
+        </figure>
+        <figure class="lobby-item mat-rust">
+          <a
+            href={asset('images/lobby-sofa.jpg')}
+            data-lightbox
+            data-group="lobby"
+            data-src={asset('images/lobby-sofa.jpg')}
+            data-alt="Two women holding coffee mugs on the rust-colored sofa beneath the teal gallery wall."
+            data-caption="Coffee on the rust sofa."
+          >
+            <img
+              src={asset('images/lobby-sofa.jpg')}
+              width="1350"
+              height="1800"
+              alt="Two women holding coffee mugs on the rust-colored sofa beneath the teal gallery wall."
+              loading="lazy"
+            />
+            <span class="enlarge">Enlarge</span>
+          </a>
+        </figure>
+        <figure class="lobby-item mat-brown">
+          <a
+            href={asset('images/lobby-doors.jpg')}
+            data-lightbox
+            data-group="lobby"
+            data-src={asset('images/lobby-doors.jpg')}
+            data-alt="Glass double doors with sunflower decals and the letters WS, and a Suite A sign above them."
+            data-caption="The front doors."
+          >
+            <img
+              src={asset('images/lobby-doors.jpg')}
+              width="1350"
+              height="1800"
+              alt="Glass double doors with sunflower decals and the letters WS, and a Suite A sign above them."
+              loading="lazy"
+            />
+            <span class="enlarge">Enlarge</span>
+          </a>
+        </figure>
+        <figure class="lobby-item mat-dust">
+          <video
+            class="ambient"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster={asset('images/lobby-seating-poster.jpg')}
+            width="608"
+            height="1080"
+            aria-label="A silent loop of the seating area, looking across the lobby and toward the entrance."
+          >
+            <source src={asset('media/lobby-seating.mp4')} type="video/mp4" />
+          </video>
+        </figure>
+        <figure class="lobby-item mat-teal">
+          <video
+            class="ambient"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster={asset('images/lobby-polaroids-poster.jpg')}
+            width="608"
+            height="1080"
+            aria-label="A silent loop through the lobby, including the gallery wall and the cork Polaroid wall."
+          >
+            <source src={asset('media/lobby-polaroids.mp4')} type="video/mp4" />
+          </video>
         </figure>
       </div>
     </div>
@@ -304,21 +423,22 @@ const description =
         <p class="kicker">Since 2012</p>
         <h2>A neighborhood bakery, still on the same cove.</h2>
         <p>
-          First established in 2012, in Jackson, Tennessee, Woodstock met the community with something of its own.
-          Matt Childress and his father, Dale Childress, founded the shop. Dale suggested the name.
+          First established in 2012 in Jackson, Tennessee, Woodstock met the community with something of its own.
         </p>
         <figure class="pull">
-          <p>
-            Woodstock proved that a unique and nostalgic aesthetic, as well as a Christ-centered mission, would bring smiles to the faces of all who stepped through the doors.
-          </p>
-          <cite>From the shop’s own account of its founding</cite>
+          <p>[Founders quote coming soon]</p>
+          <cite>From the founders</cite>
         </figure>
         <p>
-          Through the years, Woodstock made a name by generosity and genuine care. In late 2024 the shop came under new ownership by David, April, and Elena Parkerson. With love for the mission the previous owners instilled, the Parkersons continued the heart of Woodstock while bringing back the vintage element customers find so inviting.
+          Through the years, Woodstock made a name by generosity and genuine care. In late 2024, the shop came under new ownership. With love for the mission the previous owners instilled, Woodstock continues to make its bright and encouraging mark on the Jackson community.
         </p>
         <p>
-          From the street you can see lively color and warm light. Inside, the furniture is vintage and comfortable: a place for studying, reading, and chatting. The shop is right off Vann Drive.
+          The mission is to serve. Whether it be providing an environment for relationships to grow, offering encouragement to those hurting, or simply a warm smile, let it all be to the glory of God.
         </p>
+        <figure class="pull">
+          <p>[Owner quote coming soon]</p>
+          <cite>From the current owner</cite>
+        </figure>
       </div>
       <Shot
         src="images/storefront-facade.jpg"
@@ -336,14 +456,14 @@ const description =
         src="images/elena-parkerson.jpg"
         width="1500"
         height="2026"
-        group="home"
         alt="Elena Parkerson standing in front of the teal gallery wall at Woodstock."
+        enlarge={false}
       />
       <div class="prose">
         <p class="kicker">Owner / operator</p>
         <h2>Meet the owner/operator, Elena Parkerson.</h2>
         <p>
-          Elena runs Woodstock day to day. She and her family took over the shop in late 2024, keeping the Christ-centered heart that Matt and Dale Childress built in 2012 and bringing back the nostalgic, vintage feel that makes the rooms so easy to settle into: the vintage furniture, the warm lights, and the teal gallery wall. From the lattes to the custom cakes to the notes tucked inside every box lunch, she's the reason the shop still feels like Woodstock.
+          At just 18 years old, Elena had two options: college or entrepreneurship. Although the risk was high, she took a leap of faith. Through the encouragement and support of her family, Woodstock gained its newest and youngest owner in late 2024. For her first two years of ownership, she carried the courageous attitude she started with, learning, growing, and making mistakes along the way. Now, at 20 years old, she's taking her biggest risk yet: expanding the business! A partnership with a start-up business is underway. From the beginning, Elena has thanked God every day for the faith, love, and hope it takes to take risks, and for all of the endless opportunities ahead.
         </p>
       </div>
     </div>
@@ -411,4 +531,40 @@ const description =
       </div>
     </div>
   </section>
+  <script>
+    const ambient = Array.from(document.querySelectorAll<HTMLVideoElement>('video.ambient'));
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const poster = (video: HTMLVideoElement) => {
+      const source = video.querySelector('source');
+      const src = video.dataset.src || source?.src || '';
+      if (src) video.dataset.src = src;
+      video.pause();
+      video.autoplay = false;
+      video.removeAttribute('autoplay');
+      source?.remove();
+      video.removeAttribute('src');
+      video.load();
+    };
+
+    const play = (video: HTMLVideoElement) => {
+      const src = video.dataset.src;
+      if (src && !video.querySelector('source')) {
+        const source = document.createElement('source');
+        source.src = src;
+        source.type = 'video/mp4';
+        video.append(source);
+        video.autoplay = true;
+        video.load();
+      }
+      video.play().catch(() => {});
+    };
+
+    const applyMotion = () => {
+      ambient.forEach((video) => (motion.matches ? poster(video) : play(video)));
+    };
+
+    applyMotion();
+    motion.addEventListener('change', applyMotion);
+  </script>
 </Base>

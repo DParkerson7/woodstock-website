@@ -1,0 +1,32 @@
+---
+interface Props {
+  flip?: boolean;
+}
+
+const { flip = false } = Astro.props;
+/** A short repeating stem so the rule can tile across the blue band. */
+const leaves = [
+  { x: 46, y: 15, d: 'M0 2c7-10 16-7 12 2-6 1-10 3-12-2z' },
+  { x: 98, y: 22, d: 'M0 0c-8 8-16 5-11-3 6-1 9-2 11 3z' },
+  { x: 146, y: 14, d: 'M0 3c8-9 16-5 11 3-6 1-9 2-11-3z' },
+];
+---
+
+<div class:list={['vine', { 'vine-flip': flip }]} aria-hidden="true">
+  {
+    Array.from({ length: 12 }, () => (
+      <svg viewBox="0 0 180 36" width="180" height="36" focusable="false">
+        <path
+          d="M0 20C30 8 60 32 90 20s60-12 90 0"
+          fill="none"
+          stroke="#6b7030"
+          stroke-width="1.15"
+          stroke-linecap="round"
+        />
+        {leaves.map((leaf) => (
+          <path d={leaf.d} fill="#6b7030" transform={`translate(${leaf.x} ${leaf.y})`} />
+        ))}
+      </svg>
+    ))
+  }
+</div>

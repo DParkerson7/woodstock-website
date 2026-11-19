@@ -9,34 +9,48 @@ interface Props {
   height: number;
   group?: string;
   eager?: boolean;
+  enlarge?: boolean;
 }
 
-const { src, alt, caption, width, height, group = 'gallery', eager = false } = Astro.props;
+const { src, alt, caption, width, height, group = 'gallery', eager = false, enlarge = true } = Astro.props;
 const full = asset(src);
 const capId = `cap-${src.replace(/[^a-z0-9]+/gi, '-')}`;
 ---
 
 <figure class="shot">
-  <a
-    class="shot-open"
-    href={full}
-    data-lightbox
-    data-group={group}
-    data-src={full}
-    data-alt={alt}
-    data-caption={caption ?? alt}
-    aria-haspopup="dialog"
-    aria-describedby={caption ? capId : undefined}
-  >
-    <img
-      src={full}
-      alt={alt}
-      width={width}
-      height={height}
-      loading={eager ? 'eager' : 'lazy'}
-      decoding="async"
-    />
-    <span class="enlarge">Enlarge</span>
-  </a>
+  {enlarge ? (
+    <a
+      class="shot-open"
+      href={full}
+      data-lightbox
+      data-group={group}
+      data-src={full}
+      data-alt={alt}
+      data-caption={caption ?? alt}
+      aria-haspopup="dialog"
+      aria-describedby={caption ? capId : undefined}
+    >
+      <img
+        src={full}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+      />
+      <span class="enlarge">Enlarge</span>
+    </a>
+  ) : (
+    <div class="shot-still">
+      <img
+        src={full}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+      />
+    </div>
+  )}
   {caption && <figcaption id={capId}>{caption}</figcaption>}
 </figure>

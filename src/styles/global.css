@@ -700,14 +700,51 @@ p { text-wrap: pretty; }
 }
 
 .home-info {
+  position: relative;
   background: var(--dust);
   color: var(--brown);
   box-sizing: border-box;
-  padding-top: 0.5rem;
-  padding-bottom: 0.85rem;
+  padding-top: 2.35rem;
+  padding-bottom: 2.15rem;
   padding-left: max(1.5rem, env(safe-area-inset-left, 0px));
   padding-right: max(1.5rem, env(safe-area-inset-right, 0px));
   overflow-x: clip;
+}
+
+.vine {
+  display: flex;
+  justify-content: center;
+  height: 2.25rem;
+  margin-left: calc(-1 * max(1.5rem, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(1.5rem, env(safe-area-inset-right, 0px)));
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.vine svg {
+  flex: 0 0 180px;
+  width: 180px;
+  height: 2.25rem;
+}
+
+.vine-flip {
+  transform: scaleY(-1);
+}
+
+.home-info > .vine:first-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+}
+
+.home-info > .vine:last-child {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
 }
 
 .home-info .wrap,
@@ -924,8 +961,52 @@ p { text-wrap: pretty; }
   max-width: none;
   margin: 0.15rem auto 1.15rem;
   text-align: center;
-  font-size: clamp(2.75rem, 7vw, 4.6rem);
+  font-size: clamp(2.55rem, 5.4vw, 4rem);
   line-height: 1.05;
+}
+
+.home-make-stage {
+  display: grid;
+  gap: 1.15rem;
+  align-items: center;
+}
+
+.make-loop {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.45rem;
+  background: var(--cream);
+  border-radius: 1.35rem;
+  box-shadow: 0 14px 32px rgba(28, 26, 23, 0.22);
+}
+
+.make-loop video {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 70vh;
+  border-radius: 0.95rem;
+  background: #3c3e28;
+}
+
+@media (min-width: 860px) {
+  .home-make-stage {
+    grid-template-columns: minmax(0, 1.2fr) minmax(15rem, 22rem);
+    gap: 1.25rem 2rem;
+    align-items: center;
+  }
+
+  .make-loop {
+    justify-self: end;
+  }
+
+  .make-loop video {
+    max-height: min(70vh, 34rem);
+  }
 }
 
 .make-marquee {
@@ -1033,7 +1114,8 @@ p { text-wrap: pretty; }
 
 .lobby-section {
   background: var(--cream);
-  padding-bottom: 0;
+  padding-bottom: clamp(1.6rem, 4vw, 2.8rem);
+  overflow: visible;
 }
 
 .home-story {
@@ -1044,47 +1126,77 @@ p { text-wrap: pretty; }
   padding-top: clamp(1.6rem, 4vw, 2.8rem);
 }
 
-.lobby {
-  display: grid;
-  gap: 1.1rem;
-  margin-top: 1.2rem;
+.home-story .pull {
+  border-left-color: var(--marigold);
 }
 
-.lobby-frame {
+.home-story .pull cite {
+  color: var(--cream);
+}
+
+.lobby-title {
+  margin-bottom: 0.1rem;
+}
+
+.lobby-sub {
   margin: 0;
-  padding: 0.7rem 0.7rem 0.85rem;
-  border-radius: 1.2rem;
+  font-family: var(--script);
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+  line-height: 1;
+  color: var(--brown);
 }
 
-.lobby-frame img {
+.lobby-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  align-items: start;
+}
+
+.lobby-item {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  padding: 0.42rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 10px 22px rgba(100, 59, 37, 0.14);
+}
+
+.lobby-item a {
+  position: relative;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.lobby-item img,
+.lobby-item video {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  border-radius: 7.5rem 7.5rem 0.8rem 0.8rem;
+  border-radius: 0.12rem;
+  background: #2a241f;
 }
 
-.lobby-frame figcaption {
-  margin: 0.65rem 0.2rem 0;
-  font-size: 0.95rem;
+.lobby-item video {
+  aspect-ratio: 9 / 16;
 }
 
-.lobby-wall {
-  background: var(--brown);
-  color: var(--cream);
+.lobby-item .enlarge {
+  right: 0.35rem;
+  bottom: 0.35rem;
+  font-size: 0.72rem;
+  padding: 0.18rem 0.4rem;
 }
 
-.lobby-juke {
-  background: var(--marigold);
-  color: var(--brown);
-  transform: rotate(1.1deg);
-}
-
-.lobby-merch {
-  background: var(--teal);
-  color: var(--cream);
-  transform: rotate(-1.1deg);
-}
+.mat-teal { background: #236e77; }
+.mat-gold { background: #f1be64; }
+.mat-rust { background: #bc4d28; }
+.mat-brown { background: #643b25; }
+.mat-dust { background: #a9c1c3; }
 
 @media (min-width: 900px) {
   .home-facts .hero-facts {
@@ -1097,33 +1209,53 @@ p { text-wrap: pretty; }
     gap: 0.2rem;
   }
 
-  .lobby {
-    grid-template-columns: 1.15fr 0.85fr;
-    align-items: start;
+  .lobby-collage {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 1.35rem 0.85rem;
   }
 
-  .lobby-wall {
-    grid-row: 1 / span 2;
+  .lobby-item {
+    padding: 0.55rem;
   }
 
-  .lobby-wall img {
-    aspect-ratio: 3 / 4.15;
+  .lobby-collage .lobby-item:nth-child(1) {
+    grid-column: span 4;
+    transform: rotate(-1.15deg);
+    z-index: 1;
+  }
+
+  .lobby-collage .lobby-item:nth-child(2) {
+    grid-column: span 3;
+    margin-top: 2.1rem;
+    transform: rotate(1.3deg);
+    z-index: 2;
+  }
+
+  .lobby-collage .lobby-item:nth-child(3) {
+    grid-column: span 5;
+    transform: rotate(-0.7deg);
+  }
+
+  .lobby-collage .lobby-item:nth-child(4) {
+    grid-column: span 4;
+    transform: rotate(0.85deg);
+  }
+
+  .lobby-collage .lobby-item:nth-child(5) {
+    grid-column: span 4;
+    margin-top: 0.9rem;
+    transform: rotate(-1.05deg);
+    z-index: 2;
+  }
+
+  .lobby-collage .lobby-item:nth-child(6) {
+    grid-column: span 4;
+    transform: rotate(0.65deg);
   }
 }
 
-.lobby-section .lobby {
-  grid-template-columns: minmax(0, 36rem);
-  justify-content: center;
-}
-
-.lobby-section .lobby-wall {
-  grid-row: auto;
-  width: 100%;
-}
-
-@media (max-width: 899px) {
-  .lobby-juke,
-  .lobby-merch {
+@media (prefers-reduced-motion: reduce) {
+  .lobby-item {
     transform: none;
   }
 }
@@ -1200,10 +1332,18 @@ p { text-wrap: pretty; }
   box-shadow: var(--shadow);
 }
 
-.shot-open img {
+.shot-open img,
+.shot-still img {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.shot-still {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: var(--dust);
+  box-shadow: var(--shadow);
 }
 
 .enlarge {
