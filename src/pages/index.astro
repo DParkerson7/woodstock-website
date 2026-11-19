@@ -3,7 +3,6 @@ import Base from '../layouts/Base.astro';
 import Shot from '../components/Shot.astro';
 import RevolveBadge from '../components/RevolveBadge.astro';
 import SocialLinks from '../components/SocialLinks.astro';
-import VineRule from '../components/VineRule.astro';
 import { shop } from '../data/site';
 import { asset, href } from '../lib/url';
 
@@ -30,6 +29,10 @@ const makeStrip = [
   { code: '2272', width: 1200, height: 1600, alt: 'Mini cupcakes with white frosting, purple daisies, and sprigs of baby’s breath on a white tray.' },
   { code: '2083', width: 1200, height: 1600, alt: 'A box of cupcakes piped as pink roses and red and mauve flowers with green centers.' },
   { code: '0965', width: 1200, height: 1600, alt: 'A large chocolate chip cookie cake bordered with pink and white frosting and lettered Happy Birthday.' },
+  { code: '3772', width: 1350, height: 1800, alt: 'Overhead view of a latte in a white mug with a small heart in the foam, on a wood table.' },
+  { code: '3781', width: 1350, height: 1800, alt: 'Overhead view of a latte in a white mug with a larger, fuller heart in the foam, on a wood table.' },
+  { code: '2a36', width: 1350, height: 1800, alt: 'A hand holding a foamy iced drink in a mason jar outdoors, with trees and a playhouse behind it.' },
+  { code: '1-2', width: 1080, height: 1350, alt: 'An iced caramel drink in a tall glass, with the shop address and phone number printed on the photo.' },
 ].map((photo) => ({
   ...photo,
   src: `images/strip/strip-${photo.code}.jpg`,
@@ -58,7 +61,6 @@ const description =
   </header>
 
   <section class="home-info">
-    <VineRule />
     <h2 class="visually-hidden">Hours and contact</h2>
     <RevolveBadge id="revolve-info" />
     <p class="hero-lede wrap">
@@ -89,7 +91,6 @@ const description =
       </div>
     </dl>
     <SocialLinks />
-    <VineRule flip />
   </section>
 
   <section class="home-orders">
@@ -195,7 +196,6 @@ const description =
                     data-group="make"
                     data-src={asset(photo.src)}
                     data-alt={photo.alt}
-                    data-caption={photo.alt}
                   >
                     <img
                       src={asset(photo.thumb)}
@@ -312,7 +312,6 @@ const description =
             data-group="lobby"
             data-src={asset('images/interior-gallery-wall.jpg')}
             data-alt="A teal wall covered with framed pictures, woven pendant lamps, a rust-colored sofa, and a basket of chip bags."
-            data-caption="The gallery wall."
           >
             <img
               src={asset('images/interior-gallery-wall.jpg')}
@@ -331,7 +330,6 @@ const description =
             data-group="lobby"
             data-src={asset('images/lobby-jukebox.jpg')}
             data-alt="A vintage jukebox with rainbow trim beside a window in the shop."
-            data-caption="The jukebox by the window."
           >
             <img
               src={asset('images/lobby-jukebox.jpg')}
@@ -350,7 +348,6 @@ const description =
             data-group="lobby"
             data-src={asset('images/lobby-sofa.jpg')}
             data-alt="Two women holding coffee mugs on the rust-colored sofa beneath the teal gallery wall."
-            data-caption="Coffee on the rust sofa."
           >
             <img
               src={asset('images/lobby-sofa.jpg')}
@@ -369,7 +366,6 @@ const description =
             data-group="lobby"
             data-src={asset('images/lobby-doors.jpg')}
             data-alt="Glass double doors with sunflower decals and the letters WS, and a Suite A sign above them."
-            data-caption="The front doors."
           >
             <img
               src={asset('images/lobby-doors.jpg')}
@@ -420,7 +416,6 @@ const description =
   <section class="section block-teal home-story">
     <div class="wrap split">
       <div class="prose">
-        <p class="kicker">Since 2012</p>
         <h2>A neighborhood bakery, still on the same cove.</h2>
         <p>
           First established in 2012 in Jackson, Tennessee, Woodstock met the community with something of its own.
@@ -445,11 +440,8 @@ const description =
         <p>
           Through the years, Woodstock made a name by generosity and genuine care. In late 2024, the shop came under new ownership. With love for the mission the previous owners instilled, Woodstock continues to make its bright and encouraging mark on the Jackson community.
         </p>
-        <p>
-          The mission is to serve. Whether it be providing an environment for relationships to grow, offering encouragement to those hurting, or simply a warm smile, let it all be to the glory of God.
-        </p>
-        <figure class="pull">
-          <p>[Owner quote coming soon]</p>
+        <figure class="pull pull-story">
+          <p>The mission is to serve. Whether it be providing an environment for relationships to grow, offering encouragement to those hurting, or simply a warm smile, let it all be to the glory of God.</p>
           <cite>From the current owner</cite>
         </figure>
       </div>
@@ -459,6 +451,7 @@ const description =
         height="2399"
         group="home"
         alt="The Woodstock storefront at 80 Innsdale Cove: a white facade, a sunflower sign with the letters WS, and a neon Open sign in the window."
+        caption=""
       />
     </div>
   </section>
@@ -473,7 +466,6 @@ const description =
         enlarge={false}
       />
       <div class="prose">
-        <p class="kicker">Owner / operator</p>
         <h2>Meet the owner/operator, Elena Parkerson.</h2>
         <p>
           At just 18 years old, Elena had two options: college or entrepreneurship. Although the risk was high, she took a leap of faith. Through the encouragement and support of her family, Woodstock gained its newest and youngest owner in late 2024. For her first two years of ownership, she carried the courageous attitude she started with, learning, growing, and making mistakes along the way. Now, at 20 years old, she's taking her biggest risk yet: expanding the business! A partnership with a start-up business is underway. From the beginning, Elena has thanked God every day for the faith, love, and hope it takes to take risks, and for all of the endless opportunities ahead.
@@ -508,40 +500,22 @@ const description =
   </section>
 
   <section class="chapter-tease" aria-labelledby="chapter-title">
-    <img
-      src={asset('images/mockups/coffee-bar-render-people.jpg')}
-      width="1280"
-      height="720"
-      alt="Concept rendering of a future coffee bar with a teal counter, pastry case, and people gathered around it. A design study, not a photograph, and the people are not our staff."
-      loading="lazy"
-    />
     <div class="chapter-tease-copy">
-      <p class="kicker">A chapter, not a banner</p>
       <h2 id="chapter-title">The Woodstock you love is staying.</h2>
       <p>
-        New things are on the horizon: a coffee bar with room to spread out, more places to sit, and the play café beside us. The picture is a study for that room. It is not a photograph of a finished build, and the figures are not our team.
+        New things are on the horizon! A new coffee bar, more room to spread out, more places to sit, and the play space beside us. The picture you see is a general mock-up of what's to come!
       </p>
       <p>
-        <a class="btn btn-sun" href={href('/expansion')}>Read the expansion chapter</a>
+        <a class="btn btn-sun" href={href('/expansion')}>Expansion page</a>
       </p>
     </div>
-  </section>
-
-  <section class="section block-dust">
-    <div class="wrap">
-      <div class="prose">
-        <p class="kicker">Come by</p>
-        <h2>80 Innsdale Cove, Suite A.</h2>
-        <p>
-          {shop.neighborhood} Monday through Saturday we are open 9am to 5pm. Sunday the door is closed. If you need a cake or a stack of box lunches, the order forms are the same ones the shop uses today, or you can call {shop.phoneDisplay}.
-        </p>
-        <p class="cluster">
-          <a class="btn" href={`tel:${shop.phoneTel}`}>Call the shop</a>
-          <a class="btn btn-ghost" href={shop.map}>Map</a>
-          <a class="btn btn-ghost" href={shop.instagram}>Instagram</a>
-        </p>
-      </div>
-    </div>
+    <img
+      src={asset('images/staying-3510.jpg')}
+      width="1280"
+      height="720"
+      alt="Pencil sketch mock-up of the new coffee bar."
+      loading="lazy"
+    />
   </section>
   <script>
     const ambient = Array.from(document.querySelectorAll<HTMLVideoElement>('video.ambient'));
