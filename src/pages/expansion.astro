@@ -11,7 +11,8 @@ const description =
 ---
 
 <Base title={title} description={description}>
-  <header class="page-hero">
+  <!-- Section 1: The Woodstock you love is staying -->
+  <header class="page-hero" data-section="1">
     <div class="wrap">
       <p class="kicker">The next chapter</p>
       <h1>The Woodstock you love is staying.</h1>
@@ -21,14 +22,16 @@ const description =
     </div>
   </header>
 
-  <section class="section">
+  <!-- Section 2: Coffee bar studies -->
+  <section class="section" data-section="2">
     <div class="wrap study-grid pair">
       <Shot {...studies[0]} group="studies" eager />
       <Shot {...studies[1]} group="studies" />
     </div>
   </section>
 
-  <section class="section block-marigold" style="padding-top:0">
+  <!-- Section 3: More of the day, and upcoming hours -->
+  <section class="section block-marigold" data-section="3" style="padding-top:0">
     <div class="wrap split">
       <div>
         <p class="kicker">What we are making room for</p>
@@ -55,7 +58,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- Section 4: Woodstock after hours -->
+  <section class="section" data-section="4" style="padding-top:0">
     <div class="wrap">
       <div class="note-card">
         <p class="kicker">Woodstock after hours</p>
@@ -67,7 +71,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- Section 5: A ceiling study -->
+  <section class="section" data-section="5" style="padding-top:0">
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">Light</p>
@@ -81,7 +86,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- Section 6: Honey-yellow sketches -->
+  <section class="section" data-section="6" style="padding-top:0">
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">Pencil</p>
@@ -94,7 +100,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- Section 7: Coffee station, floor plan v3 -->
+  <section class="section" data-section="7" style="padding-top:0">
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">Plan</p>
@@ -124,7 +131,8 @@ const description =
     </div>
   </section>
 
-  <section class="band section">
+  <!-- Section 8: Honey Be Good -->
+  <section class="band section" data-section="8">
     <div class="wrap partner">
       <Shot
         src="images/mockups/honey-be-good-play-sketch.jpg"
@@ -148,7 +156,8 @@ const description =
     </div>
   </section>
 
-  <section class="section block-teal">
+  <!-- Section 9: Come during the hours on the door -->
+  <section class="section block-teal" data-section="9">
     <div class="wrap split">
       <Shot
         src="images/storefront-facade.jpg"

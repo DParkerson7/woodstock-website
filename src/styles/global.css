@@ -860,7 +860,7 @@ p { text-wrap: pretty; }
   background: var(--cream);
   color: var(--brown);
   box-sizing: border-box;
-  padding: 1.2rem max(1.5rem, env(safe-area-inset-right, 0px)) 1.4rem max(1.5rem, env(safe-area-inset-left, 0px));
+  padding: calc(1.2rem + 0.72rem) max(1.5rem, env(safe-area-inset-right, 0px)) 1.4rem max(1.5rem, env(safe-area-inset-left, 0px));
 }
 
 .home-orders-grid {
@@ -2263,7 +2263,7 @@ dialog.lightbox::backdrop {
   display: none;
 }
 
-.cafe-hero h1 {
+.pop-hero h1 {
   max-width: none;
   margin: 0.1rem 0 0.85rem;
   font-size: clamp(4.4rem, 13vw, 8rem);
@@ -2273,6 +2273,20 @@ dialog.lightbox::backdrop {
     0.045em 0.045em 0 #f1be64,
     0.09em 0.09em 0 #bc4d28,
     0.135em 0.135em 0 #236e77;
+}
+
+.pop-hero::before {
+  display: none;
+}
+
+@media (min-width: 860px) {
+  .cafe-hero .wrap {
+    text-align: center;
+  }
+
+  .cafe-hero .lede {
+    margin-inline: auto;
+  }
 }
 
 .cafe-hero .lede {
@@ -2301,15 +2315,54 @@ dialog.lightbox::backdrop {
   padding-top: clamp(2rem, 5vw, 3.4rem);
 }
 
-.owner-flourish {
-  margin-top: 1.4rem;
-  max-width: 26rem;
+.owner-mark {
+  display: block;
+  width: min(18rem, 78%);
+  height: auto;
+  margin-top: 1.35rem;
+  background: transparent;
 }
 
-.owner-flourish svg {
-  display: block;
-  width: 100%;
-  height: auto;
+.home-established {
+  position: relative;
+  background: var(--dust);
+  color: var(--brown);
+  text-align: center;
+  padding: clamp(2rem, 5vw, 3rem) var(--gutter) clamp(1.7rem, 4vw, 2.5rem);
+}
+
+.home-established::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.72rem;
+  background: var(--stripe);
+}
+
+.home-established .hero-lede {
+  margin: 0.35rem auto 0;
+  max-width: 36rem;
+}
+
+.section.home-make::before {
+  display: none;
+}
+
+.home-orders {
+  position: relative;
+}
+
+.home-orders::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 0.72rem;
+  background: var(--stripe);
+  pointer-events: none;
 }
 
 .story-side .dale-words {
@@ -2340,6 +2393,24 @@ dialog.lightbox::backdrop {
   background: #eee0db;
   color: #643b25;
   font-weight: 650;
+}
+
+.cafe-share-lead {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4.6vw, 3.45rem);
+  line-height: 1.02;
+  margin: 0 0 1.15rem;
+  color: var(--cream);
+}
+
+.cafe-share-art {
+  margin-top: 1.5rem;
+}
+
+.cafe-share-art svg {
+  display: block;
+  width: min(100%, 24rem);
+  height: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {

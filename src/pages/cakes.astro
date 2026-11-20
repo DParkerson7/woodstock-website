@@ -9,12 +9,12 @@ const description =
 ---
 
 <Base title={title} description={description}>
-  <header class="page-hero">
+  <!-- Section 1: Cakes -->
+  <header class="page-hero pop-hero" data-section="1">
     <div class="wrap">
-      <p class="kicker">The bench</p>
       <h1>Cakes</h1>
       <p class="lede">
-        Custom cakes from the Woodstock kitchen. Order on the form the shop already uses. Tell us the date and the size. We will confirm the rest with you — including flavor, which is not published as a full list yet.
+        Woodstock is known for our affordable, delicious, custom cakes. With a growing team of decorators, expanding flavor options, and genuine love, our mission is to make the process of ordering with us… a piece of cake!
       </p>
       <p class="hero-actions">
         <a class="btn" href={shop.cakeForm}>Order a cake</a>
@@ -23,7 +23,8 @@ const description =
     </div>
   </header>
 
-  <section class="section block-marigold">
+  <!-- Section 2: Base prices -->
+  <section class="section block-marigold" data-section="2">
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">Sizes</p>
@@ -42,7 +43,8 @@ const description =
     </div>
   </section>
 
-  <section class="section block-dust" style="padding-top:0">
+  <!-- Section 3: Four priced designs -->
+  <section class="section block-dust" data-section="3" style="padding-top:0">
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">Priced designs</p>
@@ -62,7 +64,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- Section 4: How the decorating team works -->
+  <section class="section" data-section="4" style="padding-top:0">
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">How the decorating team works</p>
@@ -74,7 +77,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0" aria-labelledby="flavors-title">
+  <!-- Section 5: Flavors, fillings, and buttercream -->
+  <section class="section" data-section="5" style="padding-top:0" aria-labelledby="flavors-title">
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">Still to be written down</p>
@@ -100,7 +104,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- Section 6: Recent cakes -->
+  <section class="section" data-section="6" style="padding-top:0">
     <div class="wrap">
       <div class="section-head">
         <p class="kicker">Album</p>
@@ -115,7 +120,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- Section 7: Kitchen notes and reviews -->
+  <section class="section" data-section="7" style="padding-top:0">
     <div class="wrap split">
       <div class="kitchen-slot">
         <p class="kicker">From the kitchen</p>

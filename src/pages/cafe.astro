@@ -9,7 +9,8 @@ const description =
 ---
 
 <Base title={title} description={description}>
-  <header class="page-hero cafe-hero">
+  <!-- Section 1: The cafe -->
+  <header class="page-hero cafe-hero pop-hero" data-section="1">
     <div class="wrap">
       <h1>The cafe</h1>
       <p class="lede">
@@ -45,7 +46,8 @@ const description =
     </div>
   </header>
 
-  <section class="section block-orange cafe-roast">
+  <!-- Section 2: We're roasting our own coffee -->
+  <section class="section block-orange cafe-roast" data-section="2">
     <div class="wrap split">
       <div class="prose">
         <h2>We're roasting our own coffee.</h2>
@@ -72,7 +74,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- Section 3: Lattes, extras, and milk -->
+  <section class="section" data-section="3" style="padding-top:0">
     <div class="wrap split">
       <div>
         <h2>Lattes</h2>
@@ -120,7 +123,8 @@ const description =
     </div>
   </section>
 
-  <section class="section cafe-share">
+  <!-- Section 4: We can't share too much -->
+  <section class="section cafe-share" data-section="4">
     <div class="wrap split">
       <Shot
         src="images/lobby-3397.jpg"
@@ -129,14 +133,38 @@ const description =
         alt="Two women with coffee mugs on the lobby couch, in front of a teal wall of framed art."
         enlarge={false}
       />
-      <div class="prose">
-        <p>We can’t share too much about the expanded menu just yet…BUT here’s what we can share…</p>
+      <div class="prose cafe-share-copy">
+        <p class="cafe-share-lead">We can’t share too much about the expanded menu just yet…BUT here’s what we can share…</p>
         <ul class="cafe-share-list">
           <li>Plastic free, fully compostable to-go cups</li>
           <li>Custom roasted espresso beans</li>
           <li>Locally farmed ingredients</li>
           <li>House made syrups</li>
         </ul>
+        <div class="cafe-share-art" aria-hidden="true">
+          <svg viewBox="0 0 360 110" width="100%" height="110">
+            <path d="M8 78c22-34 52-34 74 0" fill="none" stroke="#bc4d28" stroke-width="7" stroke-linecap="round" />
+            <path d="M20 78c16-24 40-24 50 0" fill="none" stroke="#f1be64" stroke-width="7" stroke-linecap="round" />
+            <path d="M32 78c10-14 28-14 26 0" fill="none" stroke="#236e77" stroke-width="7" stroke-linecap="round" />
+            <path d="M110 70c36 10 64-16 100-4 30 10 58 6 90-14" fill="none" stroke="#eee0db" stroke-width="3" stroke-linecap="round" />
+            <path d="M168 52c8-12 18-6 12 4-6 1-10 2-12-4z" fill="#a9c1c3" />
+            <path d="M214 46c9-11 18-5 12 5-6 1-10 2-12-5z" fill="#f1be64" />
+            <g transform="translate(300 58)">
+              <g fill="#f1be64">
+                <ellipse cx="0" cy="-18" rx="6" ry="12" />
+                <ellipse cx="0" cy="18" rx="6" ry="12" />
+                <ellipse cx="-18" cy="0" rx="12" ry="6" />
+                <ellipse cx="18" cy="0" rx="12" ry="6" />
+                <ellipse cx="-13" cy="-13" rx="6" ry="12" transform="rotate(-45 -13 -13)" />
+                <ellipse cx="13" cy="-13" rx="6" ry="12" transform="rotate(45 13 -13)" />
+                <ellipse cx="-13" cy="13" rx="6" ry="12" transform="rotate(45 -13 13)" />
+                <ellipse cx="13" cy="13" rx="6" ry="12" transform="rotate(-45 13 13)" />
+              </g>
+              <circle r="10" fill="#643b25" />
+              <circle r="5" fill="#bc4d28" />
+            </g>
+          </svg>
+        </div>
       </div>
     </div>
   </section>

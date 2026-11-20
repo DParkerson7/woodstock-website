@@ -20,6 +20,72 @@ npm run preview
 
 `npm run build` writes a static site to `dist/` and then checks that the important facts survived (2012, today’s hours, the two order forms, and that the longer hours did not leak onto the homepage).
 
+## Section map
+
+Comments in the page source and a `data-section` attribute mark each block. Visitors do not see the numbers. On the homepage, the header logo and the hours block stay above the numbered sequence.
+
+### Homepage
+
+- Banner: header logo
+- Hours and contact
+1. What we make
+2. Step inside
+3. Established 2012, off of Vann Drive in Jackson, Tennessee.
+4. Order a cake and Order a box lunch
+5. A neighborhood bakery, still on the same cove
+6. Meet the owner/operator
+7. Honey Be Good is Jackson’s FIRST family cafe
+8. The Woodstock you love is staying
+
+The footer is last on every page and is not numbered.
+
+### Coffee
+
+1. The cafe
+2. We're roasting our own coffee
+3. Lattes, extras, and milk
+4. We can't share too much
+
+### Cakes
+
+1. Cakes
+2. Base prices
+3. Four priced designs
+4. How the decorating team works
+5. Flavors, fillings, and buttercream
+6. Recent cakes
+7. Kitchen notes and reviews
+
+### Lunch
+
+1. Box lunches
+2. The box, sandwiches, and breads
+3. A packed lunch photograph is coming
+
+### Catering
+
+1. Bulk orders
+2. Box lunches in bulk and cupcakes
+3. How an order goes
+4. Cakes the kitchen has already made
+5. No invented reviews
+
+### Expansion
+
+1. The Woodstock you love is staying
+2. Coffee bar studies
+3. More of the day, and upcoming hours
+4. Woodstock after hours
+5. A ceiling study
+6. Honey-yellow sketches
+7. Coffee station, floor plan v3
+8. Honey Be Good
+9. Come during the hours on the door
+
+### Page not found
+
+1. Page not found
+
 ## Pages
 
 | Page | What it is |

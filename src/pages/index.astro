@@ -45,7 +45,8 @@ const description =
 ---
 
 <Base title={title} description={description} preload="images/untitled-design.png">
-  <header class="logo-hero">
+  <!-- Banner: header logo. Stays first. Not part of the numbered homepage sequence. -->
+  <header class="logo-hero" data-section="banner">
     <h1 class="visually-hidden">Woodstock Coffee &amp; Bakeshop</h1>
     <div class="logo-hero-frame">
       <img
@@ -60,12 +61,10 @@ const description =
     </div>
   </header>
 
-  <section class="home-info">
+  <!-- Hours and contact. Stays directly under the header. Not part of the numbered sequence. -->
+  <section class="home-info" data-section="hours">
     <h2 class="visually-hidden">Hours and contact</h2>
     <RevolveBadge id="revolve-info" />
-    <p class="hero-lede wrap">
-      Established 2012, off of Vann Drive in Jackson, Tennessee.
-    </p>
     <dl class="hero-facts wrap">
       <div>
         <dt>Hours now</dt>
@@ -93,33 +92,8 @@ const description =
     <SocialLinks />
   </section>
 
-  <section class="home-orders">
-    <h2 class="visually-hidden">Order</h2>
-    <div class="home-orders-grid">
-      <a class="order-offer" href={shop.cakeForm}>
-        <span class="btn">Order a cake</span>
-        <img
-          src={asset('images/cake-order.jpg')}
-          width="1200"
-          height="1600"
-          alt="A white buttercream cake with pale-blue piped swags, ruffles, and blueberries on top."
-          decoding="async"
-        />
-      </a>
-      <a class="order-offer" href={shop.lunchForm}>
-        <span class="btn">Order a box lunch</span>
-        <img
-          src={asset('images/box-lunch-order.jpg')}
-          width="1200"
-          height="1600"
-          alt="Packed box lunches, each with a wrapped sandwich, a bag of chips, and a frosted cupcake."
-          decoding="async"
-        />
-      </a>
-    </div>
-  </section>
-
-  <section class="section home-make">
+  <!-- Section 1: What we make -->
+  <section class="section home-make" data-section="1">
     <div class="wrap home-make-stage">
       <div class="home-make-copy">
       <h2>What we make</h2>
@@ -300,7 +274,8 @@ const description =
     }
   </script>
 
-  <section class="section lobby-section" style="padding-top:0">
+  <!-- Section 2: Step inside -->
+  <section class="section lobby-section" data-section="2" style="padding-top:0">
     <div class="wrap">
       <h2 class="lobby-title">Step inside</h2>
       <p class="lobby-sub">the lobby</p>
@@ -413,7 +388,40 @@ const description =
     </div>
   </section>
 
-  <section class="section block-teal home-story">
+  <!-- Section 3: Established 2012 -->
+  <section class="home-established" data-section="3">
+    <p class="hero-lede">Established 2012, off of Vann Drive in Jackson, Tennessee.</p>
+  </section>
+
+  <!-- Section 4: Order a cake and Order a box lunch -->
+  <section class="home-orders" data-section="4">
+    <h2 class="visually-hidden">Order</h2>
+    <div class="home-orders-grid">
+      <a class="order-offer" href={shop.cakeForm}>
+        <span class="btn">Order a cake</span>
+        <img
+          src={asset('images/cake-order.jpg')}
+          width="1200"
+          height="1600"
+          alt="A white buttercream cake with pale-blue piped swags, ruffles, and blueberries on top."
+          decoding="async"
+        />
+      </a>
+      <a class="order-offer" href={shop.lunchForm}>
+        <span class="btn">Order a box lunch</span>
+        <img
+          src={asset('images/box-lunch-order.jpg')}
+          width="1200"
+          height="1600"
+          alt="Packed box lunches, each with a wrapped sandwich, a bag of chips, and a frosted cupcake."
+          decoding="async"
+        />
+      </a>
+    </div>
+  </section>
+
+  <!-- Section 5: A neighborhood bakery, still on the same cove -->
+  <section class="section block-teal home-story" data-section="5">
     <div class="wrap split">
       <div class="prose">
         <h2>A neighborhood bakery, still on the same cove.</h2>
@@ -457,7 +465,8 @@ const description =
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <!-- Section 6: Meet the owner/operator -->
+  <section class="section home-owner" data-section="6" style="padding-top:0">
     <div class="wrap split">
       <Shot
         src="images/elena-parkerson.jpg"
@@ -471,36 +480,19 @@ const description =
         <p>
           At just 18 years old, Elena had two options: college or entrepreneurship. Although the risk was high, she took a leap of faith. Through the encouragement and support of her family, Woodstock gained its newest and youngest owner in late 2024. For her first two years of ownership, she carried the courageous attitude she started with, learning, growing, and making mistakes along the way. Now, at 20 years old, she's taking her biggest risk yet: expanding the business! A partnership with a start-up business is underway. From the beginning, Elena has thanked God every day for the faith, love, and hope it takes to take risks, and for all of the endless opportunities ahead.
         </p>
-        <div class="owner-flourish" aria-hidden="true">
-          <svg viewBox="0 0 420 150" width="100%" height="150">
-            <path d="M24 118c28-46 72-46 100 0" fill="none" stroke="#bc4d28" stroke-width="8" stroke-linecap="round" />
-            <path d="M36 118c22-36 56-36 76 0" fill="none" stroke="#f1be64" stroke-width="8" stroke-linecap="round" />
-            <path d="M48 118c16-26 40-26 52 0" fill="none" stroke="#236e77" stroke-width="8" stroke-linecap="round" />
-            <path d="M60 118c10-16 24-16 28 0" fill="none" stroke="#a9c1c3" stroke-width="7" stroke-linecap="round" />
-            <path d="M150 96c40 8 70-18 108-6 34 10 62 8 96-12" fill="none" stroke="#236e77" stroke-width="3" stroke-linecap="round" />
-            <path d="M214 78c10-16 22-8 16 4-8 2-14 4-16-4z" fill="#6b7030" />
-            <path d="M268 70c12-14 24-6 16 6-8 1-14 2-16-6z" fill="#6b7030" />
-            <g transform="translate(318 78)">
-              <g fill="#f1be64">
-                <ellipse cx="0" cy="-28" rx="8" ry="16" />
-                <ellipse cx="0" cy="28" rx="8" ry="16" />
-                <ellipse cx="-28" cy="0" rx="16" ry="8" />
-                <ellipse cx="28" cy="0" rx="16" ry="8" />
-                <ellipse cx="-20" cy="-20" rx="8" ry="16" transform="rotate(-45 -20 -20)" />
-                <ellipse cx="20" cy="-20" rx="8" ry="16" transform="rotate(45 20 -20)" />
-                <ellipse cx="-20" cy="20" rx="8" ry="16" transform="rotate(45 -20 20)" />
-                <ellipse cx="20" cy="20" rx="8" ry="16" transform="rotate(-45 20 20)" />
-              </g>
-              <circle cx="0" cy="0" r="14" fill="#643b25" />
-              <circle cx="0" cy="0" r="7" fill="#bc4d28" />
-            </g>
-          </svg>
-        </div>
+        <img
+          class="owner-mark"
+          src={asset('images/woodstock-7-logo.png')}
+          width="770"
+          height="770"
+          alt=""
+        />
       </div>
     </div>
   </section>
 
-  <section class="band section home-honey">
+  <!-- Section 7: Honey Be Good is Jackson’s FIRST family cafe -->
+  <section class="band section home-honey" data-section="7">
     <div class="wrap partner">
       <Shot
         src="images/mockups/honey-be-good-play-sketch.jpg"
@@ -522,7 +514,8 @@ const description =
     </div>
   </section>
 
-  <section class="chapter-tease" aria-labelledby="chapter-title">
+  <!-- Section 8: The Woodstock you love is staying -->
+  <section class="chapter-tease" data-section="8" aria-labelledby="chapter-title">
     <div class="chapter-tease-copy">
       <h2 id="chapter-title">The Woodstock you love is staying.</h2>
       <p>

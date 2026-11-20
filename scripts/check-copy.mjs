@@ -90,6 +90,8 @@ mustNot(home, /est\.\s*2024/i, 'est. 2024');
 mustNot(home, /established in 2024/i, 'established in 2024');
 mustNot(home, /since 2024/i, 'since 2024 without late');
 
+must(cakes, 'a piece of cake!', 'cakes hero line');
+mustNot(cakes, /The bench/, 'the bench kicker');
 must(cakes, '$45', '6-inch price');
 must(cakes, '$55', '8-inch price');
 must(cakes, '$60', 'heart price');
