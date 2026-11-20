@@ -5,26 +5,51 @@ import { cafeExtras, lattes, milks, shop } from '../data/site';
 
 const title = 'Cafe · Woodstock Coffee & Bakeshop';
 const description =
-  'Specialty coffee at Woodstock in Jackson, made with house-made syrups. Our own Bellwether coffee roaster is coming in February. Lattes $4, hot peanut butter cup latte $4.50, black coffee $2. More of the cafe story is coming soon.';
+  'New lobby, better ingredients, unforgettable coffee. Specialty coffees at Woodstock in Jackson, made with house-made syrups. More detailed info coming soon. Lattes $4, hot peanut butter cup latte $4.50, black coffee $2.';
 ---
 
 <Base title={title} description={description}>
-  <header class="page-hero">
+  <header class="page-hero cafe-hero">
     <div class="wrap">
-      <p class="kicker">The cup</p>
       <h1>The cafe</h1>
       <p class="lede">
-        Specialty coffees made with house-made syrups. Better ingredients, including local and organic options whenever possible. More whole-food choices, brunch favorites, and fresh pastries daily.
+        New lobby, better ingredients, unforgettable coffee. Specialty coffees made with house-made syrups, local and organic ingredients, more whole-food choices, brunch favorites, and fresh pastries daily. More detailed info coming soon! The menu below is what we offer now.
       </p>
-      <p class="lede">More detailed info coming soon. The menu below is the one we are pouring now.</p>
+    </div>
+    <div class="cafe-hero-art" aria-hidden="true">
+      <svg viewBox="0 0 960 120" width="100%" height="120">
+        <path d="M0 78c40-28 70-28 110 0s70 28 110 0 70-28 110 0 70 28 110 0 70-28 110 0 70 28 110 0 70-28 110 0 70 28 110 0 40-14 80 0" fill="none" stroke="#236e77" stroke-width="3" stroke-linecap="round" />
+        <path d="M0 96c40-18 70-18 110 0s70 18 110 0 70-18 110 0 70 18 110 0 70-18 110 0 70 18 110 0 70-18 110 0 70 18 110 0 40-8 80 0" fill="none" stroke="#6b7030" stroke-width="2" />
+        <g fill="#f1be64">
+          <ellipse cx="120" cy="46" rx="7" ry="14" />
+          <ellipse cx="120" cy="46" rx="14" ry="7" />
+          <ellipse cx="120" cy="46" rx="7" ry="14" transform="rotate(45 120 46)" />
+          <ellipse cx="120" cy="46" rx="7" ry="14" transform="rotate(-45 120 46)" />
+        </g>
+        <circle cx="120" cy="46" r="8" fill="#643b25" />
+        <g fill="#bc4d28">
+          <ellipse cx="480" cy="38" rx="6" ry="12" />
+          <ellipse cx="480" cy="38" rx="12" ry="6" />
+          <ellipse cx="480" cy="38" rx="6" ry="12" transform="rotate(45 480 38)" />
+          <ellipse cx="480" cy="38" rx="6" ry="12" transform="rotate(-45 480 38)" />
+        </g>
+        <circle cx="480" cy="38" r="7" fill="#f1be64" />
+        <g fill="#f1be64">
+          <ellipse cx="820" cy="50" rx="7" ry="14" />
+          <ellipse cx="820" cy="50" rx="14" ry="7" />
+          <ellipse cx="820" cy="50" rx="7" ry="14" transform="rotate(45 820 50)" />
+          <ellipse cx="820" cy="50" rx="7" ry="14" transform="rotate(-45 820 50)" />
+        </g>
+        <circle cx="820" cy="50" r="8" fill="#236e77" />
+      </svg>
     </div>
   </header>
 
-  <section class="section block-teal">
+  <section class="section block-orange cafe-roast">
     <div class="wrap split">
       <div class="prose">
-        <p class="kicker">Coming in February</p>
         <h2>We're roasting our own coffee.</h2>
+        <p class="kicker">Coming in February</p>
         <p>
           This February, our very own Bellwether coffee roaster is coming to Woodstock, and we could not be more excited. Soon the beans in your latte will be roasted right here in the shop, in small batches, so every cup starts fresh.
         </p>
@@ -50,7 +75,6 @@ const description =
   <section class="section" style="padding-top:0">
     <div class="wrap split">
       <div>
-        <p class="menu-lead">Coffee should not be that expensive!</p>
         <h2>Lattes</h2>
         <ul class="menu">
           {lattes.map((item) => (
@@ -82,56 +106,38 @@ const description =
           src="images/latte-caramel.jpg"
           width="1080"
           height="1161"
-          group="cafe"
           alt="An iced coffee in a clear glass, topped with foam and a caramel drizzle, on a pale table."
-          caption="Iced coffee with caramel."
+          enlarge={false}
         />
         <Shot
           src="images/latte-iced.jpg"
           width="1600"
           height="2133"
-          group="cafe"
           alt="An iced latte in a plastic cup, held in the shop with the teal wall and pendant lights behind it."
-          caption="An iced latte in the room."
+          enlarge={false}
         />
       </div>
     </div>
   </section>
 
-  <section class="section block-teal" style="padding-top:0">
+  <section class="section cafe-share">
     <div class="wrap split">
       <Shot
-        src="images/interior-jukebox.jpg"
-        width="1600"
-        height="2133"
-        group="cafe"
-        alt="Shop interior with a jukebox, bakery case, pendant lights, and a coffee specials chalkboard."
-        caption="The room where the coffee is poured. The board on the wall changes; the menu on this page is the one to trust."
+        src="images/lobby-3397.jpg"
+        width="1534"
+        height="1600"
+        alt="Two women with coffee mugs on the lobby couch, in front of a teal wall of framed art."
+        enlarge={false}
       />
-      <div class="kitchen-slot">
-        <p class="kicker">Still being written</p>
-        <h2>A richer cafe story is coming.</h2>
-        <p>
-          House syrups, where the beans come from, what the pastry case holds on a given morning — that detail is not ready to publish. We would rather leave the room open than invent a lineup.
-        </p>
-        <p>
-          Fresh pastries are baked daily. Brunch favorites and more whole-food choices are part of where the cafe is headed. The particulars will land here when they are real.
-        </p>
-        <p><a class="btn" href={shop.instagram}>Follow along on Instagram</a></p>
+      <div class="prose">
+        <p>We can’t share too much about the expanded menu just yet…BUT here’s what we can share…</p>
+        <ul class="cafe-share-list">
+          <li>Plastic free, fully compostable to-go cups</li>
+          <li>Custom roasted espresso beans</li>
+          <li>Locally farmed ingredients</li>
+          <li>House made syrups</li>
+        </ul>
       </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <Shot
-        src="images/latte-matcha.jpg"
-        width="1600"
-        height="2133"
-        group="cafe"
-        alt="An iced matcha latte in a clear cup, with the shop’s teal gallery wall out of focus behind it."
-        caption="Matcha, one of the lattes on the menu."
-      />
     </div>
   </section>
 </Base>
