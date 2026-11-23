@@ -2289,6 +2289,18 @@ dialog.lightbox::backdrop {
   }
 }
 
+.center-hero .wrap {
+  text-align: center;
+}
+
+.center-hero .lede {
+  margin-inline: auto;
+}
+
+.center-hero .hero-actions {
+  justify-content: center;
+}
+
 .cafe-hero .lede {
   max-width: 40rem;
   font-size: 1.12rem;
@@ -2495,6 +2507,172 @@ dialog.lightbox::backdrop {
   margin-top: 1rem;
 }
 
+.catering-spread {
+  padding-top: 0;
+}
+
+.catering-spread .wrap,
+.catering-policy .wrap,
+.catering-reviews .wrap,
+.lunch-box .wrap {
+  padding-top: clamp(1.6rem, 4vw, 2.6rem);
+}
+
+.catering-spread h2 {
+  color: var(--cream);
+}
+
+.catering-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin-top: 1.15rem;
+  align-items: start;
+}
+
+.catering-mat {
+  margin: 0;
+  padding: 0.42rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 10px 22px rgba(20, 16, 12, 0.22);
+}
+
+.catering-mat img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 0.12rem;
+  background: #2a241f;
+}
+
+.catering-policy,
+.catering-reviews {
+  padding-top: 0;
+  background: #eee0db;
+  color: #643b25;
+}
+
+.catering-policy .wrap,
+.catering-reviews .wrap {
+  padding-bottom: clamp(1.4rem, 4vw, 2.4rem);
+}
+
+.review-list {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.review-list blockquote {
+  margin: 0;
+  padding: 1rem 1.1rem 0.9rem;
+  background: #fff;
+  border-radius: 1rem;
+  border-left: 4px solid #f1be64;
+}
+
+.review-list p {
+  margin: 0 0 0.55rem;
+}
+
+.review-stars {
+  color: #bc4d28;
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
+}
+
+.review-list cite {
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.lunch-box {
+  background: #64663a;
+  color: var(--cream);
+  padding-top: 0;
+}
+
+.lunch-box .wrap {
+  padding-bottom: clamp(1.6rem, 4vw, 2.6rem);
+}
+
+.lunch-sub {
+  margin: 0.55rem 0 0.85rem;
+  font-family: var(--display);
+  font-size: clamp(2.1rem, 5.5vw, 3.4rem);
+  line-height: 0.9;
+  color: #643b25;
+  text-shadow:
+    0.045em 0.045em 0 #f1be64,
+    0.09em 0.09em 0 #bc4d28,
+    0.135em 0.135em 0 #236e77;
+}
+
+.lunch-offer {
+  font-family: var(--display);
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  max-width: 22em;
+}
+
+.lunch-photo {
+  display: block;
+  width: min(100%, 28rem);
+  height: auto;
+  border-radius: 1rem;
+  margin: 0 0 1.3rem;
+}
+
+.lunch-box h2,
+.lunch-box .price-table th,
+.lunch-box .price-table td {
+  color: var(--cream);
+}
+
+.lunch-box .price-table tr,
+.lunch-box .price-table thead th {
+  border-color: rgba(238, 224, 219, 0.45);
+  color: var(--cream);
+}
+
+.bread-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bread-chips li {
+  margin: 0;
+  padding: 0.38rem 0.75rem;
+  border-radius: 999px;
+  background: #eee0db;
+  color: #643b25;
+  font-weight: 700;
+}
+
+.lunch-dale {
+  margin-top: 1.6rem;
+  max-width: 40rem;
+  padding: 1rem 1.1rem;
+  border-radius: 1rem;
+  background: #eee0db;
+  color: #643b25;
+}
+
+.lunch-dale h2,
+.lunch-dale p {
+  color: #643b25;
+}
+
+.lunch-dale p {
+  margin: 0.4rem 0 0;
+}
+
 @media (max-width: 760px) {
   .cake-videos {
     display: flex;
@@ -2526,10 +2704,24 @@ dialog.lightbox::backdrop {
   .wedding-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
   }
+
+  .catering-collage {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .catering-mat {
+    padding: 0.55rem;
+  }
+
+  .catering-mat:nth-child(3n + 1) { transform: rotate(-1.4deg); }
+  .catering-mat:nth-child(3n + 2) { transform: rotate(1.6deg); }
+  .catering-mat:nth-child(3n) { transform: rotate(-0.6deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .shot-open img { transition: none; }
   .revolve-spin { animation: none; }
+  .catering-mat { transform: none; }
 }

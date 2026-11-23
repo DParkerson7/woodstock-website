@@ -105,17 +105,26 @@ must(cakes, 'wedding-8500.jpg', 'wedding photo');
 must(cakes, '243204993569164', 'cake form id');
 mustNot(cakes, /Classic Vintage Blue/, 'old named cake menu');
 
-must(lunch, '$10', 'box lunch price');
+must(lunch, 'a sandwich, cupcake, chips, and a handwritten note in the box', 'lunch hero');
+must(lunch, 'all for just $10', 'box lunch price');
+must(lunch, 'lunch-3812.jpg', 'box lunch photo');
 must(lunch, 'Miss Vickie', 'chips');
+mustNot(lunch, /The box itself/, 'removed box section');
+mustNot(lunch, /à la carte/, 'a la carte heading');
 must(lunch, 'Dale Childress', 'Dale homage');
 must(lunch, 'Pimento', 'sandwich');
 must(lunch, '242637975469172', 'lunch form id');
 mustNot(lunch, /pass(ed|ing)/i, 'a funereal note about Dale');
 
-must(catering, '$9.00', 'bulk lunch price');
-must(catering, '$3.25', 'cupcake price');
-must(catering, '$3.00', 'cupcake bulk price');
-must(catering, 'delivery', 'delivery');
+must(catering, 'Box lunches in bulk, and cupcakes by the dozen.', 'catering heading');
+must(catering, 'We offer delivery.', 'delivery');
+must(catering, 'We require all custom and bulk orders to be placed within 3 to 4 days in advance.', 'ordering policy');
+must(catering, 'deposit of 50% for bulk order exceeding $100.', 'deposit policy');
+must(catering, 'From our customers', 'reviews heading');
+must(catering, 'Israel Núñez', 'review name');
+must(catering, 'Nichole Park', 'review name Nichole');
+mustNot(catering, /For a crowd/, 'for a crowd kicker');
+mustNot(catering, /Cakes the kitchen has already made/, 'old cake album section');
 mustNot(catering, /charcuterie/i, 'invented charcuterie menu');
 
 must(cafe, 'house-made', 'house syrups');

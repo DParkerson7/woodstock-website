@@ -1,26 +1,58 @@
 ---
 import Base from '../layouts/Base.astro';
-import Shot from '../components/Shot.astro';
-import { cakeAlbum, shop } from '../data/site';
+import { shop } from '../data/site';
+import { asset } from '../lib/url';
 
 const title = 'Catering · Woodstock Coffee & Bakeshop';
 const description =
-  'Bulk orders from Woodstock in Jackson. Sixty or more box lunches are $9 each. Cupcakes are $3.25 each by the dozen and $3 each at two dozen or more. We deliver. Call 731-554-1969.';
+  'Catering from Woodstock in Jackson. Bulk box lunches, cupcakes, and more. We offer delivery. Call 731-554-1969.';
 
-const photos = [
-  cakeAlbum[0],
-  cakeAlbum[2],
-  cakeAlbum[4],
-  cakeAlbum[8],
+const mats = ['teal', 'gold', 'rust', 'brown', 'dust'] as const;
+
+const collage = [
+  { file: 'catering-9014.jpg', width: 1200, height: 1600, alt: 'Rows of cupcakes with pink, chocolate, and white frosting and sprinkles on a metal tray.' },
+  { file: 'catering-7951.jpg', width: 1200, height: 1600, alt: 'Rows of open box lunches, each with a wrapped sandwich, a bag of chips, and a cupcake.' },
+  { file: 'catering-6159.jpg', width: 1200, height: 1600, alt: 'A box of cupcakes piped as blue hydrangeas and pale roses with green leaves.' },
+  { file: 'catering-3108.jpg', width: 1200, height: 1600, alt: 'A box of cupcakes piped as colorful flowers in pink, yellow, orange, and purple.' },
+  { file: 'catering-2083.jpg', width: 1200, height: 1600, alt: 'A box of cupcakes piped as pink roses and red and mauve flowers with green centers.' },
+  { file: 'catering-1914.jpg', width: 1200, height: 1600, alt: 'A tray of vanilla and chocolate cupcakes with white and cocoa frosting and sprinkles.' },
+  { file: 'catering-1912.jpg', width: 1200, height: 1600, alt: 'A tray of pink-frosted cupcakes, each topped with a slice of strawberry.' },
+  { file: 'catering-5103.jpg', width: 1200, height: 1600, alt: 'Rows of plastic-wrapped sandwiches on a steel kitchen table.' },
+  { file: 'catering-5228.jpg', width: 1200, height: 1600, alt: 'Trays of muffins in chocolate, red, and vanilla with dark pieces baked in.' },
+  { file: 'catering-1656.jpg', width: 1200, height: 1600, alt: 'A long table of chip bags and canned drinks.' },
+  { file: 'catering-1652.jpg', width: 816, height: 1600, alt: 'Three bins of wrapped sandwiches: club-style, cheese, and croissant sandwiches.' },
+];
+
+const reviews = [
+  {
+    name: 'Israel Núñez',
+    text: 'I really enjoyed my visit to Woodstock Café! The place is very clean, and the customer service is excellent. The 16-ounce coffee is offered at a very reasonable price, making it a great value. What makes this café special is its Woodstock-inspired décor, which creates a beautiful, unique, and welcoming atmosphere. The music adds a wonderful touch to the overall experience. Even the restrooms are exceptionally clean and well-maintained. A charming place to enjoy a good cup of coffee!',
+  },
+  {
+    name: 'April Rowe',
+    text: 'Custom made cake was delicious and they got it done quickly as I had forgot to order earlier in the week. Had it done within 24 hours. Thank you',
+  },
+  {
+    name: 'Michael Richardson',
+    text: "As always, even under new management this place has some of the best baked goods of any place ever. The service is excellent, the dining area is better than ever, and the whole place is just a complete vibe. All created by some of the loveliest ladies you'll ever get the pleasure to converse with.",
+  },
+  {
+    name: 'Justin M.',
+    text: "I ordered a pecan and peanut butter pie a couple of weeks ago for Thanksgiving. They were both so yummy! The pecan pie was the best I've ever had.",
+  },
+  {
+    name: 'Nichole Park',
+    text: "The cupcakes are so great and the owners are so nice! We love WoodStock Bakery and try to stop by every time we’re in town!",
+  },
 ];
 ---
 
 <Base title={title} description={description}>
-  <!-- Section 1: Bulk orders -->
-  <header class="page-hero" data-section="1">
+  <!-- Section 1: Catering -->
+  <header class="page-hero pop-hero center-hero" data-section="1">
     <div class="wrap">
-      <p class="kicker">For a crowd</p>
-      <h1>Get in contact with someone to place your bulk order today.</h1>
+      <h1>Catering</h1>
+      <p class="lede">Get in contact with someone to place your bulk order today.</p>
       <p class="lede">
         We offer delivery. Call <a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a> or write
         <a href={`mailto:${shop.email}`}>{shop.email}</a>. Tell us the date, about how many people, and where it needs to go.
@@ -32,86 +64,59 @@ const photos = [
     </div>
   </header>
 
-  <!-- Section 2: Box lunches in bulk and cupcakes -->
-  <section class="section block-teal" data-section="2">
+  <!-- Section 2: Box lunches in bulk, and cupcakes by the dozen -->
+  <section class="section block-teal catering-spread" data-section="2">
     <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">What we can price here</p>
-        <h2>Box lunches in bulk, and cupcakes by the dozen.</h2>
-        <p>
-          These are the catering prices we have in writing. If you need something else the kitchen can do, ask. We will not list a menu we cannot stand behind.
-        </p>
-      </div>
-      <div class="price-grid two">
-        <article class="price-card">
-          <h3>Box lunches, 60 or more</h3>
-          <p>Each box, the same lunch you already know, priced for a crowd.</p>
-          <p class="amount">$9.00</p>
-          <p class="note">Each</p>
-        </article>
-        <article class="price-card">
-          <h3>Cupcakes</h3>
-          <p>One dozen, $3.25 each. Two dozen or more, $3.00 each.</p>
-          <p class="amount">$3.25</p>
-          <p class="note">Each, by the dozen</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 3: How an order goes -->
-  <section class="section block-marigold" data-section="3" style="padding-top:0">
-    <div class="wrap split">
-      <div class="prose">
-        <p class="kicker">How an order goes</p>
-        <h2>A conversation, not a fine-print sheet.</h2>
-        <p>
-          There is no long policy page, because we would rather be plain than invent rules we have not written down. Tell us the day, the count, and whether you need delivery. We will answer with what we can bake, what it costs, and when it will be ready.
-        </p>
-        <p>
-          Affordable, transparent, and reliable is the aim. If a number is unclear, ask before you count on it. If something is not possible, we will say so.
-        </p>
-        <p>
-          Phone <a href={`tel:${shop.phoneTel}`}>{shop.phoneDisplay}</a>. Email <a href={`mailto:${shop.email}`}>{shop.email}</a>.
-        </p>
-      </div>
-      <Shot
-        src="images/interior-jukebox.jpg"
-        width="1600"
-        height="2133"
-        group="catering"
-        alt="The bakery case beside the jukebox, with pastries on the shelves and the Woodstock sign on the wall."
-        caption="The case. We have not turned this photograph into a list of items we have not written down."
-      />
-    </div>
-  </section>
-
-  <!-- Section 4: Cakes the kitchen has already made -->
-  <section class="section" data-section="4" style="padding-top:0">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">From recent orders</p>
-        <h2>Cakes the kitchen has already made.</h2>
-        <p>
-          Useful if you are picturing a celebration. These are not a catering menu of their own. Cookies, cake balls, and goodie baskets are not listed here, because we do not have verified details or photographs to stand them up as a product line.
-        </p>
-      </div>
-      <div class="album">
-        {photos.map((photo) => (
-          <Shot {...photo} group="catering" />
+      <h2>Box lunches in bulk, and cupcakes by the dozen.</h2>
+      <div class="catering-collage">
+        {collage.map((photo, index) => (
+          <figure class={`catering-mat mat-${mats[index % mats.length]}`}>
+            <img
+              src={asset(`images/${photo.file}`)}
+              width={photo.width}
+              height={photo.height}
+              alt={photo.alt}
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Section 5: No invented reviews -->
-  <section class="section" data-section="5" style="padding-top:0">
+  <!-- Section 3: Ordering, deposits, and reimbursements -->
+  <section class="section catering-policy" data-section="3">
+    <div class="wrap prose">
+      <h2>Ordering</h2>
+      <ul>
+        <li>We require all custom and bulk orders to be placed within 3 to 4 days in advance.</li>
+      </ul>
+      <h2>Deposits</h2>
+      <ul>
+        <li>For integrity purposes, we require a deposit of 50% for bulk order exceeding $100.</li>
+        <li>For ALL custom cakes, we require a deposit of the base price depending on the size of the cake.</li>
+      </ul>
+      <h2>Reimbursements</h2>
+      <ul>
+        <li>It is our main priority to ensure satisfaction with every customer. Although rare, mistakes can happen. When they happen, private feedback is always taken professionally and responsibly by our staff. We ask as a small business, that if you are unhappy with your order, that you not make a public bad review. As this hurts our growing business. We always appreciate the opportunity to grow and strengthen our customer service.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Section 4: From our customers -->
+  <section class="section catering-reviews" data-section="4">
     <div class="wrap">
-      <p class="kicker">From the table</p>
-      <h2>No invented reviews.</h2>
-      <p class="empty-review">
-        When a host has written about a bulk order in words we can share, they will go here. Until then, call and talk to a person.
-      </p>
+      <h2>From our customers</h2>
+      <div class="review-list">
+        {reviews.map((review) => (
+          <blockquote>
+            <p class="review-stars" aria-label="5 stars">★★★★★</p>
+            <p>{review.text}</p>
+            <cite>{review.name}</cite>
+          </blockquote>
+        ))}
+      </div>
     </div>
   </section>
 </Base>

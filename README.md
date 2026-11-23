@@ -55,16 +55,14 @@ The footer is last on every page and is not numbered.
 ### Lunch
 
 1. Box lunches
-2. The box, sandwiches, and breads
-3. A packed lunch photograph is coming
+2. The box
 
 ### Catering
 
-1. Bulk orders
-2. Box lunches in bulk and cupcakes
-3. How an order goes
-4. Cakes the kitchen has already made
-5. No invented reviews
+1. Catering
+2. Box lunches in bulk, and cupcakes by the dozen
+3. Ordering, deposits, and reimbursements
+4. From our customers
 
 ### Expansion
 
@@ -88,8 +86,8 @@ The footer is last on every page and is not numbered.
 | --- | --- |
 | Home | Storefront, wordmark, est. 2012, today’s hours and contact, the founding story, the three owners without invented bios, Honey Be Good, and a doorway into the expansion chapter. |
 | Cakes | Order form, three sizes, four priced designs, a flavor board waiting for a real list, and the cake album. |
-| Lunch | Box lunches, sandwiches, breads, and a note on Dale Childress and the handwriting in the boxes. |
-| Catering | Bulk box lunches, cupcakes, delivery, and an invitation to call. |
+| Lunch | Box lunches to go, the $10 box, sandwich options, breads, and Dale Childress’s note on the handwritten boxes. |
+| Catering | Bulk orders, a photo collage, ordering policies, and five customer reviews. |
 | Cafe | The coffee menu we can verify, and a clear “more detailed info coming soon.” |
 | Expansion | Upcoming hours (labeled as not in effect), coffee-bar studies, ceiling studies, honey-yellow sketches, floor plan v3, and Honey Be Good’s play-space sketch. |
 
@@ -113,8 +111,7 @@ These sections are designed on purpose. They are not broken, and they are not fi
 - Cake flavors, fillings, and buttercream. No verified list, so the board says coming soon.
 - Portraits and a few words from David, April, and Elena.
 - Named decorator bios.
-- Customer reviews and quotes.
-- A photograph of a packed box lunch. None was in the files or on the current site.
+- Customer reviews beyond the five written ones on the Catering page.
 - A pastry list, brunch items, and a fuller cafe story. The page says more detailed info is coming soon.
 - Cupcake styles, cookies, cake balls, charcuterie, and goodie baskets. Not listed, because we do not have a verified menu for them.
 - Dates for the expansion, Sunday hours, and the after-hours calendar.
