@@ -1,11 +1,70 @@
 ---
 import Base from '../layouts/Base.astro';
-import Shot from '../components/Shot.astro';
-import { cakeAlbum, cakeSizes, featuredCakes, shop } from '../data/site';
+import { shop } from '../data/site';
+import { asset } from '../lib/url';
 
 const title = 'Cakes · Woodstock Coffee & Bakeshop';
 const description =
-  'Custom cakes from Woodstock in Jackson, Tennessee. 6-inch rounds from $45, 8-inch from $55, heart shapes from $60, plus four priced vintage designs. Order on the shop form.';
+  'Custom cakes from Woodstock in Jackson, Tennessee. 6-inch rounds from $45, 8-inch from $55, heart shapes from $60. Order on the shop form.';
+
+const videos = [
+  {
+    src: 'videos/cake-video-1.mp4',
+    poster: 'images/cakes/cake-video-1.jpg',
+    label: 'A white heart-shaped cake with piped shells and pearls on a steel work table, as a decorator pipes the inscription.',
+  },
+  {
+    src: 'videos/cake-video-2.mp4',
+    poster: 'images/cakes/cake-video-2.jpg',
+    label: 'A chocolate heart cake with black ribbon bows and white script, turning on a cake stand.',
+  },
+  {
+    src: 'videos/cake-video-3.mp4',
+    poster: 'images/cakes/cake-video-3.jpg',
+    label: 'A white round cake with piped swags and sugar flowers, rotating on a silver stand.',
+  },
+];
+
+const strip = [
+  { code: '9122', width: 1200, height: 1600, alt: 'A blue-and-white round cake topped with blueberries and “Baby boy” piped on top.' },
+  { code: '9429', width: 1200, height: 1600, alt: 'A red heart cake with black ribbon bows and “happy 20th” piped in white.' },
+  { code: '8757', width: 1068, height: 1600, alt: 'A blue cake with pink and green piping, carrot motifs, and chocolate-covered strawberries styled as carrots.' },
+  { code: '5298', width: 1200, height: 1600, alt: 'A green-and-lavender cake in a box, topped with red mushroom decorations and “Sixteen” piped on top.' },
+  { code: '2317', width: 1200, height: 1600, alt: 'Two yellow bee-themed cakes on a wooden bakery counter, one with a small bee and flowers, the other with a pink lattice.' },
+  { code: '0610', width: 1200, height: 1600, alt: 'A light-blue round cake with ruffled piping, pearls, and swags, sitting in an open white box.' },
+];
+
+const sizes = [
+  {
+    name: '6 inch round — $45',
+    src: 'images/cakes/cake-size-6in-1561.jpg',
+    width: 1200,
+    height: 1600,
+    alt: 'A small white round cake with pearl sprinkles and a shell border, in an open bakery box.',
+  },
+  {
+    name: '8 inch round — $55',
+    src: 'images/cakes/cake-size-8in-5675.jpg',
+    width: 900,
+    height: 1600,
+    alt: 'A white round cake with piped swags, pearls, and white flowers, on a silver stand.',
+  },
+  {
+    name: '8 inch heart shape — $60',
+    src: 'images/cakes/cake-size-8heart-8798.jpg',
+    width: 1200,
+    height: 1600,
+    alt: 'A white heart-shaped cake with piped shells, swags, and pearls, in an open bakery box.',
+  },
+];
+
+const wedding = [
+  { code: '8500', width: 943, height: 1600, alt: 'A two-tier white wedding cake with a gold-edged top, yellow roses, greenery, and a gold base, with a cake knife and server beside it.' },
+  { code: '6201', width: 1200, height: 1600, alt: 'A three-tier white cake with piped swags and small pink flowers, photographed in the bakery.' },
+  { code: '1269', width: 1200, height: 1600, alt: 'A white heart cake with pearls and “Just Married” written in gold on top.' },
+  { code: '2266', width: 1200, height: 1600, alt: 'A two-tier rustic wedding cake with white frosting, sugar flowers, greenery, and purple asters, in front of a stone fireplace.' },
+  { code: '8815', width: 1200, height: 1600, alt: 'A white heart-shaped cake with piped swags, shells, and pearls, on a board on a work table.' },
+];
 ---
 
 <Base title={title} description={description}>
@@ -23,121 +82,202 @@ const description =
     </div>
   </header>
 
-  <!-- Section 2: Base prices -->
-  <section class="section block-marigold" data-section="2">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">Sizes</p>
-        <h2>Base prices, exactly as they stand.</h2>
-        <p>A base price is a starting point. It is not a promise of a particular flavor, filling, or decoration. Ask, and we will say what the cake you want will cost.</p>
-      </div>
-      <div class="price-grid three">
-        {cakeSizes.map((size) => (
-          <article class="price-card">
-            <h3>{size.name}</h3>
-            <p class="note">{size.note}</p>
-            <p class="amount">{size.price}</p>
-          </article>
+  <!-- Section 2: Cake display -->
+  <section class="section cakes-show" data-section="2">
+    <h2 class="visually-hidden">Cakes from the kitchen</h2>
+    <div class="wrap cake-videos">
+      {videos.map((video) => (
+        <video
+          class="ambient"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster={asset(video.poster)}
+          width="608"
+          height="1080"
+          aria-label={video.label}
+        >
+          <source src={asset(video.src)} type="video/mp4" />
+        </video>
+      ))}
+    </div>
+    <div class="make-marquee cakes-marquee" tabindex="0" aria-label="Cakes from the shop">
+      <div class="make-marquee-track">
+        {[0, 1].map((copy) => (
+          <ul class="make-marquee-group" aria-hidden={copy === 1 ? 'true' : undefined}>
+            {strip.map((photo) => (
+              <li>
+                <img
+                  src={asset(`images/cakes/cakes-strip-${photo.code}.jpg`)}
+                  width="600"
+                  height={Math.round(600 * photo.height / photo.width)}
+                  alt={copy === 1 ? '' : photo.alt}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </li>
+            ))}
+          </ul>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Section 3: Four priced designs -->
-  <section class="section block-dust" data-section="3" style="padding-top:0">
+  <!-- Section 3: Prices, sizes, and more -->
+  <section class="section cakes-prices" data-section="3">
     <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">Priced designs</p>
-        <h2>Four cakes with their own prices.</h2>
-        <p>
-          These are the named designs on the current menu. The photographs further down are recent cakes from the kitchen. A picture is not a flavor, and lettering on a cake belonged to that order.
-        </p>
-      </div>
-      <div class="featured">
-        {featuredCakes.map((cake) => (
+      <h2>Prices, sizes, and more</h2>
+      <div class="cake-sizes">
+        {sizes.map((size) => (
           <article>
-            <h3>{cake.name}</h3>
-            <p class="amount">{cake.price}</p>
+            <h3>{size.name}</h3>
+            <img
+              src={asset(size.src)}
+              width={size.width}
+              height={size.height}
+              alt={size.alt}
+              loading="lazy"
+              decoding="async"
+            />
           </article>
         ))}
       </div>
+      <p class="cake-price-note">
+        The base price is just a starting point to your order. The cake flavor, fillings, and design can be customized following your choice of size. After placing an inquiry, a cake decorator will give you a quote.
+      </p>
+      <p>
+        <a class="btn" href={shop.cakeForm}>Order a cake</a>
+      </p>
     </div>
   </section>
 
-  <!-- Section 4: How the decorating team works -->
-  <section class="section" data-section="4" style="padding-top:0">
+  <!-- Section 4: Wedding cakes -->
+  <section class="section cakes-wedding" data-section="4">
     <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">How the decorating team works</p>
-        <h2>Affordable, plain about the price, and reliable about the day.</h2>
-        <p>
-          That is the aim: a cake you can afford, a number you understand before you commit, and a pickup you can count on. If a date or a design is not possible, we would rather say so. There are no staff biographies on this page yet. When the people who decorate want a few words here, they will be their own.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 5: Flavors, fillings, and buttercream -->
-  <section class="section" data-section="5" style="padding-top:0" aria-labelledby="flavors-title">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">Still to be written down</p>
-        <h2 id="flavors-title">Flavors, fillings, and buttercream.</h2>
-        <p>
-          The full flavor list is coming soon. We are not going to guess at it. When you order, we will tell you what is on the bench.
-        </p>
-      </div>
-      <div class="flavor-board">
-        <article>
-          <h3>Cake flavors</h3>
-          <p class="soon">Coming soon</p>
-        </article>
-        <article>
-          <h3>Fillings</h3>
-          <p class="soon">Coming soon</p>
-        </article>
-        <article>
-          <h3>Buttercream</h3>
-          <p class="soon">Coming soon</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 6: Recent cakes -->
-  <section class="section" data-section="6" style="padding-top:0">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="kicker">Album</p>
-        <h2>Recent cakes from the kitchen.</h2>
-        <p>Enlarge any photograph. Inscriptions — a 20th, a wedding — were for those orders.</p>
-      </div>
-      <div class="album">
-        {cakeAlbum.map((photo) => (
-          <Shot {...photo} group="cakes" />
+      <h2>Wedding cakes</h2>
+      <p>
+        Our team is dedicated to being the best option for your wedding! We offer affordable prices, delivery, and customer service that stands out in the wedding industry.
+      </p>
+      <div class="wedding-grid">
+        {wedding.map((photo) => (
+          <img
+            src={asset(`images/cakes/wedding-${photo.code}.jpg`)}
+            width={photo.width}
+            height={photo.height}
+            alt={photo.alt}
+            loading="lazy"
+            decoding="async"
+          />
         ))}
       </div>
     </div>
   </section>
+  <script>
+    const ambient = Array.from(document.querySelectorAll<HTMLVideoElement>('video.ambient'));
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const poster = (video: HTMLVideoElement) => {
+      const source = video.querySelector('source');
+      const src = video.dataset.src || source?.src || '';
+      if (src) video.dataset.src = src;
+      video.pause();
+      video.autoplay = false;
+      video.removeAttribute('autoplay');
+      source?.remove();
+      video.removeAttribute('src');
+      video.load();
+    };
+    const play = (video: HTMLVideoElement) => {
+      const src = video.dataset.src;
+      if (src && !video.querySelector('source')) {
+        const source = document.createElement('source');
+        source.src = src;
+        source.type = 'video/mp4';
+        video.append(source);
+        video.autoplay = true;
+        video.load();
+      }
+      video.play().catch(() => {});
+    };
+    const applyMotion = () => {
+      ambient.forEach((video) => (motion.matches ? poster(video) : play(video)));
+    };
+    applyMotion();
+    motion.addEventListener('change', applyMotion);
 
-  <!-- Section 7: Kitchen notes and reviews -->
-  <section class="section" data-section="7" style="padding-top:0">
-    <div class="wrap split">
-      <div class="kitchen-slot">
-        <p class="kicker">From the kitchen</p>
-        <h2>Buttercream, the bench, and the moment a box opens.</h2>
-        <p>
-          Short films of decorating and of cakes being opened will live here. Until they do, the day-to-day is on Instagram. This is a link, not a video we invented.
-        </p>
-        <p><a class="btn" href={shop.instagram}>See the shop on Instagram</a></p>
-      </div>
-      <div>
-        <p class="kicker">From the table</p>
-        <h2>Reviews, when they are real.</h2>
-        <p class="empty-review">
-          Kind words from people who ordered with us will go here. We would rather leave the space open than put words in anyone’s mouth.
-        </p>
-      </div>
-    </div>
-  </section>
+    const scroller = document.querySelector<HTMLElement>('.cakes-marquee');
+    if (scroller && !scroller.dataset.ready) {
+      scroller.dataset.ready = 'true';
+      const reduce = motion.matches;
+      const fineHover = window.matchMedia('(hover: hover)').matches;
+      let hover = false;
+      let pointers = 0;
+      let holdUntil = 0;
+      let moved = false;
+      let startLeft = 0;
+      let dragX = 0;
+      let dragLeft = 0;
+      let last = 0;
+      const speed = 40;
+      const halfWidth = () => scroller.scrollWidth / 2;
+      const looping = () => {
+        const copy = scroller.querySelector('.make-marquee-group[aria-hidden="true"]');
+        return !reduce && !!copy && getComputedStyle(copy).display !== 'none';
+      };
+      const wrap = () => {
+        if (!looping()) return;
+        const half = halfWidth();
+        if (half > 8 && scroller.scrollLeft >= half) scroller.scrollLeft -= half;
+      };
+      const holding = () => hover || pointers > 0 || performance.now() < holdUntil;
+      const frame = (now: number) => {
+        if (!last) last = now;
+        const dt = Math.min(48, now - last);
+        last = now;
+        if (!reduce && !holding()) {
+          scroller.classList.remove('is-user');
+          scroller.scrollLeft += (speed * dt) / 1000;
+          wrap();
+        }
+        requestAnimationFrame(frame);
+      };
+      scroller.addEventListener('mouseenter', () => {
+        if (fineHover) hover = true;
+      });
+      scroller.addEventListener('mouseleave', () => {
+        hover = false;
+      });
+      scroller.addEventListener('pointerdown', (event) => {
+        pointers += 1;
+        moved = false;
+        startLeft = scroller.scrollLeft;
+        dragX = event.clientX;
+        dragLeft = scroller.scrollLeft;
+        scroller.classList.add('is-user');
+      });
+      scroller.addEventListener('pointermove', (event) => {
+        if (pointers === 0) return;
+        if (Math.abs(scroller.scrollLeft - startLeft) > 6) moved = true;
+        if (event.pointerType === 'touch') return;
+        const dx = event.clientX - dragX;
+        if (Math.abs(dx) > 6) moved = true;
+        scroller.scrollLeft = dragLeft - dx;
+        wrap();
+      });
+      const release = () => {
+        pointers = Math.max(0, pointers - 1);
+        holdUntil = performance.now() + 3500;
+      };
+      scroller.addEventListener('pointerup', release);
+      scroller.addEventListener('pointercancel', release);
+      scroller.addEventListener('wheel', () => {
+        scroller.classList.add('is-user');
+        holdUntil = performance.now() + 3500;
+        requestAnimationFrame(wrap);
+      }, { passive: true });
+      scroller.addEventListener('scroll', () => wrap(), { passive: true });
+      if (!reduce) requestAnimationFrame(frame);
+    }
+  </script>
 </Base>

@@ -27,15 +27,14 @@ Comments in the page source and a `data-section` attribute mark each block. Visi
 ### Homepage
 
 - Banner: header logo
-- Hours and contact
+- Hours and contact, including “Established 2012, off of Vann Drive in Jackson, Tennessee.”
 1. What we make
 2. Step inside
-3. Established 2012, off of Vann Drive in Jackson, Tennessee.
-4. Order a cake and Order a box lunch
-5. A neighborhood bakery, still on the same cove
-6. Meet the owner/operator
-7. Honey Be Good is Jackson’s FIRST family cafe
-8. The Woodstock you love is staying
+3. Order a cake and Order a box lunch
+4. A neighborhood bakery, still on the same cove
+5. Meet the owner/operator
+6. Honey Be Good is Jackson’s FIRST family cafe
+7. The Woodstock you love is staying
 
 The footer is last on every page and is not numbered.
 
@@ -49,12 +48,9 @@ The footer is last on every page and is not numbered.
 ### Cakes
 
 1. Cakes
-2. Base prices
-3. Four priced designs
-4. How the decorating team works
-5. Flavors, fillings, and buttercream
-6. Recent cakes
-7. Kitchen notes and reviews
+2. Cake display
+3. Prices, sizes, and more
+4. Wedding cakes
 
 ### Lunch
 
