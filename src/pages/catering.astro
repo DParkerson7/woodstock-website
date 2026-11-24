@@ -21,6 +21,23 @@ const collage = [
   { file: 'catering-5228.jpg', width: 1200, height: 1600, alt: 'Trays of muffins in chocolate, red, and vanilla with dark pieces baked in.' },
   { file: 'catering-1656.jpg', width: 1200, height: 1600, alt: 'A long table of chip bags and canned drinks.' },
   { file: 'catering-1652.jpg', width: 816, height: 1600, alt: 'Three bins of wrapped sandwiches: club-style, cheese, and croissant sandwiches.' },
+  { file: 'catering-2218.jpg', width: 1200, height: 1600, alt: 'An open box of cupcakes piped as yellow and orange roses, with white star dollops, pearls, and gold stars.' },
+];
+
+const eventsCopy =
+  'Since 2024, Woodstock has participated in local events all over Jackson TN. As well as our very own hosted events here at our home location! If you’re interested in participating in Woodstock related events, follow along on social media to stay up to date!';
+
+const events = [
+  { kind: 'image' as const, file: 'events-8397.jpg', width: 1280, height: 960, alt: 'Three people standing and smiling behind a decorated bakery booth table in a sunlit lobby with large windows. The table holds cookies, brownies, cups of dessert, a sunflower, greenery, and pink iridescent tinsel.' },
+  { kind: 'image' as const, file: 'events-6996.jpg', width: 1600, height: 1541, alt: 'A Woodstock booth in a large windowed lobby, with a floral arch and a WOODSTOCK C banner, a bottle-cap LOVE sign, black-draped tables of packaged cookies, cupcakes, and drinks, and a sunflower.' },
+  { kind: 'image' as const, file: 'events-6959.jpg', width: 1600, height: 1200, alt: 'A closer view of a bakery booth: a bottle-cap LOVE sign, a clear stand of cupcakes, packaged cookies, a rust-colored velvet runner, canned drinks, and a sunflower in a ceramic owl vase.' },
+  { kind: 'video' as const, file: 'events-3437.mp4', poster: 'events-3437-poster.jpg', width: 720, height: 1280, label: 'A short handheld pan across a sunlit dessert table under a tent, with trays of cookies, pastries, chocolate-drizzled treats, and spoon desserts with a red topping.' },
+  { kind: 'image' as const, file: 'events-1897.jpg', width: 1600, height: 1200, alt: 'An indoor event dessert table against a brick wall, with a pink velvet runner, strawberry shortcakes in cups, cake pops, cupcakes, packaged cookies, macarons, bakery boxes, and sunflowers.' },
+  { kind: 'video' as const, file: 'events-173a25d5.mp4', poster: 'events-173a25d5-poster.jpg', width: 720, height: 1280, label: 'A kitchen clip of gloved hands frosting and decorating trays of cupcakes — white, chocolate, and pink swirls, pecans, chocolate chips, and sprinkles — with lunch boxes and handwritten lid notes in the background.' },
+  { kind: 'video' as const, file: 'events-9080.mp4', poster: 'events-9080-poster.jpg', width: 720, height: 1280, label: 'A short handheld pan inside the shop during a busy evening gathering. The pastry case is in the foreground; people fill the room, with dusk visible through the front windows and the teal gallery wall at right.' },
+  { kind: 'image' as const, file: 'events-9074.jpg', width: 1200, height: 1600, alt: 'A grazing table in the shop, with the jukebox behind it, trays of cheese, salami, peppers, grapes, snap peas, a bowl of dip, chips, pastry swirls on red-and-white check paper, and a bottle-cap LOVE sign.' },
+  { kind: 'image' as const, file: 'events-9071.jpg', width: 1200, height: 1600, alt: 'A dessert table by the shop windows: a dark vintage-style decorated cake, two trays of pecan tarts on red-and-white check paper, a gold plate of chocolate cupcakes, and cups of cream dessert with a caramel or fruit topping.' },
+  { kind: 'image' as const, file: 'events-9388.jpg', width: 1200, height: 1600, alt: 'A long dessert buffet under a cream tent, with trays of pink-frosted cupcakes, pecan tarts, pastry swirls, sandwich cookies, brownies, and white meringues, and a sunflower at the near corner.' },
 ];
 
 const reviews = [
@@ -119,4 +136,70 @@ const reviews = [
       </div>
     </div>
   </section>
+
+  <!-- Section 5: Events -->
+  <section class="section block-brown catering-events" data-section="5">
+    <div class="wrap">
+      <h2>Events</h2>
+      <p class="lede">{eventsCopy}</p>
+      <p class="hero-actions">
+        <a class="btn" href={shop.instagram} target="_blank" rel="noopener">{shop.instagramHandle}</a>
+      </p>
+      <div class="catering-collage events-collage">
+        {events.map((item, index) => (
+          <figure class={`catering-mat mat-${mats[index % mats.length]}`}>
+            {item.kind === 'image' ? (
+              <img
+                src={asset(`images/${item.file}`)}
+                width={item.width}
+                height={item.height}
+                alt={item.alt}
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <video
+                class="events-clip"
+                poster={asset(`images/${item.poster}`)}
+                width={item.width}
+                height={item.height}
+                muted
+                playsinline
+                loop
+                preload="none"
+                controls
+                aria-label={item.label}
+              >
+                <source src={asset(`images/${item.file}`)} type="video/mp4" />
+              </video>
+            )}
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+  <script>
+    const clips = Array.from(document.querySelectorAll<HTMLVideoElement>('video.events-clip'));
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const sync = (video: HTMLVideoElement, inView: boolean) => {
+      if (motion.matches || !inView) {
+        video.pause();
+        return;
+      }
+      video.play().catch(() => {});
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => sync(entry.target as HTMLVideoElement, entry.isIntersecting));
+    }, { threshold: 0.45 });
+
+    clips.forEach((video) => observer.observe(video));
+    motion.addEventListener('change', () => {
+      clips.forEach((video) => {
+        const rect = video.getBoundingClientRect();
+        sync(video, rect.bottom > 0 && rect.top < window.innerHeight);
+      });
+    });
+  </script>
 </Base>

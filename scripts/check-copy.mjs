@@ -85,6 +85,8 @@ mustNot(home, /The Parkerson family/, 'old footer line');
 must(home, 'At just 18 years old', 'elena story');
 mustNot(home, /From the street you can see/, 'old street paragraph');
 mustNot(home, /Matt Childress and his father/, 'old founders sentence on the homepage');
+must(home, 'These are today’s hours. Longer days are coming.', 'hours aside');
+mustNot(home, /listed only on the/, 'old expansion hours claim');
 mustNot(home, /8am/, 'upcoming hours on the homepage');
 mustNot(home, /est\.\s*2024/i, 'est. 2024');
 mustNot(home, /established in 2024/i, 'established in 2024');
@@ -126,6 +128,17 @@ must(catering, 'Nichole Park', 'review name Nichole');
 mustNot(catering, /For a crowd/, 'for a crowd kicker');
 mustNot(catering, /Cakes the kitchen has already made/, 'old cake album section');
 mustNot(catering, /charcuterie/i, 'invented charcuterie menu');
+must(catering, 'catering-2218.jpg', 'catering photo 2218');
+must(catering, 'Since 2024, Woodstock has participated in local events all over Jackson TN.', 'events sentence');
+must(catering, 'As well as our very own hosted events here at our home location!', 'events fragment');
+must(catering, 'Woodstock related events', 'events wording');
+must(catering, 'https://www.instagram.com/woodstock_coffee.and.bakeshop/', 'events instagram');
+must(catering, 'events-8397.jpg', 'events photo');
+must(catering, 'events-3437.mp4', 'events video 3437');
+must(catering, 'events-173a25d5.mp4', 'events kitchen video');
+must(catering, 'events-9080.mp4', 'events video 9080');
+must(catering, 'events-9388.jpg', 'events last photo');
+must(catering, '>Events<', 'events heading');
 
 must(cafe, 'house-made', 'house syrups');
 must(cafe, 'Peanut Butter Cup', 'peanut butter latte');
@@ -145,27 +158,30 @@ mustNot(cafe, /latte-matcha/, 'matcha image');
 mustNot(cafe, /A richer cafe story/, 'old cafe story heading');
 
 must(expansion, 'The Woodstock you love is staying', 'expansion line');
-must(expansion, '8am–6pm', 'upcoming daytime hours');
-must(expansion, '8am–8pm', 'upcoming evening hours');
-must(expansion, 'Not in effect yet', 'upcoming label');
-must(expansion, 'honey-be-good-play-sketch', 'play sketch');
-must(expansion, 'floor-plan-v3', 'floor plan');
-must(expansion, 'coffee-bar-render-people', 'people render');
-must(expansion, 'ceiling-lighting', 'ceiling study');
-must(expansion, 'sketch-floor-honey', 'honey sketch');
+must(expansion, 'Expansion is on the horizon!', 'expansion lede');
+must(expansion, 'build something amazing!!', 'expansion close');
+must(expansion, 'Coming soon', 'coming soon graphic');
+mustNot(expansion, /The next chapter/, 'old expansion kicker');
+mustNot(expansion, /8am/, 'upcoming hours on expansion');
+mustNot(expansion, /Not in effect yet/, 'upcoming label');
+mustNot(expansion, /floor-plan-v3/, 'floor plan on expansion');
+mustNot(expansion, /honey-be-good-play-sketch/, 'play sketch on expansion');
+mustNot(expansion, /coffee-bar-render/, 'coffee bar render on expansion');
+mustNot(expansion, /New things are on the horizon\. The pictures/, 'old expansion lede');
 
 mustNot(all, /Founding Hive/i, 'Honey Be Good membership offer');
 mustNot(all, /lorem ipsum/i, 'placeholder latin');
 mustNot(all, /est\.\s*2024/i, 'est. 2024 anywhere');
 mustNot(all, /squarespace-cdn/i, 'hotlinked Squarespace image');
+mustNot(all, /Upcoming hours are on the Expansion page/, 'footer upcoming-hours link');
 
 for (const file of files) {
   const html = readFileSync(file, 'utf8');
   const hits = html.match(/2024/g);
   if (!hits) continue;
-  const allowed = (html.match(/late 2024|new ownership 2024/g) ?? []).length;
+  const allowed = (html.match(/late 2024|new ownership 2024|Since 2024/g) ?? []).length;
   if (allowed !== hits.length) {
-    problems.push(`${file} mentions 2024 ${hits.length} times but only ${allowed} are "late 2024" or "new ownership 2024"`);
+    problems.push(`${file} mentions 2024 ${hits.length} times but only ${allowed} are "late 2024", "new ownership 2024", or "Since 2024"`);
   }
 }
 

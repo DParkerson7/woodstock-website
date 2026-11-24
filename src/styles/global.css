@@ -2537,13 +2537,31 @@ dialog.lightbox::backdrop {
   box-shadow: 0 10px 22px rgba(20, 16, 12, 0.22);
 }
 
-.catering-mat img {
+.catering-mat img,
+.catering-mat video {
   display: block;
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 0.12rem;
   background: #2a241f;
+}
+
+.catering-events {
+  padding-top: 0;
+}
+
+.catering-events .wrap {
+  padding-top: clamp(1.6rem, 4vw, 2.6rem);
+  padding-bottom: clamp(1.6rem, 4vw, 2.6rem);
+}
+
+.catering-events .lede {
+  max-width: 44rem;
+}
+
+.catering-events .hero-actions {
+  margin: 0.2rem 0 0.4rem;
 }
 
 .catering-policy,
@@ -2595,6 +2613,7 @@ dialog.lightbox::backdrop {
 
 .lunch-box .wrap {
   padding-bottom: clamp(1.6rem, 4vw, 2.6rem);
+  text-align: center;
 }
 
 .lunch-sub {
@@ -2613,7 +2632,7 @@ dialog.lightbox::backdrop {
   font-family: var(--display);
   font-size: clamp(1.7rem, 3.4vw, 2.4rem);
   line-height: 1.15;
-  margin: 0 0 1rem;
+  margin: 0 auto 1rem;
   max-width: 22em;
 }
 
@@ -2622,13 +2641,27 @@ dialog.lightbox::backdrop {
   width: min(100%, 28rem);
   height: auto;
   border-radius: 1rem;
-  margin: 0 0 1.3rem;
+  margin: 0 auto 1.3rem;
 }
 
 .lunch-box h2,
 .lunch-box .price-table th,
 .lunch-box .price-table td {
   color: var(--cream);
+}
+
+.lunch-box .price-table {
+  width: min(100%, 40rem);
+  margin-inline: auto;
+  text-align: left;
+}
+
+.lunch-box .price-table th {
+  text-align: left;
+}
+
+.lunch-box .price-table td {
+  text-align: right;
 }
 
 .lunch-box .price-table tr,
@@ -2640,6 +2673,7 @@ dialog.lightbox::backdrop {
 .bread-chips {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.45rem;
   list-style: none;
   margin: 0;
@@ -2656,12 +2690,13 @@ dialog.lightbox::backdrop {
 }
 
 .lunch-dale {
-  margin-top: 1.6rem;
+  margin: 1.6rem auto 0;
   max-width: 40rem;
   padding: 1rem 1.1rem;
   border-radius: 1rem;
   background: #eee0db;
   color: #643b25;
+  text-align: center;
 }
 
 .lunch-dale h2,
@@ -2719,9 +2754,90 @@ dialog.lightbox::backdrop {
   .catering-mat:nth-child(3n) { transform: rotate(-0.6deg); }
 }
 
+@media (max-width: 720px) {
+  .expansion-hero h1 {
+    font-size: clamp(2.45rem, 11vw, 3.35rem);
+  }
+}
+
+.expansion-soon {
+  padding-top: 0;
+  background: #eee0db;
+}
+
+.soon-stage {
+  position: relative;
+  margin: clamp(1.5rem, 4vw, 2.6rem) auto clamp(2rem, 5vw, 3.2rem);
+  width: min(52rem, calc(100% - var(--gutter) * 2));
+  min-height: clamp(16rem, 46vw, 28rem);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: #643b25;
+}
+
+.soon-blur {
+  position: absolute;
+  inset: -18%;
+  filter: blur(42px);
+  transform: scale(1.08);
+}
+
+.soon-blob {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.soon-blob-a {
+  width: 58%;
+  height: 62%;
+  left: -8%;
+  top: 8%;
+  background: #236e77;
+}
+
+.soon-blob-b {
+  width: 46%;
+  height: 52%;
+  right: -4%;
+  top: -10%;
+  background: #f1be64;
+}
+
+.soon-blob-c {
+  width: 42%;
+  height: 58%;
+  left: 28%;
+  bottom: -16%;
+  background: #bc4d28;
+}
+
+.soon-blob-d {
+  width: 34%;
+  height: 40%;
+  right: 8%;
+  bottom: 6%;
+  background: #a9c1c3;
+}
+
+.soon-stage h2 {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #eee0db;
+  font-size: clamp(3.2rem, 8vw, 6.2rem);
+  line-height: 0.9;
+  text-shadow:
+    0.045em 0.045em 0 #f1be64,
+    0.09em 0.09em 0 #bc4d28,
+    0.135em 0.135em 0 #236e77;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .shot-open img { transition: none; }
   .revolve-spin { animation: none; }
   .catering-mat { transform: none; }
+  .soon-blur { filter: blur(42px); }
 }

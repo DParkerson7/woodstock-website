@@ -63,18 +63,12 @@ The footer is last on every page and is not numbered.
 2. Box lunches in bulk, and cupcakes by the dozen
 3. Ordering, deposits, and reimbursements
 4. From our customers
+5. Events
 
 ### Expansion
 
 1. The Woodstock you love is staying
-2. Coffee bar studies
-3. More of the day, and upcoming hours
-4. Woodstock after hours
-5. A ceiling study
-6. Honey-yellow sketches
-7. Coffee station, floor plan v3
-8. Honey Be Good
-9. Come during the hours on the door
+2. Coming soon
 
 ### Page not found
 
@@ -87,9 +81,9 @@ The footer is last on every page and is not numbered.
 | Home | Storefront, wordmark, est. 2012, today’s hours and contact, the founding story, the three owners without invented bios, Honey Be Good, and a doorway into the expansion chapter. |
 | Cakes | Order form, three sizes, four priced designs, a flavor board waiting for a real list, and the cake album. |
 | Lunch | Box lunches to go, the $10 box, sandwich options, breads, and Dale Childress’s note on the handwritten boxes. |
-| Catering | Bulk orders, a photo collage, ordering policies, and five customer reviews. |
+| Catering | Bulk orders, a photo collage, ordering policies, five customer reviews, and local events. |
 | Cafe | The coffee menu we can verify, and a clear “more detailed info coming soon.” |
-| Expansion | Upcoming hours (labeled as not in effect), coffee-bar studies, ceiling studies, honey-yellow sketches, floor plan v3, and Honey Be Good’s play-space sketch. |
+| Expansion | A short note that expansion is on the horizon, then a Coming soon graphic. The page does not show studies or upcoming hours. |
 
 ## What is real
 
@@ -100,7 +94,7 @@ The footer is last on every page and is not numbered.
 - The founding story, adapted from the shop’s About page, including the Christ-centered mission as that page already states it.
 - Photographs of the storefront, the rooms, drinks, and cakes. They come from the files supplied for this build and from the shop’s own Squarespace library. They are stored in this repo. Nothing hotlinks Squarespace.
 - The official sunflower **WS** logo, used as the favicon, the header mark, and the footer mark. It was not redrawn.
-- Expansion studies supplied with the brief: coffee-bar renders, ceiling studies, honey-yellow sketches, floor plan v3, and the Honey Be Good play sketch.
+- Expansion studies kept in the repo (coffee-bar renders, ceiling studies, honey-yellow sketches, floor plan v3, and the Honey Be Good play sketch). They are not on the Expansion page while that page stays vague.
 - Honey Be Good, linked as a neighbor at [honeybeegood.cafe](https://honeybeegood.cafe), same building, opening 2027. Their memberships are not copied.
 - Facebook and TikTok links, taken from the footer of the current site.
 
@@ -117,7 +111,7 @@ These sections are designed on purpose. They are not broken, and they are not fi
 - Dates for the expansion, Sunday hours, and the after-hours calendar.
 - Two people photographs from the current site were left out. We do not have names, and we will not caption strangers as staff.
 
-Upcoming hours appear only on the Expansion page, under a label that they are not in effect yet: Monday–Wednesday 8am–6pm, Thursday–Saturday 8am–8pm.
+Longer days are coming. They are not listed on the site. Today remains Monday–Saturday 9am–5pm, Sunday closed.
 
 ## Type
 
@@ -144,4 +138,4 @@ The pages send `noindex` so this review build does not compete with the live Squ
 | `public/images/interior-merch-corner.jpg` | The corner whose sign says merch is coming soon |
 | `public/images/latte-*.jpg` | Drinks photographed in the shop |
 | `public/images/cakes/` | Cakes from the shop’s own photographs |
-| `public/images/mockups/` | Expansion studies, labeled as studies on the page |
+| `public/images/mockups/` | Expansion studies, kept in the repo and not shown on the Expansion page |
