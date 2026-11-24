@@ -2541,11 +2541,16 @@ dialog.lightbox::backdrop {
 .catering-mat video {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 0.12rem;
   background: #2a241f;
 }
+
+.events-pos-table { object-position: center 35%; }
+.events-pos-frost { object-position: center 60%; }
+.events-pos-shop { object-position: center bottom; }
 
 .catering-events {
   padding-top: 0;
